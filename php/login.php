@@ -28,7 +28,7 @@
                 <input class="pregunta info" type="text" name="pregunta" placeholder="DAY6">
             </div>
             <div class="cookies">
-                <input class="check" type="checkbox" name="remember" checked>
+                <input class="check" type="checkbox" name="remember">
                 <p class="check1"> Recordar usuario y contraseña </p>
             </div>
             <div class="containerboton">

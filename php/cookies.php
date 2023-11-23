@@ -19,8 +19,8 @@
         if ($conexion->connect_errno){
              die('Error en la conexion');
         }
-    
         else{
+            session_start();
             if(isset($SESSION['intentos'])){
                 $username = $SESSION['intentos'];
             }else{
@@ -32,7 +32,6 @@
             $captcha = $_POST['captcha'];
             $entrar = false; 
 
-            session_start();
             if($_SESSION['captcha'] != $captcha){ 
                 $_SESSION['Equal'] = false; 
                 header("Location: login.php");
@@ -97,7 +96,7 @@
                             fclose($file);
                             fclose($file1);
                             unlink("../archivos/strikes.txt");
-                            rename("../archivos/temporal.txt", "archivos/strikes.txt");
+                            rename("../archivos/temporal.txt", "../archivos/strikes.txt");
                             chmod("../archivos/strikes.txt", 0777);
                             if($num == 3){
                                 $_SESSION["intentos"] = $username;
@@ -122,7 +121,7 @@
                     header("Location: login.php");
                 }//fin
             }
-            if(!$usuarioEncontrado){
+            if(!$usuarioEncontrado && isset($_SESSION["intentos"])){
                 $_SESSION["mal"] = true;
                 unlink("../archivos/strikes.txt");
             }
@@ -138,7 +137,7 @@
 
             }
         }
-        // header("Location: login.php");
+        header("Location: login.php");
     }
 ?>
 
