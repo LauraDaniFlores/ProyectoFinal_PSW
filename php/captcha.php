@@ -8,10 +8,7 @@ function randomText($length){
 	return $key;
 }
 session_start();
-$_SESSION['captcha'] = "";
-
 $captcha_text = randomText(8);
-
 $_SESSION['captcha'] = $captcha_text;
 
 //You can customize your captcha settings here
