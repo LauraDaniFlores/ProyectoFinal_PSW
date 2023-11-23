@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/loginstyles.css">
+    <link rel="stylesheet" href="../css/loginstyles.css">
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300&family=Playball&display=swap" rel="stylesheet">
-    <script src="js/functionlogin.js"></script>
+    <script src="../js/functionlogin.js"></script>
     <title>Login</title>
 </head>
 <body>
     <div class="formlogin">
-        <form class="form" action="php/cookies.php" method="POST">
+        <form class="form" action="cookies.php" method="POST">
             <legend class="title">Login</legend>
             <input id="user" class="info" type="text" placeholder="Usuario" name="username" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["username"]; } ?>">
             <input class="info" type="password" placeholder="Contraseña" name="password" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["password"]; } ?>">
             <div>
                 <div class="containerimage">
-                    <img name="image" src="php/captcha.php?rand=<?php echo rand();?>" id='captcha_image'>
+                    <img name="image" src="captcha.php?rand=<?php echo rand();?>" id='captcha_image'>
                 </div>
                 <p class="refresh">¿No puedes leer la imagen? <a href="" id="clickhere"> Haz click aquí </a> para actualizar</p>
                 <input class="captcha" type="text" size="8" name="captcha" placeholder="akvn873j">
@@ -39,5 +39,5 @@
 </body>
 </html>
 <?php 
-    include('php/scriptsLogin.php');
+    include('scriptsLogin.php');
 ?>

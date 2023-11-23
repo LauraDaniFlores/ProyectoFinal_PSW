@@ -29,7 +29,7 @@
             text: "¡Haz ingresado a tu cuenta!",
             }).then((result) => {
             if (result.isConfirmed) {
-                location. assign('php/Pruebaindex.php')
+                location. assign('Pruebaindex.php')
             }});
         </script>
         <?php 
