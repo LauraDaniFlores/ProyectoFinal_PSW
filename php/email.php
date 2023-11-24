@@ -3,15 +3,15 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'phpmailer/src/Exception.php';
-require 'phpmailer/src/PHPMailer.php';
-require 'phpmailer/src/SMTP.php';
+require '../librerias/phpmailer/src/Exception.php';
+require '../librerias/phpmailer/src/PHPMailer.php';
+require '../librerias/phpmailer/src/SMTP.php';
 
 
 // $nombre = test_input($_POST["nom"]);
 $email = test_input($_POST['correosub']);
 $subje = "Bienvenido a Candy Craze";
-$imagen = "imagenes/LogoCorreo.png";
+$imagen = "../imagenes/LogoCorreo.png";
 $mensaje = "
 <div style='text-align:justify;'>
 
@@ -68,9 +68,9 @@ if(isset($_POST['submit'])){
 
     $mail -> Subject = $subje;
 
-    $imagen_path = "imagenes/Cupon1.png";
+    $imagen_path = "../imagenes/Cupon1.png";
 
-    $imagen_path2 = "imagenes/LogoCorreo2.png";
+    $imagen_path2 = "../imagenes/LogoCorreo2.png";
 
     $mail->AddEmbeddedImage($imagen_path, 'imagenPromo', 'Cupon1.png');
 
@@ -86,7 +86,7 @@ if(isset($_POST['submit'])){
     session_start();
     $_SESSION['enviado']=true;
 
-    header('Location:index.php');
+    header('Location:../index.php');
 
 }
 ?>

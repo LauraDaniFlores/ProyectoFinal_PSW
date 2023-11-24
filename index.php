@@ -13,7 +13,7 @@ session_start();
     <link rel="icon" type="image/png" href="imagenes/Icon2.png"/>
 
     <title>Inicio | Candy Craze</title>
-    <link rel="stylesheet" href="estilos/estilos.css">
+    <link rel="stylesheet" href="css/estilospagp.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -54,16 +54,16 @@ session_start();
                                 <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="productos.php">Productos</a>
+                                <a class="nav-link" href="php/productos.php">Productos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="acerca.php">Acerca de</a>
+                                <a class="nav-link" href="php/acerca.php">Acerca de</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contacto.php">Contáctanos</a>
+                                <a class="nav-link" href="php/contacto.php">Contáctanos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="ayuda.php">Ayuda</a>
+                                <a class="nav-link" href="php/ayuda.php">Ayuda</a>
                             </li>
                         </ul>
                         <a href="inicioSesion.php" class="navbar-nav">
@@ -284,7 +284,7 @@ session_start();
             <h2>Suscríbete</h2>
             <div class="linea"></div>
             <div class="container mt-5">
-                <form action="email.php" method="post">
+                <form action="php/email.php" method="post">
                     <div class="row">
                         <div class="col-md-6 mb-3 mx-auto">
                             <div class="input-group">
@@ -342,7 +342,7 @@ session_start();
 
 
     <?php
-    include("footer.php");
+    include("php/footer.php");
     ?>
 </body>
 

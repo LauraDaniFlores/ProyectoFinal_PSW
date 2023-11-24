@@ -10,11 +10,11 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="imagenes/Icon2.png" />
+    <link rel="icon" type="image/png" href="../imagenes/Icon2.png" />
 
     <title>Contacto | Candy Craze</title>
-    <link rel="stylesheet" href="estilos/estilos.css">
-    <link rel="stylesheet" href="estilos/estiloform.css">
+    <link rel="stylesheet" href="../css/estilospagp.css">
+    <link rel="stylesheet" href="../css/estiloform.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -42,7 +42,7 @@ session_start();
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <a href="index.php" style="text-decoration: none;">
-                    <img src="imagenes/LogoCC.png" alt="Candy Craze" style="margin-right:10px; width:70px;">
+                    <img src="../imagenes/LogoCC.png" alt="Candy Craze" style="margin-right:10px; width:70px;">
                 </a>
                 <a class="navbar-brand" href="index.php">Candy Craze</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -54,10 +54,10 @@ session_start();
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php">Inicio</a>
+                                <a class="nav-link" href="../index.php">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="productos.php">Productos</a>
+                                <a class="nav-link" href="productosmenu.php">Productos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="acerca.php">Acerca de</a>
@@ -151,7 +151,7 @@ session_start();
             <form id="contactus boton" action="contacform.php" method="post">
 
             <div style="text-align: center;">
-                <img src="imagenes/LogoCorreo2.png" alt="Imagen no disponible" width="140px" height="auto">
+                <img src="../imagenes/LogoCorreo2.png" alt="Imagen no disponible" width="140px" height="auto">
             </div>
 
             <br><br>
@@ -200,7 +200,7 @@ session_start();
                 background: "#fff url(/images/trees.png)",
                 backdrop: `
                 rgba(247,140,162,0.2)
-                url("imagenes/Dulces3.gif")
+                url("../imagenes/Dulces3.gif")
                 left top
                 no-repeat
             `
