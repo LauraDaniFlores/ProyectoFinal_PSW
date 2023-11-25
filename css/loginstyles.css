@@ -96,3 +96,67 @@ font-family: 'Playball', cursive; */
 .formlogin .preguntas{
     display: none;
 }
+.div_Registro small{
+    color: #3D0C11;
+    color: #D8006C;
+}
+
+.div_Registro{
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 50px;
+
+    background-color: #F78CA2;
+    padding: 40px;
+    border-radius: 8px;
+    font-family: 'Merienda', cursive;
+}
+
+.div_Registro label{
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+.div_Registro input{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 30px;
+    border: .5px solid transparent;
+    border-radius: 5px;
+    font-size: 15px;
+    /* background-color: #EBE7B7; */
+    transition: .3s ease all;
+}
+
+.div_Registro h3, .div_Registro .button{
+    display: flex;
+    justify-content: center;
+}
+.div_Registro h3{
+    font-size: 30px;
+}
+.div_Registro .button button{
+    background-color: antiquewhite;
+    border: .5px solid black;
+    width: 120px;
+    height: 50px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 7px;
+    background-color: rgb(0, 0, 0, 0.7);
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-family: 'Merienda', cursive;
+}
+.div_Registro .button button:hover{
+    background-color: rgb(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.4);
+}
+.div_Registro #pass1{
+    margin-bottom: 5px;
+}
+
+.div_Registro #formulario_error{
+    display: none;
+}
