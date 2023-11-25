@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/loginstyles.css">
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300&display=swap" rel="stylesheet">
-    <!-- <script src="javaScript.js"></script>  -->
+    <script src="../js/script_Registro.js"></script> 
     <title>Registro</title>
 </head>
 <body class="body">
