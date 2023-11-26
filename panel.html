@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/d60c975bf8.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .barra-lat{
+            height: 100vh;
+        }
+        /* .principal{
+            background-color: rgb(191, 92, 153) !important;
+        } */
+        .principal:hover{
+            background-color: white !important;
+            color: #D8006C !important;
+        }
+        .opcion{
+            margin-bottom: 20px;
+        }
+        .opcion:hover{
+            background-color: #D8006C;
+            /* background-color: rgb(75, 84, 93); */
+        }
+        .opcion:active{
+            background-color: #D8006C;
+        }
+        .contenido{
+            padding: 40px 100px 40px 100px;
+            background-color: rgb(243, 244, 244);
+            width: 78vw;
+        }
+        i{
+            margin-right: 10px;
+        }
+        #company{
+            color: rgb(101, 113, 125);
+            text-align: center;
+        }
+        /* img{
+            height: 60px;
+            margin-right: 10px;
+        } */
+    </style>
+</head>
+<body>
+        <div class="d-flex flex-column p-3 text-bg-dark barra-lat sticky-top" style="width: 22vw;">
+            <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <!-- <img src="logo.png" alt="x"> -->
+                <span class="fs-4" >Panel de Control</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="../index.php" title="" class="nav-link text-white opcion" id="home">
+                        <i class="fa-solid fa-house fa-lg" style="color: #ffffff;"></i>
+                        Página Principal
+                    </a>
+                </li>
+                <li>
+                    <a href="php/altas.php" title="" class="nav-link text-white opcion" id="altas-op">
+                        <i class="fa-solid fa-square-plus fa-lg" style="color: #ffffff;"></i>
+                        Altas
+                    </a>
+                </li>
+                <li>
+                    <a href="php/bajas.php" title="" class="nav-link text-white opcion" id="bajas">
+                        <i class="fa-solid fa-square-minus fa-lg" style="color: #ffffff;"></i>
+                        Bajas
+                    </a>
+                </li>
+                <li>
+                    <a href="php/modificaciones.php" title="" class="nav-link text-white opcion" id="modificaciones-op">
+                        <i class="fa-solid fa-pen-to-square fa-lg" style="color: #ffffff;"></i>
+                        Modificaciones
+                    </a>
+                </li>
+                <li>
+                    <a href="#" title="" class="nav-link text-white opcion" id="estadisticas">
+                        <i class="fa-solid fa-chart-line fa-lg" style="color: #ffffff;"></i>
+                        Estadísticas
+                    </a>
+                </li>
+            </ul>
+            
+            <p id="company">CandyCraze&reg;</p>
+        </div>  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
