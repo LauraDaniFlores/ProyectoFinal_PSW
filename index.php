@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-session_start();
+    session_start();
 ?>
 
 <head>
@@ -15,83 +15,19 @@ session_start();
     <title>Inicio | Candy Craze</title>
     <link rel="stylesheet" href="css/estilospagp.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300&family=Playball&display=swap"
-        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300&family=Playball&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f3a304d792.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
-                <a href="index.php" style="text-decoration: none;">
-                    <img src="imagenes/LogoCC.png" alt="Candy Craze" style="margin-right:10px; width:70px;">
-                </a>
-                <a class="navbar-brand" href="index.php">Candy Craze</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="d-flex ms-auto">
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="php/productos.php">Productos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="php/acerca.php">Acerca de</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="php/contacto.php">Contáctanos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="php/ayuda.php">Ayuda</a>
-                            </li>
-                        </ul>
-                        <a href="inicioSesion.php" class="navbar-nav">
-                            <span class="nav-link">
-                                <i class="fa-solid fa-user"></i>
-                            </span>
-                        </a>
-
-                        <a href="carrito.php" class="navbar-nav">
-                            <span class="nav-link">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <section class="textos-header">
-            <h2 class="animate__animated animate__fadeInDown">— Bienvenido a Candy Craze —</h2>
-            <h1 class="animate__animated animate__fadeInUp">¡Delicias Globales en un Click!</h1>
-        </section>
-        <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
-                style="height: 100%; width: 100%;">
-                <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-                    style="stroke: none; fill: #f9dec9"></path>
-            </svg></div>
-    </header>
+    <?php
+        include "menu.php";
+    ?>
 
     <main>
         <section class="caracteristicas">
@@ -284,7 +220,7 @@ session_start();
             <h2>Suscríbete</h2>
             <div class="linea"></div>
             <div class="container mt-5">
-                <form action="php/email.php" method="post">
+                <form action="email.php" method="post">
                     <div class="row">
                         <div class="col-md-6 mb-3 mx-auto">
                             <div class="input-group">
@@ -293,9 +229,6 @@ session_start();
                                     name="correosub" required>
                                 <button class="btn btn-primary" name="submit" type="submit" id="peticion-submit"
                                     data-submit="...Sending">Enviar</button>
-
-
-
                             </div>
                         </div>
                     </div>
@@ -305,44 +238,33 @@ session_start();
     </main>
 
     <?php
-
-    if (isset($_SESSION['enviado'])) { ?>
-        <script>
-            // swal("REGISTRADO!", "AHora ya eres parte de la mejor dulcecomunidad!", "success");
-            // document.location.href = 'index.php';
-
-            Swal.fire({
-                icon: "success",
-                title: "¡Registro exitoso!",
-                text: "Bienvenido a la mejor dulcecomunidad",
-                width: 600,
-                padding: "3em",
-                color: "black",
-                background: "#fff url(/images/trees.png)",
-                backdrop: `
-                rgba(247,140,162,0.2)
-                url("imagenes/Dulces3.gif")
-                left top
-                no-repeat
-            `
-            });
-
-        </script>
-
-
-        <?php
-
-        unset($_SESSION['enviado']);
-    }
-
-
-
+        if (isset($_SESSION['enviado'])) { 
     ?>
-
-
+    <script>
+        Swal.fire({
+        icon: "success",
+        title: "¡Registro exitoso!",
+        text: "Bienvenido a la mejor dulcecomunidad",
+        width: 600,
+        padding: "3em",
+        color: "black",
+        background: "#fff url(/images/trees.png)",
+        backdrop: `
+            rgba(247,140,162,0.2)
+            url("imagenes/Dulces3.gif")
+            left top
+            no-repeat
+            `
+        });
+    </script>
 
     <?php
-    include("php/footer.php");
+        unset($_SESSION['enviado']);
+        }
+    ?>
+
+    <?php
+        include("footer.php");
     ?>
 </body>
 

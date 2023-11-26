@@ -75,7 +75,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-lg-5 col-xs-12 about-company">
-                <img src="../imagenes/LogoCC.png" alt="CandyCraze" style="margin-bottom:10px;width:100px;">
+                <img src="imagenes/LogoCC.png" alt="CandyCraze" style="margin-bottom:10px;width:100px;">
                   <h2>Candy Craze</h2>
                   <p class="pr-5 text-white-50">Embárcate en un viaje de sabores exquisitos en nuestra dulcería internacional, donde cada bocado es una ventana abierta a la deliciosa diversidad de dulces de todo el mundo.</p>
                   <p>
@@ -86,7 +86,7 @@
                 <div class="col-lg-2 col-xs-12 links">
                   <h3 class="mt-lg-0 mt-sm-3">Links</h3>
                     <ul class="m-0 p-0">
-                      <li><a href="../index.php">Inicio</a></li>
+                      <li><a href="index.php">Inicio</a></li>
                       <li><a href="productos.php">Productos</a></li>
                       <li><a href="acerca.php">Acerca de</a></li>
                       <li><a href="contacto.php">Contáctanos</a></li>

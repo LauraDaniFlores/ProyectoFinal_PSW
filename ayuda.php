@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
      <!-- Favicon -->
-     <link rel="icon" type="image/png" href="../imagenes/Icon2.png" />
+     <link rel="icon" type="image/png" href="imagenes/Icon2.png" />
 
     <title>Ayuda | Candy Craze</title>
-    <link rel="stylesheet" href="../css/estilospagp.css">
+    <link rel="stylesheet" href="css/estilospagp.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -21,63 +21,30 @@
      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
-                <a href="index.php" style="text-decoration: none;">
-                    <img src="../imagenes/LogoCC.png" alt="Candy Craze" style="margin-right:10px; width:70px;">
-                </a>
-                <a class="navbar-brand" href="index.php">Candy Craze</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="d-flex ms-auto">
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                         <li class="nav-item">
-                            <a class="nav-link" href="../index.php">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="productosmanu.php">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="acerca.php">Acerca de</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contacto.php">Contáctanos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="ayuda.php">Ayuda</a>
-                        </li>
-                    </ul>
-                    <a href="inicioSesion.php" class="navbar-nav">
-                        <span class="nav-link">
-                            <i class="fa-solid fa-user"></i>
-                        </span>
-                    </a>
-
-                    <a href="carrito.php" class="navbar-nav">
-                        <span class="nav-link">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </span>
-                    </a>
-                </div>
-                </div>
-            </div>
-        </nav>
-
-        <section class="textos-header">
-            <h2 class="animate__animated animate__fadeInDown">— Ayuda —</h2>
-            <h1 class="animate__animated animate__fadeInUp">Descubre respuestas para todo, o al menos, casi todo</h1>
-        </section>
-        <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
-            style="height: 100%; width: 100%;">
-            <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-                style="stroke: none; fill: #fff"></path>
-        </svg></div>
-    </header>
+<?php
+        include "menu.php";
+    ?>
+    <script>
+        document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Ayuda —";
+        document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Descubre respuestas para todo, o al menos, casi todo";
+    </script>
 
     <main>
+        <section class="preguntasTitle">
+            <h3>¡Responde todas tus preguntas!</h3>
+            <h2>FAQ</h2>
+            <div class="linea"></div>
+            <br>
+            <p>Aquí encontrarás respuestas a las preguntas más comunes. Antes de ponerte en contacto con nosotros, 
+                echa un vistazo para ver si tu pregunta ya ha sido respondida. Queremos hacer tu experiencia lo más 
+                sencilla posible. Si necesitas más ayuda, estamos a un mensaje de distancia. 
+                ¡Gracias por confiar en nosotros!</p>
+        </section>
+        <div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" 
+        style="height: 100%; width: 100%;">
+        <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" 
+        style="stroke: none; fill: #fff;"></path></svg></div>
+
         <section class="preguntasCC">
             <h3 data-aos="fade-up" data-aos-delay="200" data-aos-offset="200">¿Tienes dudas?</h3>
             <h2 data-aos="fade-up" data-aos-delay="210" data-aos-offset="200">Preguntas Frecuentes</h2>

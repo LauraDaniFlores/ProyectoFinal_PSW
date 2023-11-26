@@ -52,7 +52,7 @@
                                     break; 
                                 }else{
                                     unset($_SESSION["intentos"]);
-                                    unlink("../archivos/strikes.txt");                
+                                    unlink("archivos/strikes.txt");                
                                 }
                             }
                             $SESSION['usuario'] = $username;
@@ -69,12 +69,12 @@
                             }
                             $bool = false; 
                             $num = 1; 
-                            if(file_exists("../archivos/strikes.txt")){
-                                $file = fopen("../archivos/strikes.txt", "r+");
+                            if(file_exists("archivos/strikes.txt")){
+                                $file = fopen("archivos/strikes.txt", "r+");
                             }else{
-                                $file = fopen("../archivos/strikes.txt", "x+");
+                                $file = fopen("archivos/strikes.txt", "x+");
                             }
-                            $file1 = fopen("../archivos/temporal.txt", "w");
+                            $file1 = fopen("archivos/temporal.txt", "w");
                             while (!feof($file)) {
                                 $linea = fgets($file);
                                 if ($linea != "") {
@@ -95,9 +95,9 @@
                             }
                             fclose($file);
                             fclose($file1);
-                            unlink("../archivos/strikes.txt");
-                            rename("../archivos/temporal.txt", "../archivos/strikes.txt");
-                            chmod("../archivos/strikes.txt", 0777);
+                            unlink("archivos/strikes.txt");
+                            rename("archivos/temporal.txt", "archivos/strikes.txt");
+                            chmod("archivos/strikes.txt", 0777);
                             if($num == 3){
                                 $_SESSION["intentos"] = $username;
                             }
@@ -116,14 +116,14 @@
                 $conexion->query($sql);  //aplicamos sentencia que inserta datos en la tabla usuarios de la base de datos
                 if ($conexion->affected_rows >= 1){ //revisamos que se inserto un registro
                     unset($_SESSION["intentos"]);
-                    unlink("../archivos/strikes.txt");
+                    unlink("archivos/strikes.txt");
                     $_SESSION['error'] = true;
                     header("Location: login.php");
                 }//fin
             }
             if(!$usuarioEncontrado && isset($_SESSION["intentos"])){
                 $_SESSION["mal"] = true;
-                unlink("../archivos/strikes.txt");
+                unlink("archivos/strikes.txt");
             }
             if($entrar){
                 if(!empty($_POST["remember"])){

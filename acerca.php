@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../imagenes/Icon2.png" />
+    <link rel="icon" type="image/png" href="imagenes/Icon2.png" />
 
     <title>Acerca de | Candy Craze</title>
-    <link rel="stylesheet" href="../css/estilospagp.css">
+    <link rel="stylesheet" href="css/estilospagp.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -29,68 +29,18 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
-                <a href="index.php" style="text-decoration: none;">
-                    <img src="../imagenes/LogoCC.png" alt="Candy Craze" style="margin-right:10px; width:70px;">
-                </a>
-                <a class="navbar-brand" href="index.php">Candy Craze</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="d-flex ms-auto">
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="../index.php">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="productosmenu.php">Productos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="acerca.php">Acerca de</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="contacto.php">Contáctanos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="ayuda.php">Ayuda</a>
-                            </li>
-                        </ul>
-                        <a href="inicioSesion.php" class="navbar-nav">
-                            <span class="nav-link">
-                                <i class="fa-solid fa-user"></i>
-                            </span>
-                        </a>
-
-                        <a href="carrito.php" class="navbar-nav">
-                            <span class="nav-link">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <section class="textos-header">
-            <h2 class="animate__animated animate__fadeInDown">— Acerca de Candy Craze —</h2>
-            <h1 class="animate__animated animate__fadeInUp">Conoce un poco más sobre nosotros</h1>
-        </section>
-        <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
-                style="height: 100%; width: 100%;">
-                <path d="M0.00,49.98 C150.00,150.00 349.20,-40.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-                    style="stroke: none; fill: #f9dec9"></path>
-            </svg></div>
-    </header>
+    <?php
+        include "menu.php";
+    ?>
+    <script>
+        document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Acerca de Candy Craze —";
+        document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Conoce un poco más sobre nosotros";
+    </script>
 
     <main>
         <section class="misionCC">
             <div data-aos="fade-up" data-aos-delay="200" data-aos-offset="200" class="imgMision">
-                <img src="../imagenes/ac1.jpg" background-size: cover;alt="">
+                <img src="imagenes/ac1.jpg" background-size: cover;alt="">
             </div>
             <div class="txtMision">
                 <h3 data-aos="fade-up" data-aos-delay="300" data-aos-offset="200">Nuestro Propósito Fundamental</h3>
@@ -122,7 +72,7 @@
                 </p>
             </div>
             <div class="imgVision" data-aos="fade-up" data-aos-delay="400" data-aos-offset="400">
-                <img src="../imagenes/ac2.jpg" background-size: cover;alt="">
+                <img src="imagenes/ac2.jpg" background-size: cover;alt="">
             </div>
             <br>
         </section>
@@ -134,7 +84,7 @@
 
         <section class="objetivoCC">
             <div class="imgObj" data-aos="fade-up" data-aos-delay="200" data-aos-offset="600">
-                <img src="../imagenes/ac3.jpg" background-size: cover;alt="">
+                <img src="imagenes/ac3.jpg" background-size: cover;alt="">
             </div>
             <div class="txtObj">
                 <h3 data-aos="fade-up" data-aos-delay="300" data-aos-offset="600">Nuestras Metas</h3>
@@ -162,11 +112,10 @@
                 <h2 data-aos="fade-up" data-aos-delay="250" data-aos-offset="665">Conócenos</h2>
                 <div class="linea" data-aos="flip-right" data-aos-delay="250" data-aos-offset="665"></div>
                 <br>
-                <!-- AQUI PON LO DE NUESTRAS IMAGENES -->
                 <div>
                     <div class="acomodo">
                         <div data-aos="flip-right" data-aos-delay="200" data-aos-offset="675"
-                            style="background: linear-gradient(#000000c9, #000000c9), url(../imagenes/adrian.jpg);background-size: cover;">
+                            style="background: linear-gradient(#000000c9, #000000c9), url(imagenes/adrian.jpg);background-size: cover;">
                             <h2>Adrian Balandran</h2>
                             <div class="linea" data-aos="flip-right" data-aos-delay="250" data-aos-offset="675"></div>
                             <br>
@@ -238,7 +187,7 @@
                             </div>
                         </div>
                         <div data-aos="flip-right" data-aos-delay="200" data-aos-offset="675"
-                            style="background: linear-gradient(#000000c9, #000000c9), url(../imagenes/dany.jpg);background-size: cover;">
+                            style="background: linear-gradient(#000000c9, #000000c9), url(imagenes/dany.jpg);background-size: cover;">
                             <h2>Daniela Flores</h2>
                             <div class="linea" data-aos="flip-right" data-aos-delay="250" data-aos-offset="675"></div>
                             <br>
@@ -310,7 +259,7 @@
                             </div>
                         </div>
                         <div data-aos="flip-right" data-aos-delay="200" data-aos-offset="675"
-                            style="background: linear-gradient(#000000c9, #000000c9), url(../imagenes/agaby.jpg);background-size: cover;">
+                            style="background: linear-gradient(#000000c9, #000000c9), url(imagenes/agaby.jpg);background-size: cover;">
                             <h2>Gabriela Sánchez</h2>
                             <div class="linea" data-aos="flip-right" data-aos-delay="250" data-aos-offset="675"></div>
                             <br>
@@ -387,7 +336,7 @@
 
                     <div class="acomodo" style="padding-top:20px;">
                         <div data-aos="flip-right" data-aos-delay="200" data-aos-offset="685"
-                            style="background: linear-gradient(#000000c9, #000000c9), url(../imagenes/nadia.jpg);background-size: cover;">
+                            style="background: linear-gradient(#000000c9, #000000c9), url(imagenes/nadia.jpg);background-size: cover;">
                             <h2>Nadia Acosta</h2>
                             <div class="linea" data-aos="flip-right" data-aos-delay="250" data-aos-offset="685"></div>
                             <br>
@@ -459,7 +408,7 @@
                             </div>
                         </div>
                         <div data-aos="flip-right" data-aos-delay="200" data-aos-offset="685"
-                            style="background: linear-gradient(#000000c9, #000000c9), url(../imagenes/gaby.jpg);background-size: cover;">
+                            style="background: linear-gradient(#000000c9, #000000c9), url(imagenes/gaby.jpg);background-size: cover;">
                             <h2>Diana Flores</h2>
                             <div class="linea" data-aos="flip-right" data-aos-delay="250" data-aos-offset="685"></div>
                             <br>
@@ -531,7 +480,7 @@
                             </div>
                         </div>
                         <div data-aos="flip-right" data-aos-delay="200" data-aos-offset="685"
-                            style="background: linear-gradient(#000000c9, #000000c9), url(../imagenes/paula.jpg);background-size: cover;">
+                            style="background: linear-gradient(#000000c9, #000000c9), url(imagenes/paula.jpg);background-size: cover;">
                             <h2>Paula Cruz</h2>
                             <div class="linea" data-aos="flip-right" data-aos-delay="250" data-aos-offset="685"></div>
                             <br>

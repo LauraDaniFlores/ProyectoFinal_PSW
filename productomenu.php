@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../imagenes/Icon2.png" />
+    <link rel="icon" type="image/png" href="imagenes/Icon2.png" />
 
     <title>Acerca de | Candy Craze</title>
-    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -33,7 +33,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <a href="index.php" style="text-decoration: none;">
-                    <img src="../imagenes/LogoCC.png" alt="Candy Craze" style="margin-right:10px; width:70px;">
+                    <img src="imagenes/LogoCC.png" alt="Candy Craze" style="margin-right:10px; width:70px;">
                 </a>
                 <a class="navbar-brand" href="index.php">Candy Craze</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -45,7 +45,7 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="../index.php">Inicio</a>
+                                <a class="nav-link" href="index.php">Inicio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="productosmenu.php">Productos</a>

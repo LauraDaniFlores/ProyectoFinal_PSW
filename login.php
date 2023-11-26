@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/loginstyles.css">
+    <link rel="stylesheet" href="css/loginstyles.css">
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300&family=Playball&display=swap" rel="stylesheet">
-    <script src="../js/functionlogin.js"></script>
+    <script src="js/functionlogin.js"></script>
     <title>Login</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
                 <div class="containerimage">
                     <img name="image" src="captcha.php?rand=<?php echo rand();?>" id='captcha_image'>
                 </div>
-                <p class="refresh">¿No puedes leer la imagen? <a href="" id="clickhere"> Haz click aquí </a> para actualizar</p>
+                <p class="refresh">¿No puedes leer la imagen? <a href="" id="clickhere"> Haz click aquí</a> para actualizar</p>
                 <input class="captcha" type="text" size="8" name="captcha" placeholder="akvn873j">
             </div>
             <div class="preguntas" id="preg">

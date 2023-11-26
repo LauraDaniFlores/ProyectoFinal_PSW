@@ -447,6 +447,25 @@ header .textos-header {
 
 /* AYUDA */
 
+.preguntasTitle h3 {
+    font-size: 18px;
+    color: #d8006c;
+    text-align: center;
+    font-weight: bold;
+}
+
+.preguntasTitle h2 {
+    font-size: 40px;
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+}
+
+.preguntasTitle p {
+    padding: 0 40px;
+    text-align: center;
+}
+
 .preguntasCC {
     padding: 0 60px;
     background-color: #fff;
