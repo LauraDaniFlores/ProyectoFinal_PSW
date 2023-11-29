@@ -1,162 +1,165 @@
 /* font-family: 'Merienda', cursive;
 font-family: 'Playball', cursive; */
 
-.formlogin{
-    margin: 40px auto;
-    display: flex;
-    justify-content: center;
-    width: 400px;
-    padding: 20px;
-    background-color: hsl(354, 67%, 14%);
-    border-radius: 10px;
-}
-.form{
-    background-color: #F9D9C9;
-    padding: 40px;
-    padding-right: 55px;
-    border-radius: 10px;
+.formlogin {
+  margin: 0 370px;
+  border: 1px solid #d8006c;
+  padding: 30px 60px;
+  border-radius: 10px;
 }
 
-.formlogin .info{
-    padding: 10px;
-    margin: 15px 0;
-    width: 100%;
+.formlogin .form-control,
+.formlogin .input-group-text {
+  border: 1px solid #d8006c;
 }
 
-.formlogin .title{
-    text-align: center;
-    font-size: 40px;
-    margin: 15px 0 30px 0;
-    color: hsl(354, 67%, 14%);
-    font-weight: bold;
-    font-family: 'Playball', cursive;
+.formlogin .input-group-text {
+  background-color: #f8b3c1;
 }
 
-.formlogin .image{
-    text-align: center;
+.formlogin .input-group-text i {
+  color: #d8006c;
 }
 
-.formlogin .captcha{
-    padding: 10px;
-    margin: 10px 0;
-    width: 100%;
-}
-.formlogin .containerimage{
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
+.formlogin h2 {
+  font-size: 40px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
 }
 
-.formlogin .refresh{
-    text-align: center;
-    font-size: 15px;
-}
-.formlogin input{
-    border-radius: 10px;
-    border: none;
-}
-.formlogin .cookies{
-    display: flex;
-    justify-content: space-evenly;
-    margin: 10px 0;
+.formlogin .image {
+  text-align: center;
 }
 
-.formlogin .check{
-    width: 20px;
-}
-.formlogin .containerboton{
-    display: flex;
-    justify-content: center;
+.formlogin #clickhere {
+  color: #d8006c;
+  font-weight: bold;
 }
 
-.formlogin .boton{
-    padding: 10px;
-    margin: 10px 0 0px 0;
-    background-color: white;
-    width: 25%;
-}
-.formlogin .boton:hover{
-    background-color: #F78CA2;
-}
-.formlogin .check1{
-    font-size: 15px;
-}
-.formlogin ::placeholder, .refresh, .check1, input, .rescate{
-    font-family: 'Merienda', cursive;
-    font-size: 14px;
-
-}
-.formlogin .preguntas .rescate{
-    font-size: 15px;
+.formlogin .containerimage {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 }
 
-.formlogin .primera{
-    margin-top: 40px;
-}
-.formlogin .preguntas{
-    display: none;
-}
-.div_Registro small{
-    color: #3D0C11;
-    color: #D8006C;
+.formlogin .refresh {
+  text-align: center;
 }
 
-.div_Registro{
-    margin: 0 auto;
-    width: 50%;
-    margin-top: 50px;
-
-    background-color: #F78CA2;
-    padding: 40px;
-    border-radius: 8px;
-    font-family: 'Merienda', cursive;
+.formlogin .cookies {
+  display: flex;
+  justify-content: center;
 }
 
-.div_Registro label{
-    display: block;
-    margin-bottom: 5px;
-    color: #000000;
+.formlogin .check {
+  margin-right: 13px;
+  transform: scale(1.5);
 }
 
-.div_Registro input{
-    width: 100%;
-    height: 30px;
-    margin-bottom: 30px;
-    border: .5px solid transparent;
-    border-radius: 5px;
-    font-size: 15px;
-    /* background-color: #EBE7B7; */
-    transition: .3s ease all;
+.formlogin .containerboton {
+  display: flex;
+  justify-content: center;
 }
 
-.div_Registro h3, .div_Registro .button{
-    display: flex;
-    justify-content: center;
+.formlogin .boton {
+  background-color: #d8006c;
+  border-color: #d8006c;
+  padding: 10px;
+  margin: 0 auto;
+  width: 200px !important;
+  font-weight: bold;
 }
-.div_Registro h3{
-    font-size: 30px;
-}
-.div_Registro .button button{
-    background-color: antiquewhite;
-    border: .5px solid black;
-    width: 120px;
-    height: 50px;
-    font-size: 15px;
-    cursor: pointer;
-    border-radius: 7px;
-    background-color: rgb(0, 0, 0, 0.7);
-    color: #FFFFFF;
-    margin-top: 20px;
-    font-family: 'Merienda', cursive;
-}
-.div_Registro .button button:hover{
-    background-color: rgb(0, 0, 0, 0.4);
-    box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.4);
-}
-.div_Registro #pass1{
-    margin-bottom: 5px;
+.formlogin .boton:hover {
+  background-color: #3d0c11;
+  border-color: #3d0c11;
 }
 
-.div_Registro #formulario_error{
-    display: none;
+.formlogin .check1 {
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+.formlogin::placeholder,
+.refresh,
+.check1,
+input,
+.rescate {
+  font-family: "Merienda", cursive;
+  font-size: 14px;
+}
+.formlogin .preguntas .rescate {
+  font-size: 15px;
+}
+
+.formlogin .primera {
+  margin-top: 40px;
+}
+.formlogin .preguntas {
+  display: none;
+}
+
+/* REGISTRO */
+
+.div_Registro small {
+  color: #d8006c;
+}
+
+.div_Registro {
+  margin: 0 auto;
+  width: 60%;
+  padding: 40px;
+  border-radius: 10px;
+  border: 1px solid #d8006c;
+  font-family: "Merienda", cursive;
+}
+
+.div_Registro label {
+  display: block;
+  margin-bottom: 8px;
+  color: #000000;
+}
+
+.div_Registro .form-control,
+.div_Registro .input-group-text {
+  border: 1px solid #d8006c;
+}
+
+.div_Registro h2 {
+  font-size: 40px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
+
+.div_Registro .input-group-text {
+  background-color: #f8b3c1;
+}
+
+.div_Registro .input-group-text i {
+  color: #d8006c;
+}
+
+.div_Registro .button {
+  display: flex;
+  justify-content: center;
+}
+
+.div_Registro .button button.btn.btn-primary {
+  background-color: #d8006c !important;
+  border-color: #d8006c !important;
+  padding: 10px;
+  margin: 0 auto;
+  width: 200px !important;
+  font-weight: bold;
+}
+
+.div_Registro .button button.btn.btn-primary:hover {
+  background-color: #3d0c11 !important;
+  border-color: #3d0c11 !important;
+}
+
+.div_Registro #formulario_error {
+  display: none;
+  margin-top: 0;
 }
