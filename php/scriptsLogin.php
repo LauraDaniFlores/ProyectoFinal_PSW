@@ -91,7 +91,7 @@
             }});
         </script>
         <?php 
-        unset($SESSION['logout']);
+        unset($_SESSION['logout']);
         unset($_SESSION['captcha']);
         unset($_SESSION['intentos']);
     }
