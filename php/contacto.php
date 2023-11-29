@@ -57,7 +57,7 @@ session_start();
                                 <a class="nav-link" href="../index.php">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="productosmenu.php">Productos</a>
+                                <a class="nav-link" href="productomenu.php">Productos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="acerca.php">Acerca de</a>

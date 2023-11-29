@@ -38,7 +38,7 @@
                             <a class="nav-link" href="../index.php">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="productosmanu.php">Productos</a>
+                            <a class="nav-link" href="productomenu.php">Productos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="acerca.php">Acerca de</a>
