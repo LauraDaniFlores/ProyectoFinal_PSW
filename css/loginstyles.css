@@ -1,6 +1,12 @@
-/* font-family: 'Merienda', cursive;
-font-family: 'Playball', cursive; */
-
+body{
+    margin: 0;
+    padding: 0;
+}
+.background{
+    padding: 50px;
+    margin: 0;
+    background-image: linear-gradient(rgba(68, 68, 68, 0.9), rgba(68, 68, 68, 0.9)), url("../imagenes/fondologin.jpg");
+}
 .formlogin {
   margin: 0 370px;
   border: 1px solid #d8006c;
@@ -16,33 +22,27 @@ font-family: 'Playball', cursive; */
 .formlogin .input-group-text {
   background-color: #f8b3c1;
 }
-
 .formlogin .input-group-text i {
   color: #d8006c;
 }
-
 .formlogin h2 {
   font-size: 40px;
   color: #000;
   font-weight: bold;
   text-align: center;
 }
-
 .formlogin .image {
   text-align: center;
 }
-
 .formlogin #clickhere {
   color: #d8006c;
   font-weight: bold;
 }
-
 .formlogin .containerimage {
   display: flex;
   justify-content: center;
   margin: 20px 0;
 }
-
 .formlogin .refresh {
   text-align: center;
 }
@@ -91,14 +91,63 @@ input,
 .formlogin .preguntas .rescate {
   font-size: 15px;
 }
-
+.formlogin .labelogout{
+    display: flex;
+    justify-content: center;
+}
 .formlogin .primera {
   margin-top: 40px;
 }
 .formlogin .preguntas {
   display: none;
 }
+.formlogin .botonlogout{
+    width: 50%;
+}
+.formlogin p a{
+    text-align: center;
+    font-family: 'Merienda', cursive;
+}
+.formlogin .to_registro{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+@media only screen and (max-width: 1100px) {
+    .formlogin, .div_Registro{
+        width: 600px;
+    }
+    .formlogin .colorback1{
+        padding: 25px 100px;
+        background-color: #FFFFFF;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .formlogin, .div_Registro{
+        width: 400px;
+    }
+    .formlogin .colorback1{
+        padding: 15px 50px;
+        background-color: #FFFFFF;
+    }
+}
+.div_Registro small{
+    color: #3D0C11;
+    color: #D8006C;
+}
 
+.div_Registro{
+    margin: 0 auto;
+    /* width: 50%; */
+    width: 1000px;
+
+    margin-top: 50px;
+
+    background-color: #F78CA2;
+    /* padding: 40px; */
+    border-radius: 8px;
+    font-family: 'Merienda', cursive;
+}
 /* REGISTRO */
 
 .div_Registro small {
@@ -162,4 +211,21 @@ input,
 .div_Registro #formulario_error {
   display: none;
   margin-top: 0;
+}
+.div_Registro .colorback_reg_1{
+    background-color: #F78CA2;
+    padding: 0;
+    padding-top: 40px;
+    margin: 0;
+    width: 100%;
+}
+.div_Registro .colorback_reg_2{
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 50px 250px;
+}
+
+::selection {
+    background-color: #F78CA2;
+    color: #fff;
 }

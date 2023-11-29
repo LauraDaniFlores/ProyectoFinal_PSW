@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <?php 
@@ -42,6 +45,9 @@
     style="stroke: none; fill: #fff;"></path></svg></div>
 
     <section class="inicioSesionCC" style="background-color: #ffffff;">
+        <?php 
+            if(!isset($_SESSION['usuario'])){
+        ?>
         <div class="formlogin">
             <form class="form" action="cookies.php" method="POST">
                 <h2>Inicia Sesión</h2>
@@ -85,6 +91,35 @@
                 <p style="text-align:center;">¿No tienes cuenta? <a href="Registro.php" id="clickhere">Regístrate</a></p>
             </form>
         </div>
+        <?php 
+            }elseif(isset($_SESSION['usuario'])){ ?>
+                <div class="formlogin logoutform">
+                    <form class="form" action="cookies.php" method="POST">
+                        <div class="colorback">
+                            <div class="titleimg">
+                                <image class="title" src="../imagenes/UsuarioIMG.png" alt="" width="120px" height="auto">
+                            </div>
+                            <legend class="title">Logout</legend>
+                            <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+                            style="height: 100%; width: 100%;">
+                            <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                                style="stroke: none; fill: #FFFFFF"></path>
+                            </svg>
+                            </div>
+                        </div>
+                        <div class="colorback1">
+                            <div class="labelogout">
+                                <p class="rescate primera">¿Quieres salir de tu cuenta <b><?php echo $_SESSION['usuario'];?><b>?</p>
+                            </div>
+                            <div class="containerboton">
+                                <input class="boton botonlogout" type="submit" value="Logout" name="logout">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        <?php 
+        }
+        ?>
     </section>
     </main>
     
