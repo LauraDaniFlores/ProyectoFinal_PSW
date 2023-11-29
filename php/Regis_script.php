@@ -8,7 +8,7 @@ if(isset($_SESSION['repetido'])){
         swal.fire({
             icon: "error",
             title: "Lo sentimos",
-            text: "Usuario en uso",
+            text: "Usuario en uso.",
         });
     </script><?php
 }elseif(isset($_SESSION['insertar'])){
@@ -23,7 +23,7 @@ if(isset($_SESSION['repetido'])){
         swal.fire({
             icon: "question",
             title: "Lo sentimos",
-            text: "Las contraseñas no coinciden",
+            text: "Las contraseñas no coinciden.",
         });
     </script><?php
 }

@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="imagenes/Icon2.png" />
+    <link rel="icon" type="image/png" href="../imagenes/Icon2.png" />
 
     <title>Acerca de | Candy Craze</title>
-    <link rel="stylesheet" href="css/estilospagp.css">
+    <link rel="stylesheet" href="../css/estilospagp.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -22,10 +22,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300&family=Playball&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/f3a304d792.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-
-    <!-- Animaciones link -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
@@ -39,15 +35,15 @@
 
     <main>
         <section class="misionCC">
-            <div data-aos="fade-up" data-aos-delay="200" data-aos-offset="200" class="imgMision">
-                <img src="imagenes/ac1.jpg" background-size: cover;alt="">
+            <div class="imgMision">
+                <img src="../imagenes/imgCC1.jpg" style="background-size:cover;" alt="">
             </div>
             <div class="txtMision">
-                <h3 data-aos="fade-up" data-aos-delay="300" data-aos-offset="200">Nuestro Propósito Fundamental</h3>
-                <h2 data-aos="fade-up" data-aos-delay="350" data-aos-offset="200">Misión</h2>
-                <div class="linea" data-aos="flip-right" data-aos-delay="400" data-aos-offset="200"></div>
+                <h3>Nuestro Propósito Fundamental</h3>
+                <h2>Misión</h2>
+                <div class="linea"></div>
                 <br>
-                <p data-aos="fade-up" data-aos-delay="400" data-aos-offset="200">Nuestra misión es deleitar a nuestros
+                <p>Nuestra misión es deleitar a nuestros
                     clientes con una selección excepcional de dulces y golosinas
                     provenientes de diferentes partes del mundo, convirtiendo cada bocado en un viaje sensorial
                     inolvidable.</p>
@@ -62,17 +58,17 @@
 
         <section class="visionCC">
             <div class="txtVision">
-                <h3 data-aos="fade-up" data-aos-delay="200" data-aos-offset="400">Estado Futuro Deseado</h3>
-                <h2 data-aos="fade-up" data-aos-delay="300" data-aos-offset="400">Visión</h2>
-                <div class="linea" data-aos="flip-right" data-aos-delay="350" data-aos-offset="400"></div>
+                <h3>Nuestro Futuro Deseado</h3>
+                <h2>Visión</h2>
+                <div class="linea"></div>
                 <br>
-                <p data-aos="fade-up" data-aos-delay="350" data-aos-offset="400">Nuestra visión es llegar a mas lugares
+                <p>Nuestra visión es llegar a mas lugares
                     en el mundo como establecimiento para todos ustedes
                     y todas las personas que les encantan las golocinas pero no saben utilizar las tecnologia.
                 </p>
             </div>
-            <div class="imgVision" data-aos="fade-up" data-aos-delay="400" data-aos-offset="400">
-                <img src="imagenes/ac2.jpg" background-size: cover;alt="">
+            <div class="imgVision">
+                <img src="../imagenes/imgCC2.jpg" style="background-size:cover;" alt="">
             </div>
             <br>
         </section>
@@ -83,15 +79,15 @@
             </svg></div>
 
         <section class="objetivoCC">
-            <div class="imgObj" data-aos="fade-up" data-aos-delay="200" data-aos-offset="600">
-                <img src="imagenes/ac3.jpg" background-size: cover;alt="">
+            <div class="imgObj">
+                <img src="../imagenes/imgCC3.jpg" style="background-size:cover;" alt="">
             </div>
             <div class="txtObj">
-                <h3 data-aos="fade-up" data-aos-delay="300" data-aos-offset="600">Nuestras Metas</h3>
-                <h2 data-aos="fade-up" data-aos-delay="350" data-aos-offset="610">Objetivo</h2>
-                <div class="linea" data-aos="flip-right" data-aos-delay="400" data-aos-offset="610"></div>
+                <h3>Nuestras Metas</h3>
+                <h2>Objetivo</h2>
+                <div class="linea"></div>
                 <br>
-                <p data-aos="fade-up" data-aos-delay="400" data-aos-offset="610">En Candy Craze, nuestro objetivo
+                <p>En Candy Craze, nuestro objetivo
                     principal es ofrecer a nuestros clientes una experiencia
                     única y deliciosa al brindar acceso a una amplia variedad de dulces extranjeros. Nos esforzamos por
                     convertirnos en la principal fuente de placer y descubrimiento para los amantes de los dulces. </p>
@@ -107,19 +103,17 @@
 
         <section>
             <div class="nosotrosCC">
-                <h3 data-aos="fade-up" data-aos-delay="200" data-aos-offset="665">¿Quién está detrás de Candy Craze?
+                <h3>¿Quién está detrás de Candy Craze?
                 </h3>
-                <h2 data-aos="fade-up" data-aos-delay="250" data-aos-offset="665">Conócenos</h2>
-                <div class="linea" data-aos="flip-right" data-aos-delay="250" data-aos-offset="665"></div>
+                <h2>Conócenos</h2>
+                <div class="linea"></div>
                 <br>
                 <div>
                     <div class="acomodo">
-                        <div data-aos="flip-right" data-aos-delay="200" data-aos-offset="675"
-                            style="background: linear-gradient(#000000c9, #000000c9), url(imagenes/adrian.jpg);background-size: cover;">
+                        <div
+                            style="background: linear-gradient(#000000c9, #000000c9), url(../imagenes/adrian.jpg);background-size: cover;">
                             <h2>Adrian Balandran</h2>
-                            <div class="linea" data-aos="flip-right" data-aos-delay="250" data-aos-offset="675"></div>
-                            <br>
-                            <h3>Full-end y desañador
+                            <h3>Front-end y desañador
                             </h3>
 
                             <!-- Redes Sociales -->
@@ -186,11 +180,9 @@
                                     </svg></a>
                             </div>
                         </div>
-                        <div data-aos="flip-right" data-aos-delay="200" data-aos-offset="675"
-                            style="background: linear-gradient(#000000c9, #000000c9), url(imagenes/dany.jpg);background-size: cover;">
+                        <div
+                            style="background: linear-gradient(#000000c9, #000000c9), url(../imagenes/dany.jpg); background-size: cover;">
                             <h2>Daniela Flores</h2>
-                            <div class="linea" data-aos="flip-right" data-aos-delay="250" data-aos-offset="675"></div>
-                            <br>
                             <h3>Lider de proyecto y Back-end
                             </h3>
                             
@@ -258,11 +250,9 @@
                                     </svg></a>
                             </div>
                         </div>
-                        <div data-aos="flip-right" data-aos-delay="200" data-aos-offset="675"
-                            style="background: linear-gradient(#000000c9, #000000c9), url(imagenes/agaby.jpg);background-size: cover;">
+                        <div
+                            style="background: linear-gradient(#000000c9, #000000c9), url(../imagenes/agaby.jpg);background-size: cover;">
                             <h2>Gabriela Sánchez</h2>
-                            <div class="linea" data-aos="flip-right" data-aos-delay="250" data-aos-offset="675"></div>
-                            <br>
                             <h3>Back-end
                             </h3>
 
@@ -335,11 +325,9 @@
                     </div>
 
                     <div class="acomodo" style="padding-top:20px;">
-                        <div data-aos="flip-right" data-aos-delay="200" data-aos-offset="685"
-                            style="background: linear-gradient(#000000c9, #000000c9), url(imagenes/nadia.jpg);background-size: cover;">
+                        <div
+                            style="background: linear-gradient(#000000c9, #000000c9), url(../imagenes/nadia.jpg);background-size: cover;">
                             <h2>Nadia Acosta</h2>
-                            <div class="linea" data-aos="flip-right" data-aos-delay="250" data-aos-offset="685"></div>
-                            <br>
                             <h3>Front-end y desañadora
                             </h3>
 
@@ -407,11 +395,9 @@
                                     </svg></a>
                             </div>
                         </div>
-                        <div data-aos="flip-right" data-aos-delay="200" data-aos-offset="685"
-                            style="background: linear-gradient(#000000c9, #000000c9), url(imagenes/gaby.jpg);background-size: cover;">
+                        <div
+                            style="background: linear-gradient(#000000c9, #000000c9), url(../imagenes/gaby.jpg);background-size: cover;">
                             <h2>Diana Flores</h2>
-                            <div class="linea" data-aos="flip-right" data-aos-delay="250" data-aos-offset="685"></div>
-                            <br>
                             <h3>Back-end
                             </h3>
 
@@ -479,11 +465,9 @@
                                     </svg></a>
                             </div>
                         </div>
-                        <div data-aos="flip-right" data-aos-delay="200" data-aos-offset="685"
-                            style="background: linear-gradient(#000000c9, #000000c9), url(imagenes/paula.jpg);background-size: cover;">
+                        <div
+                            style="background: linear-gradient(#000000c9, #000000c9), url(../imagenes/paula.jpg);background-size: cover;">
                             <h2>Paula Cruz</h2>
-                            <div class="linea" data-aos="flip-right" data-aos-delay="250" data-aos-offset="685"></div>
-                            <br>
                             <h3>Back-end
                             </h3>
 
@@ -562,12 +546,6 @@
     include("footer.php");
     ?>
 
-
-    <!-- Funcion de animaciones de scroll -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
 </body>
 
 </html>
