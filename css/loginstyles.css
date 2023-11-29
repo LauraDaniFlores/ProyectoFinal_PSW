@@ -7,125 +7,99 @@ body{
     margin: 0;
     background-image: linear-gradient(rgba(68, 68, 68, 0.9), rgba(68, 68, 68, 0.9)), url("../imagenes/fondologin.jpg");
 }
-
-.formlogin{
-    margin: 40px auto;
-    display: flex;
-    justify-content: center;
-    width: 1000px;
-    padding: 0px;
-    border-radius: 10px;
-    background-color: #FFFFFF;
+.formlogin {
+  margin: 0 370px;
+  border: 1px solid #d8006c;
+  padding: 30px 60px;
+  border-radius: 10px;
 }
 
-.form{
-    background-color: #FFFFFF;
-    /* padding: 70px 100px; */
-    border-radius: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;    
-    width: 100%;
+.formlogin .form-control,
+.formlogin .input-group-text {
+  border: 1px solid #d8006c;
 }
 
-.formlogin .info{
-    padding: 10px;
-    margin: 15px 0;
-    width: 100%;
+.formlogin .input-group-text {
+  background-color: #f8b3c1;
+}
+.formlogin .input-group-text i {
+  color: #d8006c;
+}
+.formlogin h2 {
+  font-size: 40px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
+.formlogin .image {
+  text-align: center;
+}
+.formlogin #clickhere {
+  color: #d8006c;
+  font-weight: bold;
+}
+.formlogin .containerimage {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+.formlogin .refresh {
+  text-align: center;
 }
 
-.formlogin .title{
-    text-align: center;
-    font-size: 40px;
-    margin: 15px 0 30px 0;
-    color: hsl(354, 67%, 14%);
-    font-weight: bold;
-}
-.titleimg{
-    display: flex;
-    justify-content: center;
-}
-.formlogin .title{
-    text-align: center;
+.formlogin .cookies {
+  display: flex;
+  justify-content: center;
 }
 
-.formlogin .image{
-    text-align: center;
-}
-.formlogin .colorback{
-    background-color: #F9DEC9;
-    padding: 0;
-    padding-top: 40px;
-    margin: 0;
-    width: 100%;
-}
-.formlogin .colorback1{
-    padding: 50px 250px;
-    background-color: #FFFFFF;
-}
-.formlogin .captcha{
-    padding: 10px;
-    margin: 10px 0;
-    width: 100%;
-}
-.formlogin .containerimage{
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
+.formlogin .check {
+  margin-right: 13px;
+  transform: scale(1.5);
 }
 
-.formlogin .refresh{
-    text-align: center;
-    font-size: 15px;
-}
-.formlogin input{
-    border-radius: 10px;
-    border: none;
-    background-color: #F9DEC9;
-}
-.formlogin .cookies{
-    display: flex;
-    justify-content: center;
-    margin: 10px;
+.formlogin .containerboton {
+  display: flex;
+  justify-content: center;
 }
 
-.formlogin .check{
-    width: 20px;
-    margin-right: 15px;
+.formlogin .boton {
+  background-color: #d8006c;
+  border-color: #d8006c;
+  padding: 10px;
+  margin: 0 auto;
+  width: 200px !important;
+  font-weight: bold;
 }
-.formlogin .containerboton{
-    display: flex;
-    justify-content: center;
+.formlogin .boton:hover {
+  background-color: #3d0c11;
+  border-color: #3d0c11;
 }
 
-.formlogin .boton{
-    padding: 10px;
-    margin: 10px 0 0px 0;
-    background-color: #F78CA2;
-    width: 25%;
+.formlogin .check1 {
+  font-size: 15px;
+  margin-top: 15px;
 }
-.formlogin .boton:hover{
-    background-color: #D8006C;
-    color: white;
+
+.formlogin::placeholder,
+.refresh,
+.check1,
+input,
+.rescate {
+  font-family: "Merienda", cursive;
+  font-size: 14px;
 }
-.formlogin .check1{
-    font-size: 15px;
-}
-.formlogin ::placeholder, .refresh, .check1, input, .rescate{
-    font-family: 'Merienda', cursive;
-    font-size: 14px;
-}
-.formlogin .preguntas .rescate{
-    font-size: 15px;
-}
-.formlogin .primera{
-    margin-top: -20px;
-    font-size: 17px;
+.formlogin .preguntas .rescate {
+  font-size: 15px;
 }
 .formlogin .labelogout{
     display: flex;
     justify-content: center;
 }
-.formlogin .preguntas{
-    display: none;
+.formlogin .primera {
+  margin-top: 40px;
+}
+.formlogin .preguntas {
+  display: none;
 }
 .formlogin .botonlogout{
     width: 50%;
@@ -138,12 +112,6 @@ body{
     display: flex;
     justify-content: center;
     margin-top: 20px;
-}
-a:visited {
-    color: #D8006C;
-}
-a:hover {
-    color: #F78CA2;
 }
 @media only screen and (max-width: 1100px) {
     .formlogin, .div_Registro{
@@ -163,7 +131,6 @@ a:hover {
         background-color: #FFFFFF;
     }
 }
-
 .div_Registro small{
     color: #3D0C11;
     color: #D8006C;
@@ -181,54 +148,69 @@ a:hover {
     border-radius: 8px;
     font-family: 'Merienda', cursive;
 }
+/* REGISTRO */
 
-.div_Registro label{
-    display: block;
-    margin-bottom: 5px;
-    color: #000000;
-}
-
-.div_Registro input{
-    width: 100%;
-    height: 30px;
-    margin-bottom: 30px;
-    border: .5px solid transparent;
-    border-radius: 10px;
-    font-size: 14px;
-    background-color: #F78CA2;
-    transition: .3s ease all;
+.div_Registro small {
+  color: #d8006c;
 }
 
-.div_Registro h3, .div_Registro .button{
-    display: flex;
-    justify-content: center;
-}
-.div_Registro h3{
-    font-size: 30px;
-}
-.div_Registro .button button{
-    background-color: antiquewhite;
-    border: .5px solid black;
-    width: 120px;
-    height: 50px;
-    font-size: 15px;
-    cursor: pointer;
-    border-radius: 7px;
-    background-color: rgb(0, 0, 0, 0.7);
-    color: #FFFFFF;
-    margin-top: 20px;
-    font-family: 'Merienda', cursive;
-}
-.div_Registro .button button:hover{
-    background-color: rgb(0, 0, 0, 0.4);
-    box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.4);
-}
-.div_Registro #pass1{
-    margin-bottom: 5px;
+.div_Registro {
+  margin: 0 auto;
+  width: 60%;
+  padding: 40px;
+  border-radius: 10px;
+  border: 1px solid #d8006c;
+  font-family: "Merienda", cursive;
 }
 
-.div_Registro #formulario_error{
-    display: none;
+.div_Registro label {
+  display: block;
+  margin-bottom: 8px;
+  color: #000000;
+}
+
+.div_Registro .form-control,
+.div_Registro .input-group-text {
+  border: 1px solid #d8006c;
+}
+
+.div_Registro h2 {
+  font-size: 40px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
+
+.div_Registro .input-group-text {
+  background-color: #f8b3c1;
+}
+
+.div_Registro .input-group-text i {
+  color: #d8006c;
+}
+
+.div_Registro .button {
+  display: flex;
+  justify-content: center;
+}
+
+.div_Registro .button button.btn.btn-primary {
+  background-color: #d8006c !important;
+  border-color: #d8006c !important;
+  padding: 10px;
+  margin: 0 auto;
+  width: 200px !important;
+  font-weight: bold;
+}
+
+.div_Registro .button button.btn.btn-primary:hover {
+  background-color: #3d0c11 !important;
+  border-color: #3d0c11 !important;
+}
+
+.div_Registro #formulario_error {
+  display: none;
+  margin-top: 0;
 }
 .div_Registro .colorback_reg_1{
     background-color: #F78CA2;

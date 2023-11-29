@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-session_start();
+    session_start();
 ?>
 
 <head>
@@ -15,43 +15,90 @@ session_start();
     <title>Inicio | Candy Craze</title>
     <link rel="stylesheet" href="css/estilospagp.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300&family=Playball&display=swap"
-        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300&family=Playball&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f3a304d792.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .footer {
+            background: #3d0c11;
+            color: white;
+            font-family: 'Merienda', cursive;
+        }
 
+        .footer h2, .footer h3 {
+            font-family: 'Playball', cursive;
+        }
+
+        .footer p, .footer a, .footer i {
+            margin-right: 15px;
+        }
+
+        .footer .links ul {
+            list-style-type: none;
+        }
+
+        .footer .links ul li a {
+            text-decoration: none;
+            color: rgb(168, 168, 168);
+            transition: color 0.2s;
+        }
+
+        .footer .links ul li a:hover {
+            text-decoration: none;
+            color: #f78ca2;
+        }
+
+        .footer .about-company i {
+            font-size: 25px;
+        }
+
+        .footer .about-company i:hover {
+            color: #f78ca2;
+            transition: color 0.2s ease;
+        }
+
+        .footer .about-company a {
+            color: white;
+            transition: color 0.2s;
+        }
+
+        .footer .about-company a:hover {
+            color: #f78ca2;
+        }
+
+        .footer .location i {
+            font-size: 18px;
+            margin-right: 15px;
+        }
+
+        .footer .copyright p {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            margin-top: -25px;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
+<header>
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <a href="index.php" style="text-decoration: none;">
                     <img src="imagenes/LogoCC.png" alt="Candy Craze" style="margin-right:10px; width:70px;">
                 </a>
                 <a class="navbar-brand" href="index.php">Candy Craze</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="d-flex ms-auto">
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
+                                <a class="nav-link active" href="index.php">Inicio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="php/productos.php">Productos</a>
@@ -66,15 +113,14 @@ session_start();
                                 <a class="nav-link" href="php/ayuda.php">Ayuda</a>
                             </li>
                         </ul>
-                        <a href="inicioSesion.php" class="navbar-nav">
+                        <a href="php/login.php" class="navbar-nav">
                             <span class="nav-link">
-                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-user menuIcons"></i>
                             </span>
                         </a>
-
-                        <a href="carrito.php" class="navbar-nav">
+                        <a href="php/carrito.php" class="navbar-nav">
                             <span class="nav-link">
-                                <i class="fa-solid fa-cart-shopping"></i>
+                                <i class="fa-solid fa-cart-shopping menuIcons"></i>
                             </span>
                         </a>
                     </div>
@@ -87,10 +133,10 @@ session_start();
             <h1 class="animate__animated animate__fadeInUp">¡Delicias Globales en un Click!</h1>
         </section>
         <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
-                style="height: 100%; width: 100%;">
-                <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-                    style="stroke: none; fill: #f9dec9"></path>
-            </svg></div>
+            style="height: 100%; width: 100%;">
+            <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                style="stroke: none; fill: #f9dec9"></path>
+        </svg></div>
     </header>
 
     <main>
@@ -163,7 +209,7 @@ session_start();
                         autenticidad y calidad al colaborar con proveedores locales. En Candy Craze,
                         no solo encontrarás golosinas, sino una experiencia que te invita a explorar el mundo a través
                         de sus sabores.</p>
-                    <a href="contacto.php">
+                    <a href="php/contacto.php">
                         <button type="button" class="btn btn-primary">CONTÁCTANOS</button>
                     </a>
 
@@ -183,7 +229,7 @@ session_start();
                     ¡Ven y déjate llevar por el placer de los sabores inolvidables en nuestra dulcería!</h2>
                 <br>
                 <div style="text-align: center;">
-                    <a href="productos.php">
+                    <a href="php/productos.php">
                         <button type="button" class="btn btn-primary">EXPLORA NUESTROS PRODUCTOS</button>
                     </a>
                 </div>
@@ -233,7 +279,7 @@ session_start();
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
-                                        <img src="imagenes/hombre1.jpg" alt="Cliente 1"
+                                        <img src="imagenes/hombre1.jpg" alt="Cliente 2"
                                             class="testimonial-img mx-auto d-block">
                                         <h5 class="card-title">Eduardo Preciado</h5>
                                     </div>
@@ -251,7 +297,7 @@ session_start();
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
-                                        <img src="imagenes/hombre2.jpg" alt="Cliente 1"
+                                        <img src="imagenes/hombre2.png" alt="Cliente 3"
                                             class="testimonial-img mx-auto d-block">
                                         <h5 class="card-title">Carlos Jiménez</h5>
                                     </div>
@@ -288,14 +334,11 @@ session_start();
                     <div class="row">
                         <div class="col-md-6 mb-3 mx-auto">
                             <div class="input-group">
-                                <span class="input-group-text">@</span>
+                                <span class="input-group-text"><i class="fa-solid fa-at"></i></span>
                                 <input type="text" class="form-control" placeholder="Correo electrónico"
                                     name="correosub" required>
                                 <button class="btn btn-primary" name="submit" type="submit" id="peticion-submit"
-                                    data-submit="...Sending">Enviar</button>
-
-
-
+                                    data-submit="...Sending">ENVIAR</button>
                             </div>
                         </div>
                     </div>
@@ -305,45 +348,84 @@ session_start();
     </main>
 
     <?php
-
-    if (isset($_SESSION['enviado'])) { ?>
-        <script>
-            // swal("REGISTRADO!", "AHora ya eres parte de la mejor dulcecomunidad!", "success");
-            // document.location.href = 'index.php';
-
-            Swal.fire({
-                icon: "success",
-                title: "¡Registro exitoso!",
-                text: "Bienvenido a la mejor dulcecomunidad",
-                width: 600,
-                padding: "3em",
-                color: "black",
-                background: "#fff url(/images/trees.png)",
-                backdrop: `
-                rgba(247,140,162,0.2)
-                url("imagenes/Dulces3.gif")
-                left top
-                no-repeat
-            `
-            });
-
-        </script>
-
-
-        <?php
-
-        unset($_SESSION['enviado']);
-    }
-
-
-
+        if (isset($_SESSION['enviado'])) { 
     ?>
-
-
+    <script>
+        Swal.fire({
+        icon: "success",
+        title: "¡Registro exitoso!",
+        text: "Bienvenido a la mejor dulcecomunidad",
+        width: 600,
+        padding: "3em",
+        color: "black",
+        background: "#fff url(/images/trees.png)",
+        backdrop: `
+            rgba(247,140,162,0.2)
+            url("imagenes/Dulces3.gif")
+            left top
+            no-repeat
+            `
+        });
+    </script>
 
     <?php
-    include("php/footer.php");
+        unset($_SESSION['enviado']);
+        }
     ?>
+
+    <div style="height: 150px; overflow: hidden; margin-bottom:-110px;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" 
+    style="height: 100%; width: 100%;">
+    <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" 
+    style="stroke: none; fill: #3d0c11"></path></svg></div>
+    <footer>
+        <div class="mt-5 pt-5 pb-5 footer">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-5 col-xs-12 about-company">
+                <img src="imagenes/LogoCC.png" alt="CandyCraze" style="margin-bottom:10px;width:100px;">
+                  <h2>Candy Craze</h2>
+                  <p class="pr-5 text-white-50">Embárcate en un viaje de sabores exquisitos en nuestra dulcería internacional, donde cada bocado es una ventana abierta a la deliciosa diversidad de dulces de todo el mundo.</p>
+                  <p>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </p>
+                </div>
+                <div class="col-lg-2 col-xs-12 links">
+                  <h3 class="mt-lg-0 mt-sm-3">Links</h3>
+                    <ul class="m-0 p-0">
+                      <li><a href="index.php">Inicio</a></li>
+                      <li><a href="productos.php">Productos</a></li>
+                      <li><a href="acerca.php">Acerca de</a></li>
+                      <li><a href="contacto.php">Contáctanos</a></li>
+                      <li><a href="ayuda.php">Ayuda</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 col-xs-12 location">
+                  <h3 class="mt-lg-0 mt-sm-4">Ubicación</h3>
+                  <p class="pr-5 text-white-50">Av. Universidad # 940, Ciudad Universitaria, C.P. 20100, Aguascalientes, Ags. México.</p>
+                  <p class="mb-0"><i class="fa fa-phone mr-3"></i>(541) 754-3010</p>
+                  <p><i class="fa fa-envelope-o mr-3"></i>candycraze511@gmail.com</p>
+                </div>
+              </div>
+              <div class="row mt-5">
+                <div class="col copyright">
+                    <p class=""><small class="text-white-50">© Candy Craze 2023. Todos los derechos reservados. <br>Esta página constituye un proyecto académico.</small></p>
+                </div>
+                <?php 
+                    date_default_timezone_set('America/Mexico_City'); // Establecer la zona horaria de México
+                    $ultimaActualizacion = filemtime("../"); // Obtener la última actualización 
+                    setlocale(LC_TIME, 'es_VE.UTF-8','esp'); // Establecer el locale a español para strftime
+                    $fechaFormateada = strftime('%e de %B del %Y', $ultimaActualizacion); // Formatear la fecha
+                    $fechaFormateada = mb_convert_case($fechaFormateada, MB_CASE_TITLE, 'UTF-8'); // Convertir la primera letra de cada palabra en mayúscula
+                    $horaActual = date('h:i A');
+                    // Mostrar la fecha formateada
+                    echo '<p class="" style="text-align:center;"><small class="text-white-50">Última actualización: ' . $fechaFormateada . ' a las ' . $horaActual . ' (Hora de México)</small></p>';
+                    
+                ?>
+              </div>
+            </div>
+        </div>            
+    </footer>
 </body>
 
 </html>

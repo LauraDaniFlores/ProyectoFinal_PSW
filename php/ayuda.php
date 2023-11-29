@@ -15,76 +15,38 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300&family=Playball&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f3a304d792.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-
-     <!-- Animaciones link -->
-     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
-                <a href="index.php" style="text-decoration: none;">
-                    <img src="../imagenes/LogoCC.png" alt="Candy Craze" style="margin-right:10px; width:70px;">
-                </a>
-                <a class="navbar-brand" href="index.php">Candy Craze</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="d-flex ms-auto">
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                         <li class="nav-item">
-                            <a class="nav-link" href="../index.php">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="productosmanu.php">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="acerca.php">Acerca de</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contacto.php">Contáctanos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="ayuda.php">Ayuda</a>
-                        </li>
-                    </ul>
-                    <a href="inicioSesion.php" class="navbar-nav">
-                        <span class="nav-link">
-                            <i class="fa-solid fa-user"></i>
-                        </span>
-                    </a>
-
-                    <a href="carrito.php" class="navbar-nav">
-                        <span class="nav-link">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </span>
-                    </a>
-                </div>
-                </div>
-            </div>
-        </nav>
-
-        <section class="textos-header">
-            <h2 class="animate__animated animate__fadeInDown">— Ayuda —</h2>
-            <h1 class="animate__animated animate__fadeInUp">Descubre respuestas para todo, o al menos, casi todo</h1>
-        </section>
-        <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
-            style="height: 100%; width: 100%;">
-            <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-                style="stroke: none; fill: #fff"></path>
-        </svg></div>
-    </header>
-
+    <?php
+        include "menu.php";
+    ?>
+    <script>
+        document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Ayuda —";
+        document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Descubre respuestas para todo, o al menos, casi todo";
+    </script>
     <main>
+        <section class="preguntasTitle">
+            <h3>¡Responde todas tus preguntas!</h3>
+            <h2>FAQ</h2>
+            <div class="linea"></div>
+            <br>
+            <p>Aquí encontrarás respuestas a las preguntas más comunes. Antes de ponerte en contacto con nosotros, 
+                echa un vistazo para ver si tu pregunta ya ha sido respondida. Queremos hacer tu experiencia lo más 
+                sencilla posible. Si necesitas más ayuda, estamos a un mensaje de distancia. 
+                ¡Gracias por confiar en nosotros!</p>
+        </section>
+        <div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" 
+        style="height: 100%; width: 100%;">
+        <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" 
+        style="stroke: none; fill: #fff;"></path></svg></div>
+
         <section class="preguntasCC">
-            <h3 data-aos="fade-up" data-aos-delay="200" data-aos-offset="200">¿Tienes dudas?</h3>
-            <h2 data-aos="fade-up" data-aos-delay="210" data-aos-offset="200">Preguntas Frecuentes</h2>
-            <div class="linea" data-aos="flip-right" data-aos-delay="205" data-aos-offset="200"></div>
+            <h3>¿Tienes dudas?</h3>
+            <h2>Preguntas Frecuentes</h2>
+            <div class="linea"></div>
             <br>
             <div class="accordion accordion-flush" id="accordionFlushExample" >
-                <div class="accordion-item"  data-aos="fade-up" data-aos-delay="200" data-aos-offset="215">
+                <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                             <strong>¿Cuál es la política de devolución de la tienda de dulces?</strong>
@@ -95,7 +57,7 @@
                     </div>
                 </div>
 
-                <div class="accordion-item"  data-aos="fade-up" data-aos-delay="205" data-aos-offset="215">
+                <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                             <strong>¿Cuánto tiempo tarda en llegar mi pedido?</strong>
@@ -106,7 +68,7 @@
                     </div>
                 </div>
 
-                <div class="accordion-item"  data-aos="fade-up" data-aos-delay="210" data-aos-offset="215">
+                <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                             <strong>¿Cuáles son las formas de pago aceptadas?</strong>
@@ -117,7 +79,7 @@
                     </div>
                 </div>
 
-                <div class="accordion-item"  data-aos="fade-up" data-aos-delay="215" data-aos-offset="215">
+                <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingFour">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
                             <strong>¿Puedo realizar cambios en mi pedido después de haberlo confirmado?</strong>
@@ -128,7 +90,7 @@
                     </div>
                 </div>
 
-                <div class="accordion-item"  data-aos="fade-up" data-aos-delay="220" data-aos-offset="215">
+                <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingFive">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
                             <strong>¿Cuál es la política de calidad de los dulces?</strong>
@@ -139,7 +101,7 @@
                     </div>
                 </div>
 
-                <div class="accordion-item"  data-aos="fade-up" data-aos-delay="225" data-aos-offset="215">
+                <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingSix">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
                             <strong>¿Ofrecen descuentos o promociones periódicas?</strong>
@@ -150,7 +112,7 @@
                     </div>
                 </div>
 
-                <div class="accordion-item"  data-aos="fade-up" data-aos-delay="230" data-aos-offset="215">
+                <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingSeven">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
                             <strong>¿Cómo garantizan la frescura de los dulces durante el envío?</strong>
@@ -161,7 +123,7 @@
                     </div>
                 </div>
 
-                <div class="accordion-item"  data-aos="fade-up" data-aos-delay="235" data-aos-offset="215">
+                <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingEight">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
                             <strong>¿Cuál es la duración de la vida útil de sus dulces?</strong>
@@ -172,7 +134,7 @@
                     </div>
                 </div>
 
-                <div class="accordion-item"  data-aos="fade-up" data-aos-delay="240" data-aos-offset="215">
+                <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingNine">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
                             <strong>¿Los dulces son aptos para niños pequeños?</strong>
@@ -183,7 +145,7 @@
                     </div>
                 </div>
 
-                <div class="accordion-item"  data-aos="fade-up" data-aos-delay="245" data-aos-offset="215">
+                <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingTen">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTen" aria-expanded="false" aria-controls="flush-collapseTen">
                             <strong>¿Puedo programar la entrega para una fecha específica?</strong>
@@ -199,12 +161,6 @@
     <?php
         include("footer.php");
     ?>
-
-    <!-- Funcion de animaciones de scroll -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
 </body>
 
 </html>

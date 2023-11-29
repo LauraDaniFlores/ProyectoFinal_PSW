@@ -43,6 +43,11 @@
             font-size: 25px;
         }
 
+        .footer .about-company i:hover {
+            color: #f78ca2;
+            transition: color 0.2s ease;
+        }
+
         .footer .about-company a {
             color: white;
             transition: color 0.2s;
@@ -97,7 +102,7 @@
                   <h3 class="mt-lg-0 mt-sm-4">Ubicación</h3>
                   <p class="pr-5 text-white-50">Av. Universidad # 940, Ciudad Universitaria, C.P. 20100, Aguascalientes, Ags. México.</p>
                   <p class="mb-0"><i class="fa fa-phone mr-3"></i>(541) 754-3010</p>
-                  <p><i class="fa fa-envelope-o mr-3"></i>CandyCraze@gmail.com</p>
+                  <p><i class="fa fa-envelope-o mr-3"></i>candycraze511@gmail.com</p>
                 </div>
               </div>
               <div class="row mt-5">
@@ -112,8 +117,7 @@
                     $fechaFormateada = mb_convert_case($fechaFormateada, MB_CASE_TITLE, 'UTF-8'); // Convertir la primera letra de cada palabra en mayúscula
                     $horaActual = date('h:i A');
                     // Mostrar la fecha formateada
-                    echo '<p class="" style="text-align:center;"><small class="text-white-50">Última actualización: ' . $fechaFormateada . ' a las ' . $horaActual . ' (Hora de México)</small></p>';
-                    
+                    echo '<p class="" style="text-align:center;"><small class="text-white-50">Última actualización: ' . $fechaFormateada . ' a las ' . $horaActual . ' (Hora de México)</small></p>';  
                 ?>
               </div>
             </div>
