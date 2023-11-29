@@ -5,6 +5,7 @@
 <?php 
     // El captcha es incorrecto
     session_start();
+    // unset($_SESSION["usuario"]);
     if(isset($_SESSION['Equal'])){
         ?>
         <script>
@@ -18,7 +19,6 @@
         unset($_SESSION['Equal']);
         unset($_SESSION['captcha']);
     }
-
     // Ha ingresado el usuario a su cuenta
     if(isset($_SESSION['in'])){
         ?>
@@ -26,10 +26,13 @@
             Swal.fire({
             icon: "success",
             title: "¡Felicidades!",
-            text: "¡Haz ingresado a tu cuenta!",
+            text: "¡Haz ingresado a tu cuenta <?php echo $_SESSION['usuario']; ?>!",
+            <?php 
+            // echo $SESSION['usuario']; 
+            ?>
             }).then((result) => {
             if (result.isConfirmed) {
-                location. assign('Pruebaindex.php')
+                location. assign('../index.php')
             }});
         </script>
         <?php 
@@ -38,9 +41,6 @@
         unset($_SESSION['intentos']);
 
     }
-    // unset($_SESSION['intentos']);
-    // unset($SESSION['usuario']);
-    // unset($SESSION['admin']);
 
     if(isset($_SESSION['intentos'])){
         ?>
@@ -78,5 +78,23 @@
         <?php
         unset($_SESSION['mal']);
     }
+    if(isset($_SESSION['logout'])){
+        ?>
+        <script>
+            Swal.fire({
+            icon: "success",
+            title: "Abandonarás tu sesión",
+            text: "¡Has cerrado sesión de tu cuenta!",
+            }).then((result) => {
+            if (result.isConfirmed) {
+                location. assign('../index.php')
+            }});
+        </script>
+        <?php 
+        unset($SESSION['logout']);
+        unset($_SESSION['captcha']);
+        unset($_SESSION['intentos']);
+    }
+
 ?>
 

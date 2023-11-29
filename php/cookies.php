@@ -2,7 +2,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<?php
+<?php            
+    session_start();
     if(isset($_POST["submit"])){
         $cipher = "AES-256-CBC"; 
         $encryption_key = "12345678901234567890123456789012"; 
@@ -20,7 +21,6 @@
              die('Error en la conexion');
         }
         else{
-            session_start();
             if(isset($SESSION['intentos'])){
                 $username = $SESSION['intentos'];
             }else{
@@ -31,19 +31,19 @@
             $password = openssl_encrypt($password, $cipher, $encryption_key, 0, $iv); 
             $captcha = $_POST['captcha'];
             $entrar = false; 
+            $usuarioEncontrado = false; 
 
             if($_SESSION['captcha'] != $captcha){ 
                 $_SESSION['Equal'] = false; 
-                header("Location: login.php");
+                $usuarioEncontrado = true; 
             }
 
             $sql = 'select * from usuarios';//hacemos cadena con la sentencia mysql que consulta todo el contenido de la tabla
             $resultado = $conexion -> query($sql); //aplicamos sentencia
             $preguntar = true;
-            $usuarioEncontrado = false; 
             if ($resultado -> num_rows){ //si la consulta genera registros
                 while( $fila = $resultado -> fetch_assoc()){ //recorremos los registros obtenidos de la tabla
-                    if($fila['usuario'] === $username){
+                    if($fila['usuario'] === $username && !isset($_SESSION['Equal'])){
                         $usuarioEncontrado = true;
                         if($fila['contra'] === $password){
                             if(isset($_SESSION["intentos"])){
@@ -55,10 +55,10 @@
                                     unlink("../archivos/strikes.txt");                
                                 }
                             }
-                            $SESSION['usuario'] = $username;
+                            $_SESSION['usuario'] = $username;
                             $entrar = true;
                             if($fila['administrador'] === 1){
-                                $SESSION['admin'] = true;
+                                $_SESSION['admin'] = true;
                             }
                             $_SESSION['in'] = true; 
                             break;  
@@ -79,7 +79,7 @@
                                 $linea = fgets($file);
                                 if ($linea != "") {
                                     $aux = preg_split("/[:]/", $linea);
-                                    echo $aux[0] ." : ". $aux[1]; 
+                                    // echo $aux[0] ." : ". $aux[1]; 
                                     if($aux[0] == $username){
                                         $bool = true; 
                                         $num = $aux[1]; 
@@ -118,10 +118,9 @@
                     unset($_SESSION["intentos"]);
                     unlink("../archivos/strikes.txt");
                     $_SESSION['error'] = true;
-                    header("Location: login.php");
                 }//fin
             }
-            if(!$usuarioEncontrado && isset($_SESSION["intentos"])){
+            if(!$usuarioEncontrado){
                 $_SESSION["mal"] = true;
                 unlink("../archivos/strikes.txt");
             }
@@ -139,9 +138,12 @@
         }
         header("Location: login.php");
     }
+    if(isset($_POST["logout"])){
+        unset($_SESSION['usuario']);
+        unset($_SESSION['admin']);
+        $_SESSION['logout'] = true;
+        header("Location: login.php");
+    }
+
 ?>
 
-
-<?php 
-
-?>

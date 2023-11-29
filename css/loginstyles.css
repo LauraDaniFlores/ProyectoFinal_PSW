@@ -1,20 +1,29 @@
-/* font-family: 'Merienda', cursive;
-font-family: 'Playball', cursive; */
+body{
+    margin: 0;
+    padding: 0;
+}
+.background{
+    padding: 50px;
+    margin: 0;
+    background-image: linear-gradient(rgba(68, 68, 68, 0.9), rgba(68, 68, 68, 0.9)), url("../imagenes/fondologin.jpg");
+}
 
 .formlogin{
     margin: 40px auto;
     display: flex;
     justify-content: center;
-    width: 400px;
-    padding: 20px;
-    background-color: hsl(354, 67%, 14%);
+    width: 1000px;
+    padding: 0px;
     border-radius: 10px;
+    background-color: #FFFFFF;
 }
+
 .form{
-    background-color: #F9D9C9;
-    padding: 40px;
-    padding-right: 55px;
+    background-color: #FFFFFF;
+    /* padding: 70px 100px; */
     border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;    
+    width: 100%;
 }
 
 .formlogin .info{
@@ -29,13 +38,29 @@ font-family: 'Playball', cursive; */
     margin: 15px 0 30px 0;
     color: hsl(354, 67%, 14%);
     font-weight: bold;
-    font-family: 'Playball', cursive;
+}
+.titleimg{
+    display: flex;
+    justify-content: center;
+}
+.formlogin .title{
+    text-align: center;
 }
 
 .formlogin .image{
     text-align: center;
 }
-
+.formlogin .colorback{
+    background-color: #F9DEC9;
+    padding: 0;
+    padding-top: 40px;
+    margin: 0;
+    width: 100%;
+}
+.formlogin .colorback1{
+    padding: 50px 250px;
+    background-color: #FFFFFF;
+}
 .formlogin .captcha{
     padding: 10px;
     margin: 10px 0;
@@ -54,15 +79,17 @@ font-family: 'Playball', cursive; */
 .formlogin input{
     border-radius: 10px;
     border: none;
+    background-color: #F9DEC9;
 }
 .formlogin .cookies{
     display: flex;
-    justify-content: space-evenly;
-    margin: 10px 0;
+    justify-content: center;
+    margin: 10px;
 }
 
 .formlogin .check{
     width: 20px;
+    margin-right: 15px;
 }
 .formlogin .containerboton{
     display: flex;
@@ -72,11 +99,12 @@ font-family: 'Playball', cursive; */
 .formlogin .boton{
     padding: 10px;
     margin: 10px 0 0px 0;
-    background-color: white;
+    background-color: #F78CA2;
     width: 25%;
 }
 .formlogin .boton:hover{
-    background-color: #F78CA2;
+    background-color: #D8006C;
+    color: white;
 }
 .formlogin .check1{
     font-size: 15px;
@@ -84,18 +112,58 @@ font-family: 'Playball', cursive; */
 .formlogin ::placeholder, .refresh, .check1, input, .rescate{
     font-family: 'Merienda', cursive;
     font-size: 14px;
-
 }
 .formlogin .preguntas .rescate{
     font-size: 15px;
 }
-
 .formlogin .primera{
-    margin-top: 40px;
+    margin-top: -20px;
+    font-size: 17px;
+}
+.formlogin .labelogout{
+    display: flex;
+    justify-content: center;
 }
 .formlogin .preguntas{
     display: none;
 }
+.formlogin .botonlogout{
+    width: 50%;
+}
+.formlogin p a{
+    text-align: center;
+    font-family: 'Merienda', cursive;
+}
+.formlogin .to_registro{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+a:visited {
+    color: #D8006C;
+}
+a:hover {
+    color: #F78CA2;
+}
+@media only screen and (max-width: 1100px) {
+    .formlogin, .div_Registro{
+        width: 600px;
+    }
+    .formlogin .colorback1{
+        padding: 25px 100px;
+        background-color: #FFFFFF;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .formlogin, .div_Registro{
+        width: 400px;
+    }
+    .formlogin .colorback1{
+        padding: 15px 50px;
+        background-color: #FFFFFF;
+    }
+}
+
 .div_Registro small{
     color: #3D0C11;
     color: #D8006C;
@@ -103,11 +171,13 @@ font-family: 'Playball', cursive; */
 
 .div_Registro{
     margin: 0 auto;
-    width: 50%;
+    /* width: 50%; */
+    width: 1000px;
+
     margin-top: 50px;
 
     background-color: #F78CA2;
-    padding: 40px;
+    /* padding: 40px; */
     border-radius: 8px;
     font-family: 'Merienda', cursive;
 }
@@ -123,9 +193,9 @@ font-family: 'Playball', cursive; */
     height: 30px;
     margin-bottom: 30px;
     border: .5px solid transparent;
-    border-radius: 5px;
-    font-size: 15px;
-    /* background-color: #EBE7B7; */
+    border-radius: 10px;
+    font-size: 14px;
+    background-color: #F78CA2;
     transition: .3s ease all;
 }
 
@@ -159,4 +229,21 @@ font-family: 'Playball', cursive; */
 
 .div_Registro #formulario_error{
     display: none;
+}
+.div_Registro .colorback_reg_1{
+    background-color: #F78CA2;
+    padding: 0;
+    padding-top: 40px;
+    margin: 0;
+    width: 100%;
+}
+.div_Registro .colorback_reg_2{
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 50px 250px;
+}
+
+::selection {
+    background-color: #F78CA2;
+    color: #fff;
 }
