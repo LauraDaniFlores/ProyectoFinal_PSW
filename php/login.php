@@ -3,94 +3,128 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+    include('scriptsLogin.php');
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/loginstyles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300&family=Playball&display=swap" rel="stylesheet">
     <script src="../js/functionlogin.js"></script>
-    <title>Login</title>
+    <link rel="stylesheet" href="../css/loginstyles.css">
+    <link rel="stylesheet" href="../css/estilospagp.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300&family=Playball&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="../imagenes/Icon2.png" />
+    <title>Iniciar Sesión | Candy Craze</title>
 </head>
 <body>
-    <div class="background">
-    <?php 
-    
-        if(!isset($_SESSION['usuario'])){
+    <?php
+        include ("menu.php");
     ?>
-    <div class="formlogin">
-        <form class="form" action="cookies.php" method="POST">
-            <div class="colorback">
-                <div class="titleimg">
-                    <image class="title" src="../imagenes/UsuarioIMG.png" alt="" width="120px" height="auto">
+    <script>
+        document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Inicia Sesión —";
+        document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Desbloquea la posibilidad de comprar todos tus dulces favoritos";
+    </script>
+
+    <main>
+    <section class="preguntasTitle">
+        <h3>¡Tu Experiencia de Compra Más Dulce Comienza Aquí!</h3>
+        <h2>Descubre un Mundo de Delicias</h2>
+        <div class="linea"></div>
+        <br>
+        <p>Descubre un mundo de dulzura y comodidad al iniciar sesión. Con nuestra plataforma, accederás a una 
+            experiencia de compra personalizada, donde podrás elegir y comprar todos los dulces que desees. 
+            Además, disfrutarás de ofertas exclusivas y promociones irresistibles. ¡Inicia sesión ahora y endulza 
+            tus momentos con la amplia variedad de delicias que tenemos para ti!</p>
+    </section>
+    <div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" 
+    style="height: 100%; width: 100%;">
+    <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" 
+    style="stroke: none; fill: #fff;"></path></svg></div>
+
+    <section class="inicioSesionCC" style="background-color: #ffffff;">
+        <?php 
+            if(!isset($_SESSION['usuario'])){
+        ?>
+        <div class="formlogin">
+            <form class="form" action="cookies.php" method="POST">
+                <h2>Inicia Sesión</h2>
+                <div class="linea"></div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                    <input id="user" class="form-control info" type="text" placeholder="Usuario" name="username" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["username"]; } ?>" required>
                 </div>
-                <legend class="title">Login</legend>
-                <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
-                style="height: 100%; width: 100%;">
-                <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-                    style="stroke: none; fill: #FFFFFF"></path>
-                </svg>
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                    <input class="form-control info" type="password" placeholder="Contraseña" name="password" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["password"]; } ?>" required>
                 </div>
-            </div>
-            <div class="colorback1">
-                <input id="user" class="info" type="text" placeholder="Usuario" name="username" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["username"]; } ?>">
-                <input class="info" type="password" placeholder="Contraseña" name="password" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["password"]; } ?>">
                 <div>
                     <div class="containerimage">
                         <img name="image" src="captcha.php?rand=<?php echo rand();?>" id='captcha_image'>
                     </div>
-                    <p class="refresh">¿No puedes leer la imagen? <a href="" id="clickhere"> Haz click aquí </a> para actualizar</p>
-                    <input class="captcha" type="text" size="8" name="captcha" placeholder="akvn873j">
+                    <p class="refresh">¿No puedes leer la imagen? <a href="" id="clickhere"> Haz click aquí</a> para actualizar</p>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fa-solid fa-circle-check"></i></span>
+                        <input class="form-control captcha" type="text" size="8" name="captcha" placeholder="akvn873j" required>
+                    </div>
                 </div>
                 <div class="preguntas" id="preg">
                     <p id="id"></p>
-                    <p class="rescate primera">Aquí tienes la pregunta de recuperación:</p>
+                    <p class="rescate primera">Pregunta de recuperación:</p>
                     <p class="rescate">¿Quién es tu cantante o banda favorita?</p>
-                    <input class="pregunta info" type="text" name="pregunta" placeholder="DAY6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fa-solid fa-question"></i></span>
+                        <input class="form-control pregunta info" type="text" name="pregunta" placeholder="DAY6" required>
+                    </div>
                 </div>
                 <div class="cookies">
                     <input class="check" type="checkbox" name="remember">
-                    <p class="check1"> Recordar usuario y contraseña </p>
+                    <p class="check1">Recordar mi usuario y contraseña </p>
                 </div>
                 <div class="containerboton">
-                    <input class="boton" type="submit" value="Login" name="submit">
+                    <input class="boton btn btn-primary" type="submit" value="INICIAR SESIÓN" name="submit">
                 </div>
-                <div class="to_registro">
-                    <p><a href="Registro.php">¿No tienes cuenta?</a></p>
+                <br>
+                <p style="text-align:center;">¿No tienes cuenta? <a href="Registro.php" id="clickhere">Regístrate</a></p>
+            </form>
+        </div>
+        <?php 
+            }elseif(isset($_SESSION['usuario'])){ ?>
+                <div class="formlogin logoutform">
+                    <form class="form" action="cookies.php" method="POST">
+                        <div class="colorback">
+                            <div class="titleimg">
+                                <image class="title" src="../imagenes/UsuarioIMG.png" alt="" width="120px" height="auto">
+                            </div>
+                            <legend class="title">Logout</legend>
+                            <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+                            style="height: 100%; width: 100%;">
+                            <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                                style="stroke: none; fill: #FFFFFF"></path>
+                            </svg>
+                            </div>
+                        </div>
+                        <div class="colorback1">
+                            <div class="labelogout">
+                                <p class="rescate primera">¿Quieres salir de tu cuenta <b><?php echo $_SESSION['usuario'];?><b>?</p>
+                            </div>
+                            <div class="containerboton">
+                                <input class="boton botonlogout" type="submit" value="Logout" name="logout">
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </div>
-        </form>
-    </div>
-    <?php 
-        }elseif(isset($_SESSION['usuario'])){ ?>
-    <div class="formlogin logoutform">
-        <form class="form" action="cookies.php" method="POST">
-            <div class="colorback">
-                <div class="titleimg">
-                    <image class="title" src="../imagenes/UsuarioIMG.png" alt="" width="120px" height="auto">
-                </div>
-                <legend class="title">Logout</legend>
-                <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
-                style="height: 100%; width: 100%;">
-                <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-                    style="stroke: none; fill: #FFFFFF"></path>
-                </svg>
-                </div>
-            </div>
-            <div class="colorback1">
-                <div class="labelogout">
-                    <p class="rescate primera">¿Quieres salir de tu cuenta <b><?php echo $_SESSION['usuario'];?><b>?</p>
-                </div>
-                <div class="containerboton">
-                    <input class="boton botonlogout" type="submit" value="Logout" name="logout">
-                </div>
-            </div>
-        </form>
-    </div>
-        <?php }
+        <?php 
+        }
+        ?>
+    </section>
+    </main>
+    
+    <?php
+        include("footer.php");
     ?>
-    </div>
 </body>
 </html>
-<?php 
-    include('scriptsLogin.php');
-?>
