@@ -1,0 +1,180 @@
+#container-etiquetas{
+    display:flex;
+    flex-wrap:wrap;
+}
+.etiqueta{
+    margin:2px;
+    background-color:#F78CA2;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.eliminar{
+    text-align: right;
+    background-color: transparent;
+    border: none;
+    width: 17px;
+}
+.btn-etiqueta{
+    background-color: #D8006C !important;
+    color: white !important;
+    border: none !important;
+}
+.btn-etiqueta:hover{
+    background-color: #a10955 !important;
+}
+
+
+
+
+.boton-mod{
+    background-color: #D8006C !important;
+    color: white !important;
+}
+.formulario-mod{
+    width: 80% !important;
+}
+#abajo{
+    margin-top: 80px;
+    /* height: 330px; */
+    
+} 
+table{
+    width: 100%;
+}
+#tabla-productos{
+    max-height: 400px;
+    overflow: auto;
+}
+#tabla-productos-mod{
+     /* max-height: 80vh;
+    overflow: auto;  */
+    margin-bottom: 30px;
+}
+#input-simbolo{
+    position: relative;
+}
+#simbolo{
+    position: absolute;
+    right: 2rem;
+    bottom: 1rem;
+    color: gray;
+}
+/* .renglon div{
+    margin-left: 5px;
+    margin-right: 5px;
+} */
+
+
+.contenedor-grid{
+    display: grid;
+    grid-gap: 2%;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    grid-template-areas: "idProducto    nombre            nombre            nombre"
+                         "descripcion   descripcion       categorias-grid   etiquetas-grid"
+                         "existencias   imagen            imagen            imagen"
+                         "precio        imagen            imagen            imagen"
+                         "descuento     imagen            imagen            imagen"
+                         "image-file    image-file        image-file        image-file"
+                         "boton         boton             boton             boton";
+}
+
+.contenedor-grid .idProducto{
+    grid-area: idProducto;
+    width: 100%;
+}
+.contenedor-grid .nombre{
+    grid-area: nombre;
+    width: 100%;
+}
+.contenedor-grid .descripcion{
+    grid-area: descripcion;
+    width: 100%;
+}
+
+.contenedor-grid .categorias-grid{
+    grid-area: categorias-grid;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #DEE2E6;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    
+}
+#container-categoria{
+    padding: 7px;
+}
+#label-categoria{
+    background-color: #DEE2E6;
+    color: #3b3b3b;
+    text-align: center;
+}
+.contenedor-grid .etiquetas-grid{
+    grid-area: etiquetas-grid;
+    width: 100%;
+}
+.contenedor-grid .existencias{
+    grid-area: existencias;
+    width: 100%;
+}
+.contenedor-grid .precio{
+    grid-area: precio;
+    width: 100%;
+}
+.contenedor-grid .descuento{
+    grid-area: descuento;
+    width: 100%;
+}
+.contenedor-grid .imagen{
+    grid-area: imagen;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #DEE2E6;
+    border-radius: 5px;
+    text-align: center;
+}
+.contenedor-grid .image-file{
+    grid-area: image-file;
+    width: 100%;
+}
+.contenedor-grid .boton{
+    grid-area: boton;
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+
+.imagen img{
+    height: 230px;
+}
+#imagen{
+    display: block;
+    margin: 0 auto;
+}
+.imagen{
+    text-align: center;
+}
+.mas{
+    margin-right: 10px;
+}
+.img-chica{
+    display: block;
+    margin: 0 auto;
+    height: 60px;
+}
+th, td{
+    text-align: center !important;
+    vertical-align: middle;
+}
+.lista-titulo{
+    margin-top: 30px;
+}
+tr:hover .boton-mod {
+    visibility: visible;
+}
+.boton-mod {
+    visibility: hidden;
+}
