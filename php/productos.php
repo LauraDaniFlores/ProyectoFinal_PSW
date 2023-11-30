@@ -1,3 +1,54 @@
+<?php 
+    function datos($conexion, $categorias, $num){
+        if($num == 3){
+            $sql = "SELECT *FROM productos;";
+        }else {
+            $sql = "SELECT *FROM productos WHERE Categoria= '$categorias[$num]';";
+        }
+        $resultado = $conexion -> query($sql); 
+        while( $fila = $resultado -> fetch_assoc() ){ 
+            $i = 0; ?>
+            <div class="Producto_in">
+                <img src="<?php echo $fila['imagen'] ?>" alt="Producto">
+                <h3><?php echo $fila['nombre'] ?></h3>
+                <p><?php echo $fila['descripcion'] ?></p>
+                <hr>
+                <?php if($fila['existencias'] == 0){?>
+                    <h5 class="Agotado">Producto agotado</h5>
+                <?php }else { ?>
+                    <h5>Existencias: <?php echo $fila['existencias'] ?></h5>
+                <?php } ?>
+                <?php if($fila['descuento'] != 0){
+                    $PrecioD=$fila['precio'] * ((100-$fila['descuento'])/100); ?>
+                    <p>$<?php echo $PrecioD." \t "?><del class="Precio_tachado">$<?php echo $fila['precio'] ?></del></p>
+                <?php } else { ?>
+                    <p>$<?php echo $fila['precio'] ?></p>
+                <?php }
+                ?>
+                <div class="seleccion_productos">
+                    <button class="seleccion_boton" type="submit" value="<?php echo $i ?>" name="Resta">-</button>
+                    <p id="ProductoCarro<?php echo $i ?>">0</p>
+                    <button class="seleccion_boton" type="submit" value="<?php echo $i ?>" name="Suma">+</button>       
+                </div>
+                <div>
+                    <button class="seleccion_agregar" type="submit" value="<?php echo $i ?>" name="agregar">Agregar</button>       
+                </div>
+            </div>
+        <?php } 
+    }
+
+    $servidor='localhost';
+    $cuenta='root';
+    $password='';
+    $bd='Store';
+    
+    //conexion a la base de datos
+    $conexion = new mysqli($servidor,$cuenta,$password,$bd);
+
+    if ($conexion->connect_errno){
+        die('Error en la conexion');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +64,7 @@
     <!-- Links css -->
     <link rel="stylesheet" href="../css/estilospagp.css">
     <link rel="stylesheet" href="../css/estilotienda.css">
+    <link rel="stylesheet" href="../css/styles_Productos.css">
 
     <!-- Links para funciones externas -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -60,22 +112,29 @@
     <div class="radioacomodo">
         <div class="radio-inputs">
             <label class="radio">
-                <input type="radio" name="radio" checked="">
+                <input type="radio" name="categoria" value="3" checked="">
                 <span class="name">Todos</span>
             </label>
             <label class="radio">
-                <input type="radio" name="radio"">
+                <input type="radio" name="categoria" value="0" >
                 <span class=" name">México</span>
             </label>
             <label class="radio">
-                <input type="radio" name="radio">
+                <input type="radio" name="categoria" value="1">
                 <span class="name">Japón</span>
             </label>
 
             <label class="radio">
-                <input type="radio" name="radio">
+                <input type="radio" name="categoria" value="2">
                 <span class="name">Corea</span>
             </label>
+        </div>
+    </div>
+
+    <div id="Productos_div">
+        <div class="Div_Productos">
+        <?php 
+            datos($conexion, $categorias, 3) ?>
         </div>
     </div>
 
@@ -83,7 +142,6 @@
 
     <!-- Asigna productos -->
     <section>
-
         <!-- Seccion de productos -->
         <div class="acomodo2">
 
@@ -128,342 +186,6 @@
                 </div>
             </div>
 
-            <!-- Diseño de la card del producto -->
-            <div class="card">
-                <div class="card-img">
-                    <div class="img">
-                        <!-- Aqui va la imagen -->
-                    </div>
-                </div>
-
-                <!-- Aqui va el titulo del producto -->
-                <div class="card-title">Product title</div>
-
-                <!-- Aqui va la descripcion -->
-                <div class="card-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis magni nobis
-                    voluptate temporibus, laboriosam, eaque quis laborum labore excepturi ratione, totam repellendus.
-                    Quibusdam, id perferendis illo harum doloribus magnam repellat?</div>
-                <hr class="card-divider">
-                <div class="card-footer">
-
-                    <!-- Aqui va el precio -->
-                    <div class="card-price"><span>$</span> 123.45</div>
-
-                    <!-- Todo esto es el apartado del diseño del boton del acrrito, entonces aqui iria la funcion del carrito -->
-                    <button class="card-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path
-                                d="m397.78 316h-205.13a15 15 0 0 1 -14.65-11.67l-34.54-150.48a15 15 0 0 1 14.62-18.36h274.27a15 15 0 0 1 14.65 18.36l-34.6 150.48a15 15 0 0 1 -14.62 11.67zm-193.19-30h181.25l27.67-120.48h-236.6z">
-                            </path>
-                            <path
-                                d="m222 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m368.42 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m158.08 165.49a15 15 0 0 1 -14.23-10.26l-25.71-77.23h-47.44a15 15 0 1 1 0-30h58.3a15 15 0 0 1 14.23 10.26l29.13 87.49a15 15 0 0 1 -14.23 19.74z">
-                            </path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Diseño de la card del producto -->
-            <div class="card">
-                <div class="card-img">
-                    <div class="img">
-                        <!-- Aqui va la imagen -->
-                    </div>
-                </div>
-
-                <!-- Aqui va el titulo del producto -->
-                <div class="card-title">Product title</div>
-
-                <!-- Aqui va la descripcion -->
-                <div class="card-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis magni nobis
-                    voluptate temporibus, laboriosam, eaque quis laborum labore excepturi ratione, totam repellendus.
-                    Quibusdam, id perferendis illo harum doloribus magnam repellat?</div>
-                <hr class="card-divider">
-                <div class="card-footer">
-
-                    <!-- Aqui va el precio -->
-                    <div class="card-price"><span>$</span> 123.45</div>
-
-                    <!-- Todo esto es el apartado del diseño del boton del acrrito, entonces aqui iria la funcion del carrito -->
-                    <button class="card-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path
-                                d="m397.78 316h-205.13a15 15 0 0 1 -14.65-11.67l-34.54-150.48a15 15 0 0 1 14.62-18.36h274.27a15 15 0 0 1 14.65 18.36l-34.6 150.48a15 15 0 0 1 -14.62 11.67zm-193.19-30h181.25l27.67-120.48h-236.6z">
-                            </path>
-                            <path
-                                d="m222 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m368.42 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m158.08 165.49a15 15 0 0 1 -14.23-10.26l-25.71-77.23h-47.44a15 15 0 1 1 0-30h58.3a15 15 0 0 1 14.23 10.26l29.13 87.49a15 15 0 0 1 -14.23 19.74z">
-                            </path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-
-            <!-- Diseño de la card del producto -->
-            <div class="card">
-                <div class="card-img">
-                    <div class="img">
-                        <!-- Aqui va la imagen -->
-                    </div>
-                </div>
-
-                <!-- Aqui va el titulo del producto -->
-                <div class="card-title">Product title</div>
-
-                <!-- Aqui va la descripcion -->
-                <div class="card-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis magni nobis
-                    voluptate temporibus, laboriosam, eaque quis laborum labore excepturi ratione, totam repellendus.
-                    Quibusdam, id perferendis illo harum doloribus magnam repellat?</div>
-                <hr class="card-divider">
-                <div class="card-footer">
-
-                    <!-- Aqui va el precio -->
-                    <div class="card-price"><span>$</span> 123.45</div>
-
-                    <!-- Todo esto es el apartado del diseño del boton del acrrito, entonces aqui iria la funcion del carrito -->
-                    <button class="card-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path
-                                d="m397.78 316h-205.13a15 15 0 0 1 -14.65-11.67l-34.54-150.48a15 15 0 0 1 14.62-18.36h274.27a15 15 0 0 1 14.65 18.36l-34.6 150.48a15 15 0 0 1 -14.62 11.67zm-193.19-30h181.25l27.67-120.48h-236.6z">
-                            </path>
-                            <path
-                                d="m222 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m368.42 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m158.08 165.49a15 15 0 0 1 -14.23-10.26l-25.71-77.23h-47.44a15 15 0 1 1 0-30h58.3a15 15 0 0 1 14.23 10.26l29.13 87.49a15 15 0 0 1 -14.23 19.74z">
-                            </path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-
-            <!-- Diseño de la card del producto -->
-            <div class="card">
-                <div class="card-img">
-                    <div class="img">
-                        <!-- Aqui va la imagen -->
-                    </div>
-                </div>
-
-                <!-- Aqui va el titulo del producto -->
-                <div class="card-title">Product title</div>
-
-                <!-- Aqui va la descripcion -->
-                <div class="card-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis magni nobis
-                    voluptate temporibus, laboriosam, eaque quis laborum labore excepturi ratione, totam repellendus.
-                    Quibusdam, id perferendis illo harum doloribus magnam repellat?</div>
-                <hr class="card-divider">
-                <div class="card-footer">
-
-                    <!-- Aqui va el precio -->
-                    <div class="card-price"><span>$</span> 123.45</div>
-
-                    <!-- Todo esto es el apartado del diseño del boton del acrrito, entonces aqui iria la funcion del carrito -->
-                    <button class="card-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path
-                                d="m397.78 316h-205.13a15 15 0 0 1 -14.65-11.67l-34.54-150.48a15 15 0 0 1 14.62-18.36h274.27a15 15 0 0 1 14.65 18.36l-34.6 150.48a15 15 0 0 1 -14.62 11.67zm-193.19-30h181.25l27.67-120.48h-236.6z">
-                            </path>
-                            <path
-                                d="m222 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m368.42 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m158.08 165.49a15 15 0 0 1 -14.23-10.26l-25.71-77.23h-47.44a15 15 0 1 1 0-30h58.3a15 15 0 0 1 14.23 10.26l29.13 87.49a15 15 0 0 1 -14.23 19.74z">
-                            </path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-
-            <!-- Diseño de la card del producto -->
-            <div class="card">
-                <div class="card-img">
-                    <div class="img">
-                        <!-- Aqui va la imagen -->
-                    </div>
-                </div>
-
-                <!-- Aqui va el titulo del producto -->
-                <div class="card-title">Product title</div>
-
-                <!-- Aqui va la descripcion -->
-                <div class="card-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis magni nobis
-                    voluptate temporibus, laboriosam, eaque quis laborum labore excepturi ratione, totam repellendus.
-                    Quibusdam, id perferendis illo harum doloribus magnam repellat?</div>
-                <hr class="card-divider">
-                <div class="card-footer">
-
-                    <!-- Aqui va el precio -->
-                    <div class="card-price"><span>$</span> 123.45</div>
-
-                    <!-- Todo esto es el apartado del diseño del boton del acrrito, entonces aqui iria la funcion del carrito -->
-                    <button class="card-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path
-                                d="m397.78 316h-205.13a15 15 0 0 1 -14.65-11.67l-34.54-150.48a15 15 0 0 1 14.62-18.36h274.27a15 15 0 0 1 14.65 18.36l-34.6 150.48a15 15 0 0 1 -14.62 11.67zm-193.19-30h181.25l27.67-120.48h-236.6z">
-                            </path>
-                            <path
-                                d="m222 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m368.42 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m158.08 165.49a15 15 0 0 1 -14.23-10.26l-25.71-77.23h-47.44a15 15 0 1 1 0-30h58.3a15 15 0 0 1 14.23 10.26l29.13 87.49a15 15 0 0 1 -14.23 19.74z">
-                            </path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-
-            <!-- Diseño de la card del producto -->
-            <div class="card">
-                <div class="card-img">
-                    <div class="img">
-                        <!-- Aqui va la imagen -->
-                    </div>
-                </div>
-
-                <!-- Aqui va el titulo del producto -->
-                <div class="card-title">Product title</div>
-
-                <!-- Aqui va la descripcion -->
-                <div class="card-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis magni nobis
-                    voluptate temporibus, laboriosam, eaque quis laborum labore excepturi ratione, totam repellendus.
-                    Quibusdam, id perferendis illo harum doloribus magnam repellat?</div>
-                <hr class="card-divider">
-                <div class="card-footer">
-
-                    <!-- Aqui va el precio -->
-                    <div class="card-price"><span>$</span> 123.45</div>
-
-                    <!-- Todo esto es el apartado del diseño del boton del acrrito, entonces aqui iria la funcion del carrito -->
-                    <button class="card-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path
-                                d="m397.78 316h-205.13a15 15 0 0 1 -14.65-11.67l-34.54-150.48a15 15 0 0 1 14.62-18.36h274.27a15 15 0 0 1 14.65 18.36l-34.6 150.48a15 15 0 0 1 -14.62 11.67zm-193.19-30h181.25l27.67-120.48h-236.6z">
-                            </path>
-                            <path
-                                d="m222 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m368.42 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m158.08 165.49a15 15 0 0 1 -14.23-10.26l-25.71-77.23h-47.44a15 15 0 1 1 0-30h58.3a15 15 0 0 1 14.23 10.26l29.13 87.49a15 15 0 0 1 -14.23 19.74z">
-                            </path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-
-            <!-- Diseño de la card del producto -->
-            <div class="card">
-                <div class="card-img">
-                    <div class="img">
-                        <!-- Aqui va la imagen -->
-                    </div>
-                </div>
-
-                <!-- Aqui va el titulo del producto -->
-                <div class="card-title">Product title</div>
-
-                <!-- Aqui va la descripcion -->
-                <div class="card-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis magni nobis
-                    voluptate temporibus, laboriosam, eaque quis laborum labore excepturi ratione, totam repellendus.
-                    Quibusdam, id perferendis illo harum doloribus magnam repellat?</div>
-                <hr class="card-divider">
-                <div class="card-footer">
-
-                    <!-- Aqui va el precio -->
-                    <div class="card-price"><span>$</span> 123.45</div>
-
-                    <!-- Todo esto es el apartado del diseño del boton del acrrito, entonces aqui iria la funcion del carrito -->
-                    <button class="card-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path
-                                d="m397.78 316h-205.13a15 15 0 0 1 -14.65-11.67l-34.54-150.48a15 15 0 0 1 14.62-18.36h274.27a15 15 0 0 1 14.65 18.36l-34.6 150.48a15 15 0 0 1 -14.62 11.67zm-193.19-30h181.25l27.67-120.48h-236.6z">
-                            </path>
-                            <path
-                                d="m222 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m368.42 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m158.08 165.49a15 15 0 0 1 -14.23-10.26l-25.71-77.23h-47.44a15 15 0 1 1 0-30h58.3a15 15 0 0 1 14.23 10.26l29.13 87.49a15 15 0 0 1 -14.23 19.74z">
-                            </path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-
-            <!-- Diseño de la card del producto -->
-            <div class="card">
-                <div class="card-img">
-                    <div class="img">
-                        <!-- Aqui va la imagen -->
-                    </div>
-                </div>
-
-                <!-- Aqui va el titulo del producto -->
-                <div class="card-title">Product title</div>
-
-                <!-- Aqui va la descripcion -->
-                <div class="card-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis magni nobis
-                    voluptate temporibus, laboriosam, eaque quis laborum labore excepturi ratione, totam repellendus.
-                    Quibusdam, id perferendis illo harum doloribus magnam repellat?</div>
-                <hr class="card-divider">
-                <div class="card-footer">
-
-                    <!-- Aqui va el precio -->
-                    <div class="card-price"><span>$</span> 123.45</div>
-
-                    <!-- Todo esto es el apartado del diseño del boton del acrrito, entonces aqui iria la funcion del carrito -->
-                    <button class="card-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path
-                                d="m397.78 316h-205.13a15 15 0 0 1 -14.65-11.67l-34.54-150.48a15 15 0 0 1 14.62-18.36h274.27a15 15 0 0 1 14.65 18.36l-34.6 150.48a15 15 0 0 1 -14.62 11.67zm-193.19-30h181.25l27.67-120.48h-236.6z">
-                            </path>
-                            <path
-                                d="m222 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m368.42 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z">
-                            </path>
-                            <path
-                                d="m158.08 165.49a15 15 0 0 1 -14.23-10.26l-25.71-77.23h-47.44a15 15 0 1 1 0-30h58.3a15 15 0 0 1 14.23 10.26l29.13 87.49a15 15 0 0 1 -14.23 19.74z">
-                            </path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-
-            
         </div> <!-- Div que cierra la sección de productos -->
     </section>
 
@@ -479,6 +201,7 @@
     <script>
         AOS.init();
     </script>
+    <script src="../js/productos.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,78 @@
+.Div_Productos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.Producto_in{
+    /* width: 430px;
+    height: 430px;
+     width: 25%; */
+    /*margin: 10px;
+    border: 2px solid #D8006C;
+    padding: 10px;
+    text-align: center; */
+    text-align: center;
+    margin: 10px;
+    --font-color: #323232;
+    --font-color-sub: #666;
+    --bg-color: #fff;
+    --main-color: #323232;
+    --main-focus: #2d8cf0;
+    width: 430px;
+    height: 430px;
+    background: var(--bg-color);
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    gap: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.Producto_in hr{
+    border: 0; 
+    height: 12px; 
+    box-shadow: inset 0 10px 10px -10px #F78CA2;
+}
+
+.Producto_in img{
+    height: 200px;
+}
+.seleccion_productos button,  .seleccion_productos p{
+    display: inline;
+}
+.seleccion_productos{
+    margin-bottom: 20px;
+}
+.Agotado{
+    color: rgb(214, 56, 56);
+    font-weight: bold;
+}
+
+.Precio_tachado{
+    color: rgb(147, 63, 48);
+}
+.seleccion_boton{
+    background-color: #F78CA2;
+    border: .5px solid #F78CA2;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+}
+.seleccion_boton:hover{
+    background-color: rgb(214, 0, 107, 0.7);
+}
+.seleccion_agregar{
+    border: .5px solid #F78CA2;
+    cursor: pointer;
+    height: 30px;
+    width: 60px;
+}
+.encontrados{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
