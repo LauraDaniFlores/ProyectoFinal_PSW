@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,7 +39,7 @@
         <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" 
         style="stroke: none; fill: #fff;"></path></svg></div>
 
-        <section class="registroCC" style="background-color: #ffffff;">
+        <section class="registroCC">
             <div class="div_Registro">
                 <h2>Registro</h2>
                 <div class="linea"></div>
@@ -92,7 +95,7 @@
                     </div>
 
                     <div class="button">
-                        <button type="submit" class="btn btn-primary">REGISTRAR</button>
+                        <button type="submit" name="submit" class="btn btn-primary">REGISTRAR</button>
                     </div>
                 </form>
             </div>

@@ -16,7 +16,10 @@ if(isset($_SESSION['repetido'])){
         swal.fire({
             icon: "success",
             title: "Usuario creado",
-        });
+        }).then((result) => {
+            if (result.isConfirmed) {
+                location. assign('../index.php')
+            }});
     </script><?php
 }elseif(isset($_SESSION['cont'])){
     ?><script>
