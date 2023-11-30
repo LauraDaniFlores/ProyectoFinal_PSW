@@ -45,22 +45,24 @@
         <?php 
         unset($_SESSION['in']);
         unset($_SESSION['captcha']);
-        unset($_SESSION['intentos']);
-
+        unset($_SESSION["intentos"]);
+        unlink("../archivos/strikes.txt");               
     }
-
     if(isset($_SESSION['intentos'])){
         ?>
         <script>
             document.getElementById("preg").style.display = "block";
-            document.getElementById("preg").setAttribute('required');
-            document.getElementById("user").style.display = "none";
+            document.getElementById("pass").placeholder='Nueva Contraseña';
+            document.getElementById("preg").required = true;
             document.getElementById("user").removeAttribute('required');
+            document.getElementById("user").style.display = "none";
             document.getElementById("usericon").style.display = "none";
+            document.getElementById("repetidacontra").style.display = "flex";
+            document.getElementById("passrepetir").required = true;
+            document.getElementById("contratext").style.display = "block";
         </script>
         <?php
     }
-
     if(isset($_SESSION['error'])){
         ?>
         <script>

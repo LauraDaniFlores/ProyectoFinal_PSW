@@ -54,13 +54,14 @@
                     <span id="usericon" class="input-group-text"><i class="fa-solid fa-user"></i></span>
                     <input id="user" class="form-control info" type="text" placeholder="Usuario" name="username" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["username"]; } ?>" required>
                 </div>
+                <p class="rescate primera contratext" id="contratext">Ingresa una nueva contraseña</p>
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                    <input class="form-control info" type="password" placeholder="Contraseña" name="password" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["password"]; } ?>" required>
+                    <input id="pass" class="form-control info" type="password" placeholder="Contraseña" name="password" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["password"]; } ?>" required>
                 </div>
-                <div class="input-group mb-3 constraseñarepetida">
+                <div class="input-group mb-3 constraseñarepetida" id="repetidacontra">
                     <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                    <input type="password" name="pass1" class="form-control" id="pass1" required>
+                    <input type="password" id="passrepetir" name="passwordR" class="form-control info" placeholder="Repetir Contraseña">
                 </div>
                 <div>
                     <div class="containerimage">
