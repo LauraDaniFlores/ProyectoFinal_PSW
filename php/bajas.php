@@ -34,7 +34,7 @@
 </head>
 <body>
     <div class="d-flex flex-nowrap">
-        <?php include "../panel.html"; ?>
+        <?php include "../html/panel.html"; ?>
         <script>
             document.getElementById("bajas").style.backgroundColor= "#D8006C";
         </script>
