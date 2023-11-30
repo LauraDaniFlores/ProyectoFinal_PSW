@@ -62,6 +62,7 @@
                 <div class="input-group mb-3 constraseñarepetida" id="repetidacontra">
                     <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
                     <input type="password" id="passrepetir" name="passwordR" class="form-control info" placeholder="Repetir Contraseña">
+                    <small class="message" id="message">Las contraseñas no coinciden</small>
                 </div>
                 <div>
                     <div class="containerimage">
@@ -79,7 +80,7 @@
                     <p class="rescate">¿Quién es tu cantante o banda favorita?</p>
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fa-solid fa-question"></i></span>
-                        <input class="form-control pregunta info" type="text" name="pregunta" placeholder="DAY6">
+                        <input id="pregunta_extra" class="form-control pregunta info" type="text" name="pregunta" placeholder="DAY6">
                     </div>
                 </div>
                 <div class="cookies">
@@ -122,6 +123,7 @@
     <?php
         include("footer.php");
     ?>
+    <script src="../js/script_login_contraseñas.js"></script>
 </body>
 </html>
 

@@ -53,7 +53,7 @@
         <script>
             document.getElementById("preg").style.display = "block";
             document.getElementById("pass").placeholder='Nueva Contraseña';
-            document.getElementById("preg").required = true;
+            document.getElementById("pregunta_extra").required = true;
             document.getElementById("user").removeAttribute('required');
             document.getElementById("user").style.display = "none";
             document.getElementById("usericon").style.display = "none";

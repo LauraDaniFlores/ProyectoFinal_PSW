@@ -99,7 +99,7 @@ input,
   margin-top: 40px;
 }
 
-#repetidacontra, .formlogin .preguntas, .formlogin .contratext {
+#repetidacontra, .formlogin .preguntas, .formlogin .contratext, .message{
   display: none;
 }
 .formlogin .botonlogout{
