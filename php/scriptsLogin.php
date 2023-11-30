@@ -95,6 +95,5 @@
         unset($_SESSION['captcha']);
         unset($_SESSION['intentos']);
     }
-
 ?>
 

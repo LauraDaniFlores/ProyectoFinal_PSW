@@ -113,6 +113,12 @@ input,
     justify-content: center;
     margin-top: 20px;
 }
+.inicioSesionCC{
+  background-color: #ffffff;
+}
+.mandarARegistro{
+  text-align:center;
+}
 @media only screen and (max-width: 1100px) {
     .formlogin, .div_Registro{
         width: 600px;
@@ -131,6 +137,7 @@ input,
         background-color: #FFFFFF;
     }
 }
+
 .div_Registro small{
     color: #3D0C11;
     color: #D8006C;
