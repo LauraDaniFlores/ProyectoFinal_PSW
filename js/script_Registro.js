@@ -15,4 +15,8 @@ function logKey(e) {
     }
 }
 
-input.addEventListener("keyup", logKey);
+
+if (input) {
+    input.addEventListener("keyup", logKey);  
+}
+
