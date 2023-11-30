@@ -30,8 +30,9 @@
             // $password = openssl_decrypt($password, $cipher, $encryption_key, 0, $iv); 
             $password = openssl_encrypt($password, $cipher, $encryption_key, 0, $iv); 
             $captcha = $_POST['captcha'];
-            $entrar = false; 
+            $cookies = false; 
             $usuarioEncontrado = false; 
+            $preguntar = true;
 
             if($_SESSION['captcha'] != $captcha){ 
                 $_SESSION['Equal'] = false; 
@@ -40,23 +41,22 @@
 
             $sql = 'select * from usuarios';//hacemos cadena con la sentencia mysql que consulta todo el contenido de la tabla
             $resultado = $conexion -> query($sql); //aplicamos sentencia
-            $preguntar = true;
             if ($resultado -> num_rows){ //si la consulta genera registros
                 while( $fila = $resultado -> fetch_assoc()){ //recorremos los registros obtenidos de la tabla
                     if($fila['usuario'] === $username && !isset($_SESSION['Equal'])){
                         $usuarioEncontrado = true;
-                        if($fila['contra'] === $password){
-                            if(isset($_SESSION["intentos"])){
-                                if($fila['seguridad'] != $_POST['pregunta']){
-                                    $preguntar = false; 
-                                    break; 
-                                }else{
-                                    unset($_SESSION["intentos"]);
-                                    unlink("../archivos/strikes.txt");                
-                                }
+                        if(isset($_SESSION["intentos"])){
+                            if($fila['seguridad'] != $_POST['pregunta']){
+                                $preguntar = false; 
+                                break; 
+                            }else{
+                                unset($_SESSION["intentos"]);
+                                unlink("../archivos/strikes.txt");                
                             }
+                        }
+                        if($fila['contra'] === $password){
                             $_SESSION['usuario'] = $username;
-                            $entrar = true;
+                            $cookies = true;
                             if($fila['administrador'] === 1){
                                 $_SESSION['admin'] = true;
                             }
@@ -124,7 +124,7 @@
                 $_SESSION["mal"] = true;
                 unlink("../archivos/strikes.txt");
             }
-            if($entrar){
+            if($cookies){
                 if(!empty($_POST["remember"])){
                     setcookie("username", $_POST["username"], time()+ 3600);
                     setcookie("password", $_POST["password"], time()+ 3600);

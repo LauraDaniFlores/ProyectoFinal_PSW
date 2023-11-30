@@ -27,6 +27,13 @@
             icon: "success",
             title: "¡Felicidades!",
             text: "¡Haz ingresado a tu cuenta <?php echo $_SESSION['usuario']; ?>!",
+            background: "#fff url(../images/trees.png)",
+            backdrop: `
+            rgba(247,140,162,0.2)
+            url("../imagenes/Dulces3.gif")
+            left top
+            no-repeat
+            `
             <?php 
             // echo $SESSION['usuario']; 
             ?>
@@ -46,7 +53,10 @@
         ?>
         <script>
             document.getElementById("preg").style.display = "block";
+            document.getElementById("preg").setAttribute('required');
             document.getElementById("user").style.display = "none";
+            document.getElementById("user").removeAttribute('required');
+            document.getElementById("usericon").style.display = "none";
         </script>
         <?php
     }

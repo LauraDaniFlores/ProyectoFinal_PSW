@@ -358,7 +358,7 @@
         width: 600,
         padding: "3em",
         color: "black",
-        background: "#fff url(/images/trees.png)",
+        background: "#fff url(images/trees.png)",
         backdrop: `
             rgba(247,140,162,0.2)
             url("imagenes/Dulces3.gif")

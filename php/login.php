@@ -51,12 +51,16 @@
                 <div class="linea"></div>
                 <br>
                 <div class="input-group mb-3">
-                    <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                    <span id="usericon" class="input-group-text"><i class="fa-solid fa-user"></i></span>
                     <input id="user" class="form-control info" type="text" placeholder="Usuario" name="username" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["username"]; } ?>" required>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
                     <input class="form-control info" type="password" placeholder="Contraseña" name="password" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["password"]; } ?>" required>
+                </div>
+                <div class="input-group mb-3 constraseñarepetida">
+                    <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" name="pass1" class="form-control" id="pass1" required>
                 </div>
                 <div>
                     <div class="containerimage">
