@@ -85,6 +85,9 @@
 
 <body>
 <header>
+<?php
+          if(!isset($_SESSION['admin'])){
+        ?>
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <a href="index.php" style="text-decoration: none;">
@@ -103,6 +106,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="php/productos.php">Productos</a>
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="php/acerca.php">Acerca de</a>
                             </li>
@@ -138,6 +142,75 @@
                 style="stroke: none; fill: #f9dec9"></path>
         </svg></div>
     </header>
+
+    <?php
+          }else{
+    ?>
+
+    <!-- Menu con administrador -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a href="index.php" style="text-decoration: none;">
+                    <img src="imagenes/LogoCC.png" alt="Candy Craze" style="margin-right:10px; width:70px;">
+                </a>
+                <a class="navbar-brand" href="index.php">Candy Craze</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="d-flex ms-auto">
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="index.php">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="php/productos.php">Productos</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="html/panel.html">Administrador</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="php/acerca.php">Acerca de</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="php/contacto.php">Contáctanos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="php/ayuda.php">Ayuda</a>
+                            </li>
+                        </ul>
+                        <a href="php/login.php" class="navbar-nav">
+                            <span class="nav-link">
+                                <i class="fa-solid fa-user menuIcons"></i>
+                            </span>
+                        </a>
+                        <a href="php/carrito.php" class="navbar-nav">
+                            <span class="nav-link">
+                                <i class="fa-solid fa-cart-shopping menuIcons"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="textos-header">
+            <h2 class="animate__animated animate__fadeInDown">— Bienvenido a Candy Craze —</h2>
+            <h1 class="animate__animated animate__fadeInUp">¡Delicias Globales en un Click!</h1>
+        </section>
+        <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+            style="height: 100%; width: 100%;">
+            <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                style="stroke: none; fill: #f9dec9"></path>
+        </svg></div>
+    </header>
+
+    <?php
+          }
+    ?>
 
     <main>
         <section class="caracteristicas">
