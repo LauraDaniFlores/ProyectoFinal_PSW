@@ -88,12 +88,13 @@ input,
   font-family: "Merienda", cursive;
   font-size: 14px;
 }
+.labelogout{
+  font-size: 17px;
+  text-align: center;
+  margin-top: -20px;
+}
 .formlogin .preguntas .rescate {
   font-size: 15px;
-}
-.formlogin .labelogout{
-    display: flex;
-    justify-content: center;
 }
 .formlogin .primera{
   margin-top: 40px;
@@ -101,9 +102,6 @@ input,
 
 #repetidacontra, .formlogin .preguntas, .formlogin .contratext, .message{
   display: none;
-}
-.formlogin .botonlogout{
-    width: 50%;
 }
 .formlogin p a{
     text-align: center;

@@ -112,6 +112,15 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="php/ayuda.php">Ayuda</a>
                             </li>
+                            <?php 
+                            if(isset($_SESSION['admin'])){
+                            ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../html/panel.html">Administrador</a>
+                            </li>
+                            <?php 
+                            }
+                            ?>
                         </ul>
                         <a href="php/login.php" class="navbar-nav">
                             <span class="nav-link">

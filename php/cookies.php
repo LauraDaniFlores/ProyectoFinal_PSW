@@ -67,7 +67,7 @@
                             }
                             $_SESSION['usuario'] = $username;
                             $cookies = true;
-                            if($fila['administrador'] === 1){
+                            if($fila['administrador'] == 1){
                                 $_SESSION['admin'] = true;
                             }
                             $_SESSION['in'] = true; 
@@ -76,7 +76,7 @@
                         if($fila['contra'] === $password){
                             $_SESSION['usuario'] = $username;
                             $cookies = true;
-                            if($fila['administrador'] === 1){
+                            if($fila['administrador'] == 1){
                                 $_SESSION['admin'] = true;
                             }
                             $_SESSION['in'] = true; 
