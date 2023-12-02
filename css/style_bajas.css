@@ -1,0 +1,22 @@
+#tituloP, .selector, .botonP, legend{
+    margin-left: 10px;
+}
+.selector{
+    max-height: 500px;
+    overflow-y: auto;
+}
+.contenido .tablaP td, .contenido .tablaP th{
+    padding-left: 30px;
+}
+.tablaP{
+    max-height: 400px;
+    overflow-y: auto;
+}
+.botonP{
+    background: rgb(31, 40, 57);
+    border-color: whitesmoke;
+}
+.botonP:hover{
+    background: darkgrey;
+    border-color: whitesmoke;
+}

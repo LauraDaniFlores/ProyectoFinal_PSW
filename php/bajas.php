@@ -4,33 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="astyle.css"> -->
+    <link rel="stylesheet" href="../css/style_bajas.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Bajas | CandyCraze</title>
 
-    <style>
-        #tituloP, .selector, .botonP, legend{
-            margin-left: 10px;
-        }
-        .selector{
-            max-height: 500px;
-            overflow-y: auto;
-        }
-        .contenido .tablaP td, .contenido .tablaP th{
-            padding-left: 30px;
-        }
-        .tablaP{
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        .botonP{
-            background: rgb(31, 40, 57);
-            border-color: whitesmoke;
-        }
-        .botonP:hover{
-            background: darkgrey;
-            border-color: whitesmoke;
-        }
-    </style>
 </head>
 <body>
     <div class="d-flex flex-nowrap">
@@ -60,7 +37,7 @@
                         $eliminar = $_POST['eliminar'];
 
                         //hacemos cadena con la sentencia mysql para eliminar
-                        $sql = "DELETE FROM productos WHERE IdProducto='$eliminar'"; //cambiar a id
+                        $sql = "DELETE FROM productos WHERE idProducto='$eliminar'"; //cambiar a id
                         $conexion->query($sql);
                         if($conexion->affected_rows >= 1){
                             // echo '<br>Registro borrado <br>';
@@ -89,7 +66,7 @@
                             <select class="browser-default custom-select form-select selector" name="eliminar">
                             <?php
                                 while($fila = $resultado -> fetch_assoc()){ //reconoce los registros obtenidos de la tabla
-                                    echo '<option value="' .$fila["IdProducto"].'">'.$fila["nombre"].'</option>'; //aquí poner el id del producto------------------------
+                                    echo '<option value="' .$fila["idProducto"].'">'.$fila["nombre"].'</option>'; //aquí poner el id del producto------------------------
                                 }
                                 ?>
                             </select>
@@ -114,15 +91,17 @@
                                     echo '<th scope="col">Descripción</th>';
                                     echo '<th scope="col">Existencias</th>';
                                     echo '<th scope="col">Precio</th>';
+                                    echo '<th scope="col">Categoría</th>';
                                     echo '<th scope="col">Imagen</th>';
                                 echo '</tr>';
                                 while( $fila = $resultado -> fetch_assoc()){ //recorremos los registros obtenidos de la tabla
                                     echo '<tr>';
-                                        echo '<td>'. $fila['IdProducto'] . '</td>';
+                                        echo '<td>'. $fila['idProducto'] . '</td>';
                                         echo '<td>'. $fila['nombre'] . '</td>';
                                         echo '<td>'. $fila['descripcion'] . '</td>';
                                         echo '<td>'. $fila['existencias'] . '</td>';
                                         echo '<td>'. $fila['precio'] . '</td>';
+                                        echo '<td>'. $fila['categoria'] . '</td>';
                                         $url = $fila['imagen'];
                                         echo '<td>';
                                         echo "<img src='$url' alt='' style='max-height: 100px;'>";
