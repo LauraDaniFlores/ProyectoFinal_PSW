@@ -80,6 +80,23 @@
             text-align: center;
             margin-top: -25px;
         }
+        #saludos, .saludos{
+            position: absolute;
+            color: white;
+            top: 90px;
+            right: 40px;
+            text-align: right;
+            display: flex;
+            justify-content: end;
+            margin-right: 20px;
+        }
+        @media only screen and (max-width: 992px) {
+            #saludos, .saludos{
+                top: 130px;
+                left: 50px;
+                justify-content: start;
+            }
+        }
     </style>
 </head>
 
@@ -136,7 +153,24 @@
                 </div>
             </div>
         </nav>
-
+        <div class="saludos" id="saludos">
+            <?php 
+                if(isset($_SESSION['usuario'])){
+                    date_default_timezone_set('America/Mexico_City'); 
+                    $hora_actual = date('H');
+                    if($hora_actual >=5 && $hora_actual < 12){
+                        $saludo = "Buenos días";
+                    }elseif($hora_actual >= 12 && $hora_actual < 19){
+                        $saludo = "Buenas tardes"; 
+                    }else {
+                        $saludo = "Buenas noches"; 
+                    }
+            ?>
+                <p><?php echo $saludo." ".$_SESSION['usuario']?></p>
+            <?php 
+                }
+            ?>
+        </div>
         <section class="textos-header">
             <h2 class="animate__animated animate__fadeInDown">— Bienvenido a Candy Craze —</h2>
             <h1 class="animate__animated animate__fadeInUp">¡Delicias Globales en un Click!</h1>

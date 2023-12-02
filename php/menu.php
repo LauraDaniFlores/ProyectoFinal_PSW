@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +19,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300&family=Playball&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f3a304d792.js" crossorigin="anonymous"></script>
 </head>
+<style>
+    #saludos, .saludos{
+        position: absolute;
+        color: white;
+        top: 90px;
+        right: 40px;
+        text-align: right;
+        display: flex;
+        justify-content: end;
+        margin-right: 20px;
+    }
+    @media only screen and (max-width: 992px) {
+        #saludos, .saludos{
+            top: 130px;
+            left: 50px;
+            justify-content: start;
+        }
+    }
+</style>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -66,10 +88,28 @@
                             <i class="fa-solid fa-cart-shopping menuIcons"></i>
                         </span>
                     </a>
-                </div>
+                    </div>
                 </div>
             </div>
         </nav>
+        <div class="saludos" id="saludos">
+            <?php 
+                if(isset($_SESSION['usuario'])){
+                    date_default_timezone_set('America/Mexico_City'); 
+                    $hora_actual = date('H');
+                    if($hora_actual >=5 && $hora_actual < 12){
+                        $saludo = "Buenos días";
+                    }elseif($hora_actual >= 12 && $hora_actual < 19){
+                        $saludo = "Buenas tardes"; 
+                    }else {
+                        $saludo = "Buenas noches"; 
+                    }
+            ?>
+                <p><?php echo $saludo." ".$_SESSION['usuario']?></p>
+            <?php 
+                }
+            ?>
+        </div>
 
         <section class="textos-header">
             <h2 class="animate__animated animate__fadeInDown">— Bienvenido a Candy Craze —</h2>
