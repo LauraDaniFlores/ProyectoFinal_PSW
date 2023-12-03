@@ -1,61 +1,45 @@
-<?php
-session_start();
+<?php 
 
-if ($_SESSION['usuario']) { ?>
-    <div id="logeado" style="display:none;">true</div>
-<?php } else { ?>
+if (isset($_SESSION['usuario'])){?>
+    <div id="logeado" style="display:none;">true</div> 
+<?php }else{ ?>
     <div id="logeado" style="display:none;">false</div>
     <!-- die("You must be logged in!!"); -->
 <?php }
 
-function datos($conexion, $categorias, $num)
-{
-    if ($num == 3) {
-        $sql = "SELECT *FROM productos;";
-    } else {
-        $sql = "SELECT *FROM productos WHERE Categoria= '$categorias[$num]';";
-    }
-    $resultado = $conexion->query($sql);
-    $i = 0;
-    while ($fila = $resultado->fetch_assoc()) {
-
-        $flag = true; ?>
-        <div class="Producto_in">
-            <div class="imagen">
-                <img src="<?php echo $fila['imagen'] ?>" alt="Producto">
-            </div>
-            <h5>
-                <?php echo $fila['nombre'] ?>
-            </h5>
-            <p class="Descripcion">
-                <?php echo $fila['descripcion'] ?>
-            </p>
-            <?php if ($fila['descuento'] != 0) {
-                $PrecioD = $fila['precio'] * ((100 - $fila['descuento']) / 100); ?>
-                <p class="precio">$
-                    <?php echo $PrecioD . " \t " ?><del class="Precio_tachado">$
-                        <?php echo $fila['precio'] ?>
-                    </del>
-                </p>
-            <?php } else { ?>
-                <p class="precio">$
-                    <?php echo $fila['precio'] ?>
-                </p>
-            <?php } ?>
-            <hr>
-            <?php if ($fila['existencias'] == 0) {
-                $flag = false; ?>
-                <h6 class="Agotado">Producto agotado</h6>
-            <?php } else { ?>
-                <h6>Existencias:
-                    <?php echo $fila['existencias'] ?>
-                </h6>
-            <?php }
-            ?>
-            <h6 style="display:none;" id="exis<?php echo $i ?>">
-                <?php echo $fila['existencias'] ?>
-            </h6>
-            <?php if ($flag) { ?>
+$categorias = array("México", "Japón", "Corea");
+    function datos($conexion, $categorias, $num){
+        if($num == 3){
+            $sql = "SELECT *FROM productos;";
+        }else {
+            $sql = "SELECT *FROM productos WHERE Categoria= '$categorias[$num]';";
+        }
+        $resultado = $conexion -> query($sql);
+        $i = 0;  
+        while( $fila = $resultado -> fetch_assoc() ){
+          
+            $flag = true; ?>
+            <div class="Producto_in">
+                <div class="imagen">
+                    <img src="<?php echo $fila['imagen'] ?>" alt="Producto">
+                </div>
+                <h5><?php echo $fila['nombre'] ?></h5>
+                <p class="Descripcion"><?php echo $fila['descripcion'] ?></p>
+                <?php if($fila['descuento'] != 0){
+                    $PrecioD=$fila['precio'] * ((100-$fila['descuento'])/100); ?>
+                    <p class="precio">$<?php echo $PrecioD." \t "?><del class="Precio_tachado">$<?php echo $fila['precio'] ?></del></p>
+                <?php } else { ?>
+                    <p class="precio">$<?php echo $fila['precio'] ?></p>
+                <?php } ?>
+                <hr>
+                <?php if($fila['existencias'] == 0){ $flag= false;?>
+                    <h6 class="Agotado">Producto agotado</h6>
+                <?php }else { ?>
+                    <h6>Existencias: <?php echo $fila['existencias'] ?></h6>
+                <?php } 
+                ?>
+                <h6 style="display:none;" id="exis<?php echo $i ?>" ><?php echo $fila['existencias'] ?></h6>
+                <?php if($flag){ ?>
                 <div class="seleccion_productos">
                     <button class="seleccion_boton" type="submit" value="<?php echo $i ?>" name="Resta">-</button>
                     <p id="ProductoCarro<?php echo $i ?>">0</p>
@@ -82,8 +66,6 @@ function datos($conexion, $categorias, $num)
                                     </svg></span>
                             </button>
                         </div>
-
-
                     </form>
                 </div>
             <?php } ?>
@@ -104,14 +86,31 @@ if ($conexion->connect_errno) {
     die('Error en la conexion');
 }
 
-if (isset($_POST['agregar'])) {
-    unset($_POST['agregar']);
-    $User = $_SESSION['usuario'];
-    $idPro = $_POST['id'];
-    $cantidad = $_POST['cantidad'];
-    if ($cantidad != 0) {
-        $sql = "INSERT INTO Carrito VALUES('$User', '$idPro', '$cantidad');";
-        $resultado = $conexion->query($sql);
+    if(isset($_POST['agregar'])){
+        unset($_POST['agregar']);
+        $User = $_SESSION['usuario'];
+        $idPro = $_POST['id'];
+        $cantidad = $_POST['cantidad'];
+        $flag1 = false;
+        if($cantidad != 0){
+            $comprobar = "SELECT *FROM Carrito WHERE usuario='$User' AND IdProducto='$idPro';";
+            $resultado1 = $conexion -> query($comprobar); 
+            while( $fila = $resultado1 -> fetch_assoc() ){
+                $acomulada = $fila['cantidad'];
+                $flag1 = true;
+            }
+            if($flag1){
+                $acomulada = $acomulada + $cantidad;
+                $sql = "UPDATE Carrito set cantidad='$acomulada' WHERE usuario='$User' AND IdProducto='$idPro';";
+                $resultado = $conexion -> query($sql);
+                echo $sql;
+            }else{
+                $sql= "INSERT INTO Carrito VALUES('$User', '$idPro', '$cantidad');";
+                $resultado = $conexion -> query($sql); 
+            }
+
+        }
+        header("Location: productos.php");
     }
     header("Location: productos.php");
 }
