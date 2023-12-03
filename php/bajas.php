@@ -24,7 +24,7 @@
                 <h1 id="tituloP">Bajas de productos</h1>
                 <?php
             
-                $servidor='localhost:33065';
+                $servidor='localhost';
                 $cuenta='root';
                 $password='';
                 $bd='store';
@@ -89,7 +89,6 @@
                                 <div class="modal-content">
                                     <div class="modal-header colorHeader">
                                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirmar Eliminación</h1>
-                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="mb-3">
