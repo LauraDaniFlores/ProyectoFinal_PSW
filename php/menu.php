@@ -1,6 +1,8 @@
 <?php 
 session_start();
 
+$cantidad;
+
 if (isset($_SESSION['usuario'])){    
     $servidor='localhost';
     $cuenta='root';
