@@ -72,8 +72,7 @@ if ($_SESSION['usuario']){?>
 
     if(isset($_POST['agregar'])){
         unset($_POST['agregar']);
-        // $User = $_SESSION['usuario'];
-        $User = "Gaby";
+        $User = $_SESSION['usuario'];
         $idPro = $_POST['id'];
         $cantidad = $_POST['cantidad'];
         if($cantidad != 0){
@@ -116,28 +115,18 @@ if ($_SESSION['usuario']){?>
     <!-- Scripts para funciones externas -->
     <script src="https://kit.fontawesome.com/f3a304d792.js" crossorigin="anonymous"></script>
 
-</head>
-
-<body>
-    <?php
-        include("menu.php");
-    ?>
-    <script>
-        document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Productos —";
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-
     <!-- Animaciones link -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
 </head>
 
 <body>
 
     <header>
-        
         <?php
             include "menu.php";
         ?>
-        
         <script>
         document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Productos Candy Craze —";
         document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Disfruta de nuestra gran variedad de dulces";
