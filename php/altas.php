@@ -175,15 +175,21 @@
                         </div>
                         <div id="container-categoria">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="categoria" value="mexico" id="mexico" required>
+                                <input class="form-check-input" type="radio" name="categoria" value="México" id="mexico" required>
                                 <label class="form-check-label" for="mexico">
                                     México
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="categoria" value="japon" id="japon" required>
+                                <input class="form-check-input" type="radio" name="categoria" value="Japón" id="japon" required>
                                 <label class="form-check-label" for="japon">
                                     Japón
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="categoria" value="Corea" id="corea" required>
+                                <label class="form-check-label" for="corea">
+                                    Corea
                                 </label>
                             </div>
                         </div>
