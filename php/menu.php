@@ -23,6 +23,9 @@ if (isset($_SESSION['usuario'])){
         $cantidad = $fila['cant'];
     }    
 
+    if($cantidad == null){
+        $cantidad = 0;
+    }
 }else{
     
 }
