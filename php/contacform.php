@@ -36,7 +36,36 @@
     $mail -> Subject = "Mensaje de contacto: $asunto";
     $mail -> msgHTML($body);
     $mail -> AltBody = strip_tags($body);
-    $mail -> send();
+    
+    if ($mail->send()) {
+      // Envío exitoso, ahora enviamos una respuesta al remitente
+      $respuestaSubject = "Gracias por ponerte en contacto";
+      $respuestaBody = <<<HTML
+        <p style="text-align: center;">
+          <img src='cid:imagenLogo' alt='' width='150px' height='auto' style='display: inline-block;'>
+        </p>
+        <h3>Hola $nombre,</h3>
+        <h3>Gracias por ponerte en contacto con Candy Craze. Hemos recibido tu correo y te responderemos pronto. 🍬</h3>
+        <h3>¡Saludos, Equipo Candy Craze!</h3>
+  HTML;
+  
+      $respuestaMail = new PHPMailer();
+      $respuestaMail->isSMTP();
+      $respuestaMail->Host = 'smtp.gmail.com';
+      $respuestaMail->SMTPAuth = true;
+      $respuestaMail->Username = 'candycraze511@gmail.com';
+      $respuestaMail->Password = 'jyyb icpr joso jrwu';
+      $respuestaMail->SMTPSecure = 'ssl';
+      $respuestaMail->Port = 465;
+      $respuestaMail->setFrom('candycraze511@gmail.com', 'Candy Craze');
+      $respuestaMail->addAddress($email, $nombre);
+      $respuestaMail->Subject = $respuestaSubject;
+      $respuestaMail->IsHTML(true);
+      $imagen_path = "../imagenes/LogoCorreo2.png";
+      $respuestaMail->AddEmbeddedImage($imagen_path, 'imagenLogo', 'LogoCorreo2.png');
+      $respuestaMail->Body = $respuestaBody;
+      $respuestaMail->send();
+  }
 
     session_start();
     $_SESSION['enviado2'] = true;
