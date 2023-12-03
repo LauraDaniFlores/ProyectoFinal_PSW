@@ -1,0 +1,32 @@
+.barra-lat{
+    height: 100vh;
+}
+/* .principal{
+    background-color: rgb(191, 92, 153) !important;
+} */
+.principal:hover{
+    background-color: white !important;
+    color: #D8006C !important;
+}
+.opcion{
+    margin-bottom: 20px;
+}
+.opcion:hover{
+    background-color: #D8006C;
+    /* background-color: rgb(75, 84, 93); */
+}
+.opcion:active{
+    background-color: #D8006C;
+}
+.contenido{
+    padding: 40px 100px 40px 100px;
+    background-color: rgb(243, 244, 244);
+    width: 78vw;
+}
+i{
+    margin-right: 10px;
+}
+#company{
+    color: rgb(101, 113, 125);
+    text-align: center;
+}

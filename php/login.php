@@ -1,8 +1,8 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
-<?php 
-    include('scriptsLogin.php');
-?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,19 +41,28 @@
     <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" 
     style="stroke: none; fill: #fff;"></path></svg></div>
 
-    <section class="inicioSesionCC" style="background-color: #ffffff;">
+    <section class="inicioSesionCC">
+        <?php 
+            if(!isset($_SESSION['usuario'])){
+        ?>
         <div class="formlogin">
-            <form class="form" action="cookies.php" method="POST">
+            <form class="form" action="cookies.php" method="post">
                 <h2>Inicia Sesión</h2>
                 <div class="linea"></div>
                 <br>
                 <div class="input-group mb-3">
-                    <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                    <span id="usericon" class="input-group-text"><i class="fa-solid fa-user"></i></span>
                     <input id="user" class="form-control info" type="text" placeholder="Usuario" name="username" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["username"]; } ?>" required>
                 </div>
+                <p class="rescate primera contratext" id="contratext">Ingresa una nueva contraseña</p>
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                    <input class="form-control info" type="password" placeholder="Contraseña" name="password" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["password"]; } ?>" required>
+                    <input id="pass" class="form-control info" type="password" placeholder="Contraseña" name="password" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["password"]; } ?>" required>
+                </div>
+                <div class="input-group mb-3 constraseñarepetida" id="repetidacontra">
+                    <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" id="passrepetir" name="passwordR" class="form-control info" placeholder="Repetir Contraseña">
+                    <small class="message" id="message">Las contraseñas no coinciden</small>
                 </div>
                 <div>
                     <div class="containerimage">
@@ -71,7 +80,7 @@
                     <p class="rescate">¿Quién es tu cantante o banda favorita?</p>
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fa-solid fa-question"></i></span>
-                        <input class="form-control pregunta info" type="text" name="pregunta" placeholder="DAY6" required>
+                        <input id="pregunta_extra" class="form-control pregunta info" type="text" name="pregunta" placeholder="DAY6">
                     </div>
                 </div>
                 <div class="cookies">
@@ -82,14 +91,38 @@
                     <input class="boton btn btn-primary" type="submit" value="INICIAR SESIÓN" name="submit">
                 </div>
                 <br>
-                <p style="text-align:center;">¿No tienes cuenta? <a href="Registro.php" id="clickhere">Regístrate</a></p>
+                <p class="mandarARegistro">¿No tienes cuenta? <a href="Registro.php" id="clickhere">Regístrate</a></p>
             </form>
         </div>
+        <?php 
+            }elseif(isset($_SESSION['usuario'])){ ?>
+                <script>document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Cierra Sesión —";</script>
+                <div class="formlogin logoutform">
+                    <form class="form" action="cookies.php" method="POST">
+                        <h2>Cerrar Sesión</h2>
+                        <div class="linea"></div>
+                        <br>
+                        <div class="labelogout">
+                            <p class="rescate primera labelogout">¿Quieres salir de tu cuenta <b><?php echo $_SESSION['usuario'];?><b>?</p>
+                        </div>
+                        <div class="containerboton">
+                            <input class="boton btn btn-primary" type="submit" value="CERRAR SESIÓN" name="logout">
+                        </div>
+                    </form>
+                </div>
+        <?php 
+        }
+        ?>
     </section>
     </main>
     
     <?php
         include("footer.php");
     ?>
+    <script src="../js/script_login_contraseñas.js"></script>
 </body>
 </html>
+
+<?php 
+    include('scriptsLogin.php');
+?>

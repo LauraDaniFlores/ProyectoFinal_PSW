@@ -80,6 +80,23 @@
             text-align: center;
             margin-top: -25px;
         }
+        #saludos, .saludos{
+            position: absolute;
+            color: white;
+            top: 90px;
+            right: 40px;
+            text-align: right;
+            display: flex;
+            justify-content: end;
+            margin-right: 20px;
+        }
+        @media only screen and (max-width: 992px) {
+            #saludos, .saludos{
+                top: 130px;
+                left: 50px;
+                justify-content: start;
+            }
+        }
     </style>
 </head>
 
@@ -96,39 +113,64 @@
                 </button>
                 <div class="d-flex ms-auto">
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                         <li class="nav-item">
-                            <a class="nav-link active" href="index.php">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="php/productos.php">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="php/acerca.php">Acerca de</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="php/contacto.php">Contáctanos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="php/ayuda.php">Ayuda</a>
-                        </li>
-                    </ul>
-                    <a href="php/login.php" class="navbar-nav">
-                        <span class="nav-link">
-                            <i class="fa-solid fa-user menuIcons"></i>
-                        </span>
-                    </a>
-
-                    <a href="php/carrito.php" class="navbar-nav">
-                        <span class="nav-link">
-                            <i class="fa-solid fa-cart-shopping menuIcons"></i>
-                        </span>
-                    </a>
-                </div>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="index.php">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="php/productos.php">Productos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="php/acerca.php">Acerca de</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="php/contacto.php">Contáctanos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="php/ayuda.php">Ayuda</a>
+                            </li>
+                            <?php 
+                            if(isset($_SESSION['admin'])){
+                            ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="php/altas.php">Administrador</a>
+                            </li>
+                            <?php 
+                            }
+                            ?>
+                        </ul>
+                        <a href="php/login.php" class="navbar-nav">
+                            <span class="nav-link">
+                                <i class="fa-solid fa-user menuIcons"></i>
+                            </span>
+                        </a>
+                        <a href="php/carrito.php" class="navbar-nav">
+                            <span class="nav-link">
+                                <i class="fa-solid fa-cart-shopping menuIcons"></i>
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
-
+        <div class="saludos" id="saludos">
+            <?php 
+                if(isset($_SESSION['usuario'])){
+                    date_default_timezone_set('America/Mexico_City'); 
+                    $hora_actual = date('H');
+                    if($hora_actual >=5 && $hora_actual < 12){
+                        $saludo = "Buenos días";
+                    }elseif($hora_actual >= 12 && $hora_actual < 19){
+                        $saludo = "Buenas tardes"; 
+                    }else {
+                        $saludo = "Buenas noches"; 
+                    }
+            ?>
+                <p><?php echo $saludo." ".$_SESSION['usuario']?></p>
+            <?php 
+                }
+            ?>
+        </div>
         <section class="textos-header">
             <h2 class="animate__animated animate__fadeInDown">— Bienvenido a Candy Craze —</h2>
             <h1 class="animate__animated animate__fadeInUp">¡Delicias Globales en un Click!</h1>
@@ -359,7 +401,7 @@
         width: 600,
         padding: "3em",
         color: "black",
-        background: "#fff url(/images/trees.png)",
+        background: "#fff url(images/trees.png)",
         backdrop: `
             rgba(247,140,162,0.2)
             url("imagenes/Dulces3.gif")
