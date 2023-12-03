@@ -12,11 +12,20 @@
     max-height: 400px;
     overflow-y: auto;
 }
-.botonP{
+/*.botonP{
     background: rgb(31, 40, 57);
     border-color: whitesmoke;
 }
 .botonP:hover{
     background: darkgrey;
     border-color: whitesmoke;
+}
+*/
+.botonP{
+    background-color: #D8006C !important;
+    color: white !important;
+    border: none !important;
+}
+.botonP:hover{
+    background-color: #a10955 !important;
 }
