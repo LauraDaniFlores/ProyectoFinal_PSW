@@ -45,7 +45,7 @@
                 <a href="index.php" style="text-decoration: none;">
                     <img src="../imagenes/LogoCC.png" alt="Candy Craze" style="margin-right:10px; width:70px;">
                 </a>
-                <a class="navbar-brand" href="index.php">Candy Craze</a>
+                <a class="navbar-brand" href="../index.php">Candy Craze</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
