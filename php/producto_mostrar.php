@@ -8,7 +8,7 @@
         if($num == 3){
             $sql = "SELECT COUNT(IdProducto) AS Total FROM productos;";
         }else {
-            $sql = "SELECT COUNT(IdProducto) AS Total FROM productos WHERE Categoria= '$categorias[$num]';";
+            $sql = "SELECT COUNT(IdProducto) AS Total FROM productos WHERE categoria= '$categorias[$num]';";
         }    
         $resultado = $conexion -> query($sql); 
         while( $fila = $resultado -> fetch_assoc() ){ 
