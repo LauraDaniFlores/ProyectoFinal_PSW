@@ -1,38 +1,58 @@
 <?php 
+session_start();
+
+if ($_SESSION['usuario']){?>
+    <div id="logeado" style="display:none;">true</div> 
+<?php }else{ ?>
+    <div id="logeado" style="display:none;">false</div>
+    <!-- die("You must be logged in!!"); -->
+<?php }
+
     function datos($conexion, $categorias, $num){
         if($num == 3){
             $sql = "SELECT *FROM productos;";
         }else {
             $sql = "SELECT *FROM productos WHERE Categoria= '$categorias[$num]';";
         }
-        $resultado = $conexion -> query($sql); 
-        while( $fila = $resultado -> fetch_assoc() ){ 
-            $i = 0; ?>
+        $resultado = $conexion -> query($sql);
+        $i = 0;  
+        while( $fila = $resultado -> fetch_assoc() ){
+            $flag = true; ?>
             <div class="Producto_in">
-                <img src="<?php echo $fila['imagen'] ?>" alt="Producto">
-                <h3><?php echo $fila['nombre'] ?></h3>
-                <p><?php echo $fila['descripcion'] ?></p>
-                <hr>
-                <?php if($fila['existencias'] == 0){?>
-                    <h5 class="Agotado">Producto agotado</h5>
-                <?php }else { ?>
-                    <h5>Existencias: <?php echo $fila['existencias'] ?></h5>
-                <?php } ?>
+                <div class="imagen">
+                    <img src="<?php echo $fila['imagen'] ?>" alt="Producto">
+                </div>
+                <h5><?php echo $fila['nombre'] ?></h5>
+                <p class="Descripcion"><?php echo $fila['descripcion'] ?></p>
                 <?php if($fila['descuento'] != 0){
                     $PrecioD=$fila['precio'] * ((100-$fila['descuento'])/100); ?>
-                    <p>$<?php echo $PrecioD." \t "?><del class="Precio_tachado">$<?php echo $fila['precio'] ?></del></p>
+                    <p class="precio">$<?php echo $PrecioD." \t "?><del class="Precio_tachado">$<?php echo $fila['precio'] ?></del></p>
                 <?php } else { ?>
-                    <p>$<?php echo $fila['precio'] ?></p>
-                <?php }
+                    <p class="precio">$<?php echo $fila['precio'] ?></p>
+                <?php } ?>
+                <hr>
+                <?php if($fila['existencias'] == 0){ $flag= false;?>
+                    <h6 class="Agotado">Producto agotado</h6>
+                <?php }else { ?>
+                    <h6>Existencias: <?php echo $fila['existencias'] ?></h6>
+                <?php } 
                 ?>
+                <h6 style="display:none;" id="exis<?php echo $i ?>" ><?php echo $fila['existencias'] ?></h6>
+                <?php if($flag){ ?>
                 <div class="seleccion_productos">
                     <button class="seleccion_boton" type="submit" value="<?php echo $i ?>" name="Resta">-</button>
                     <p id="ProductoCarro<?php echo $i ?>">0</p>
                     <button class="seleccion_boton" type="submit" value="<?php echo $i ?>" name="Suma">+</button>       
                 </div>
                 <div>
+                <form method="post" action="productos.php">
+                    <input style="display:none;" class="id" type="int" name="id" value="<?php echo $fila['IdProducto'] ?>">
+                    <input style="display:none;" type="int" name="cantidad" id="cantidad<?php echo $i ?>" value="0">
                     <button class="seleccion_agregar" type="submit" value="<?php echo $i ?>" name="agregar">Agregar</button>       
+                </form>                
                 </div>
+                <?php } ?>
+                <?php $i = $i+1 ?>
             </div>
         <?php } 
     }
@@ -47,6 +67,19 @@
 
     if ($conexion->connect_errno){
         die('Error en la conexion');
+    }
+
+    if(isset($_POST['agregar'])){
+        unset($_POST['agregar']);
+        // $User = $_SESSION['usuario'];
+        $User = "Gaby";
+        $idPro = $_POST['id'];
+        $cantidad = $_POST['cantidad'];
+        if($cantidad != 0){
+            $sql= "INSERT INTO Carrito VALUES('$User', '$idPro', '$cantidad');";
+            $resultado = $conexion -> query($sql); 
+        }
+        header("Location: productos.php");
     }
 ?>
 <!DOCTYPE html>
@@ -133,8 +166,7 @@
 
     <div id="Productos_div">
         <div class="Div_Productos">
-        <?php 
-            datos($conexion, $categorias, 3) ?>
+        <?php datos($conexion, $categorias, 3) ?>
         </div>
     </div>
 
@@ -143,31 +175,31 @@
     <!-- Asigna productos -->
     <section>
         <!-- Seccion de productos -->
-        <div class="acomodo2">
+        <!-- <div class="acomodo2"> -->
 
             <!-- Diseño de la card del producto -->
-            <div class="card">
+            <!-- <div class="card">
                 <div class="card-img">
-                    <div class="img">
+                    <div class="img"> -->
                         <!-- Aqui va la imagen -->
-                    </div>
-                </div>
+                    <!-- </div>
+                </div> -->
 
                 <!-- Aqui va el titulo del producto -->
-                <div class="card-title">Product title</div>
+                <!-- <div class="card-title">Product title</div> -->
 
                 <!-- Aqui va la descripcion -->
-                <div class="card-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis magni nobis
+                <!-- <div class="card-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis magni nobis
                     voluptate temporibus, laboriosam, eaque quis laborum labore excepturi ratione, totam repellendus.
                     Quibusdam, id perferendis illo harum doloribus magnam repellat?</div>
                 <hr class="card-divider">
-                <div class="card-footer">
+                <div class="card-footer"> -->
 
                     <!-- Aqui va el precio -->
-                    <div class="card-price"><span>$</span> 123.45</div>
+                    <!-- <div class="card-price"><span>$</span> 123.45</div> -->
 
                     <!-- Todo esto es el apartado del diseño del boton del acrrito, entonces aqui iria la funcion del carrito -->
-                    <button class="card-btn">
+                    <!-- <button class="card-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <path
                                 d="m397.78 316h-205.13a15 15 0 0 1 -14.65-11.67l-34.54-150.48a15 15 0 0 1 14.62-18.36h274.27a15 15 0 0 1 14.65 18.36l-34.6 150.48a15 15 0 0 1 -14.62 11.67zm-193.19-30h181.25l27.67-120.48h-236.6z">
@@ -186,7 +218,8 @@
                 </div>
             </div>
 
-        </div> <!-- Div que cierra la sección de productos -->
+        </div>  -->
+        <!-- Div que cierra la sección de productos -->
     </section>
 
     <br><br><br>
@@ -201,7 +234,7 @@
     <script>
         AOS.init();
     </script>
-    <script src="../js/productos.js"></script>
+    <script src="../js/AJAX_pro.js"></script>
 </body>
 
 </html>

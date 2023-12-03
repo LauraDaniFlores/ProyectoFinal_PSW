@@ -1,3 +1,32 @@
+<?php 
+session_start();
+
+if (isset($_SESSION['usuario'])){    
+    $servidor='localhost';
+    $cuenta='root';
+    $password='';
+    $bd='Store';
+    
+    //conexion a la base de datos
+    $conexion = new mysqli($servidor,$cuenta,$password,$bd);
+    
+    if ($conexion->connect_errno){
+        die('Error en la conexion');
+    }
+    $usuario = $_SESSION['usuario'];
+    $sql = "SELECT SUM(cantidad) as cant FROM Carrito WHERE usuario='$usuario';";
+    
+    $resultado = $conexion -> query($sql); 
+    while( $fila = $resultado -> fetch_assoc() ){
+        $cantidad = $fila['cant'];
+    }    
+
+}else{
+    
+}
+
+
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,7 +83,7 @@
 
                     <a href="carrito.php" class="navbar-nav">
                         <span class="nav-link">
-                            <i class="fa-solid fa-cart-shopping menuIcons"></i>
+                            <i class="fa-solid fa-cart-shopping menuIcons"></i><sub><?php echo $cantidad ?></sub>
                         </span>
                     </a>
                 </div>
