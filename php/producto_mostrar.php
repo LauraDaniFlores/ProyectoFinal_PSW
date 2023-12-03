@@ -57,7 +57,23 @@
                 <form method="post" action="productos.php">
                     <input style="display:none;" class="id" type="int" name="id" value="<?php echo $fila['idProducto'] ?>">
                     <input style="display:none;" type="int" name="cantidad" id="cantidad<?php echo $i ?>" value="0">
-                    <button class="seleccion_agregar" type="submit" value="<?php echo $i ?>" name="agregar">Agregar</button>       
+                    
+                    
+                    <div class="alinear">
+
+
+                        <!-- Boton Dinamico -->
+                            <button class="button" type="submit" value="<?php echo $i ?>" name="agregar">
+                                <span class="button__text">Agregar</span>
+                                <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor"
+                                        height="24" fill="none" class="svg">
+                                        <line y2="19" y1="5" x2="12" x1="12"></line>
+                                        <line y2="12" y1="12" x2="19" x1="5"></line>
+                                    </svg></span>
+                            </button>
+                        </div>
+
                 </form>                
                 </div>
                 <?php } ?>
