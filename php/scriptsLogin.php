@@ -27,6 +27,13 @@
             icon: "success",
             title: "¡Felicidades!",
             text: "¡Haz ingresado a tu cuenta <?php echo $_SESSION['usuario']; ?>!",
+            background: "#fff url(../images/trees.png)",
+            backdrop: `
+            rgba(247,140,162,0.2)
+            url("../imagenes/Dulces3.gif")
+            left top
+            no-repeat
+            `
             <?php 
             // echo $SESSION['usuario']; 
             ?>
@@ -38,19 +45,24 @@
         <?php 
         unset($_SESSION['in']);
         unset($_SESSION['captcha']);
-        unset($_SESSION['intentos']);
-
+        unset($_SESSION["intentos"]);
+        unlink("../archivos/strikes.txt");               
     }
-
     if(isset($_SESSION['intentos'])){
         ?>
         <script>
             document.getElementById("preg").style.display = "block";
+            document.getElementById("pass").placeholder='Nueva Contraseña';
+            document.getElementById("pregunta_extra").required = true;
+            document.getElementById("user").removeAttribute('required');
             document.getElementById("user").style.display = "none";
+            document.getElementById("usericon").style.display = "none";
+            document.getElementById("repetidacontra").style.display = "flex";
+            document.getElementById("passrepetir").required = true;
+            document.getElementById("contratext").style.display = "block";
         </script>
         <?php
     }
-
     if(isset($_SESSION['error'])){
         ?>
         <script>

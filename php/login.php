@@ -51,12 +51,18 @@
                 <div class="linea"></div>
                 <br>
                 <div class="input-group mb-3">
-                    <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                    <span id="usericon" class="input-group-text"><i class="fa-solid fa-user"></i></span>
                     <input id="user" class="form-control info" type="text" placeholder="Usuario" name="username" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["username"]; } ?>" required>
                 </div>
+                <p class="rescate primera contratext" id="contratext">Ingresa una nueva contraseña</p>
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                    <input class="form-control info" type="password" placeholder="Contraseña" name="password" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["password"]; } ?>" required>
+                    <input id="pass" class="form-control info" type="password" placeholder="Contraseña" name="password" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["password"]; } ?>" required>
+                </div>
+                <div class="input-group mb-3 constraseñarepetida" id="repetidacontra">
+                    <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" id="passrepetir" name="passwordR" class="form-control info" placeholder="Repetir Contraseña">
+                    <small class="message" id="message">Las contraseñas no coinciden</small>
                 </div>
                 <div>
                     <div class="containerimage">
@@ -74,7 +80,7 @@
                     <p class="rescate">¿Quién es tu cantante o banda favorita?</p>
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fa-solid fa-question"></i></span>
-                        <input class="form-control pregunta info" type="text" name="pregunta" placeholder="DAY6">
+                        <input id="pregunta_extra" class="form-control pregunta info" type="text" name="pregunta" placeholder="DAY6">
                     </div>
                 </div>
                 <div class="cookies">
@@ -90,21 +96,17 @@
         </div>
         <?php 
             }elseif(isset($_SESSION['usuario'])){ ?>
+                <script>document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Cierra Sesión —";</script>
                 <div class="formlogin logoutform">
                     <form class="form" action="cookies.php" method="POST">
-                        <div class="colorback">
-                            <div class="titleimg">
-                                <image class="title" src="../imagenes/UsuarioIMG.png" alt="" width="120px" height="auto">
-                            </div>
-                            <legend class="title">Logout</legend>
+                        <h2>Cerrar Sesión</h2>
+                        <div class="linea"></div>
+                        <br>
+                        <div class="labelogout">
+                            <p class="rescate primera labelogout">¿Quieres salir de tu cuenta <b><?php echo $_SESSION['usuario'];?><b>?</p>
                         </div>
-                        <div class="colorback1">
-                            <div class="labelogout">
-                                <p class="rescate primera">¿Quieres salir de tu cuenta <b><?php echo $_SESSION['usuario'];?><b>?</p>
-                            </div>
-                            <div class="containerboton">
-                                <input class="boton botonlogout" type="submit" value="Logout" name="logout">
-                            </div>
+                        <div class="containerboton">
+                            <input class="boton btn btn-primary" type="submit" value="CERRAR SESIÓN" name="logout">
                         </div>
                     </form>
                 </div>
@@ -117,6 +119,7 @@
     <?php
         include("footer.php");
     ?>
+    <script src="../js/script_login_contraseñas.js"></script>
 </body>
 </html>
 

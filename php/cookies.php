@@ -21,17 +21,19 @@
              die('Error en la conexion');
         }
         else{
-            if(isset($SESSION['intentos'])){
-                $username = $SESSION['intentos'];
+            if(isset($_SESSION['intentos'])){
+                $username = $_SESSION['intentos'];
+                $password = $_POST['password'];
+                $passwordR = $_POST['passwordR'];
             }else{
                 $username = $_POST['username'];
+                $password = $_POST['password'];
+                $password = openssl_encrypt($password, $cipher, $encryption_key, 0, $iv);     
             }
-            $password = $_POST['password'];
-            // $password = openssl_decrypt($password, $cipher, $encryption_key, 0, $iv); 
-            $password = openssl_encrypt($password, $cipher, $encryption_key, 0, $iv); 
             $captcha = $_POST['captcha'];
-            $entrar = false; 
+            $cookies = false; 
             $usuarioEncontrado = false; 
+            $preguntar = true;
 
             if($_SESSION['captcha'] != $captcha){ 
                 $_SESSION['Equal'] = false; 
@@ -40,24 +42,41 @@
 
             $sql = 'select * from usuarios';//hacemos cadena con la sentencia mysql que consulta todo el contenido de la tabla
             $resultado = $conexion -> query($sql); //aplicamos sentencia
-            $preguntar = true;
             if ($resultado -> num_rows){ //si la consulta genera registros
                 while( $fila = $resultado -> fetch_assoc()){ //recorremos los registros obtenidos de la tabla
                     if($fila['usuario'] === $username && !isset($_SESSION['Equal'])){
                         $usuarioEncontrado = true;
-                        if($fila['contra'] === $password){
-                            if(isset($_SESSION["intentos"])){
-                                if($fila['seguridad'] != $_POST['pregunta']){
-                                    $preguntar = false; 
-                                    break; 
-                                }else{
-                                    unset($_SESSION["intentos"]);
-                                    unlink("../archivos/strikes.txt");                
+                        if(isset($_SESSION["intentos"])){
+                            // echo "Entró a los intentos\n"; 
+                            if($fila['seguridad'] != $_POST['pregunta']){
+                                $preguntar = false; 
+                                break; 
+                            }
+                            // echo "La pregunta de seguridad es correcta\n"; 
+                            // echo "La primera es: ".$password." La segunda es: ".$passwordR;
+                            if($password != $passwordR){
+                                $preguntar = false; 
+                                break; 
+                            }else{
+                                $password = openssl_encrypt($password, $cipher, $encryption_key, 0, $iv);     
+                                $sql = "UPDATE Usuarios SET contra='$password' WHERE usuario = '$username'";
+                                $conexion->query($sql);
+                                if ($conexion->affected_rows >= 1){ 
+                                      //   echo "registro insertado" ;
                                 }
                             }
                             $_SESSION['usuario'] = $username;
-                            $entrar = true;
-                            if($fila['administrador'] === 1){
+                            $cookies = true;
+                            if($fila['administrador'] == 1){
+                                $_SESSION['admin'] = true;
+                            }
+                            $_SESSION['in'] = true; 
+                            break;  
+                        }
+                        if($fila['contra'] === $password){
+                            $_SESSION['usuario'] = $username;
+                            $cookies = true;
+                            if($fila['administrador'] == 1){
                                 $_SESSION['admin'] = true;
                             }
                             $_SESSION['in'] = true; 
@@ -124,7 +143,7 @@
                 $_SESSION["mal"] = true;
                 unlink("../archivos/strikes.txt");
             }
-            if($entrar){
+            if($cookies){
                 if(!empty($_POST["remember"])){
                     setcookie("username", $_POST["username"], time()+ 3600);
                     setcookie("password", $_POST["password"], time()+ 3600);
