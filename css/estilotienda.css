@@ -4,8 +4,8 @@
     --font-color-sub: #666;
     --bg-color: #fff;
     --main-color: #323232;
-    --main-focus: #2d8cf0;
-    width: 430px;
+    --main-focus: #d8006c;
+    width: 400px;
     height: 430px;
     background: var(--bg-color);
     border: 2px solid var(--main-color);

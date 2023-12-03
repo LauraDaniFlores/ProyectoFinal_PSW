@@ -17,6 +17,7 @@ if ($_SESSION['usuario']){?>
         $resultado = $conexion -> query($sql);
         $i = 0;  
         while( $fila = $resultado -> fetch_assoc() ){
+          
             $flag = true; ?>
             <div class="Producto_in">
                 <div class="imagen">
@@ -114,6 +115,15 @@ if ($_SESSION['usuario']){?>
 
     <!-- Scripts para funciones externas -->
     <script src="https://kit.fontawesome.com/f3a304d792.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <?php
+        include("menu.php");
+    ?>
+    <script>
+        document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Productos —";
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 
     <!-- Animaciones link -->
@@ -121,6 +131,7 @@ if ($_SESSION['usuario']){?>
 </head>
 
 <body>
+
     <header>
         
         <?php
@@ -128,7 +139,7 @@ if ($_SESSION['usuario']){?>
         ?>
         
         <script>
-        document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Poductos Candy Craze —";
+        document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Productos Candy Craze —";
         document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Disfruta de nuestra gran variedad de dulces";
         </script>
 
