@@ -30,8 +30,10 @@ function modifyRow(rowData,etiquetas) {
     
     if(document.getElementById('mexico').value==rowData.categoria){
         document.getElementById('mexico').checked=true;
-    }else{
+    }else if(document.getElementById('japon').value==rowData.categoria){
         document.getElementById('japon').checked=true;
+    }else{
+        document.getElementById('corea').checked=true;
     }
 
 }
