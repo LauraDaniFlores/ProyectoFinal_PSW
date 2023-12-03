@@ -75,9 +75,24 @@ if ($_SESSION['usuario']){?>
         $User = $_SESSION['usuario'];
         $idPro = $_POST['id'];
         $cantidad = $_POST['cantidad'];
+        $flag1 = false;
         if($cantidad != 0){
-            $sql= "INSERT INTO Carrito VALUES('$User', '$idPro', '$cantidad');";
-            $resultado = $conexion -> query($sql); 
+            $comprobar = "SELECT *FROM Carrito WHERE usuario='$User' AND IdProducto='$idPro';";
+            $resultado1 = $conexion -> query($comprobar); 
+            while( $fila = $resultado1 -> fetch_assoc() ){
+                $acomulada = $fila['cantidad'];
+                $flag1 = true;
+            }
+            if($flag1){
+                $acomulada = $acomulada + $cantidad;
+                $sql = "UPDATE Carrito set cantidad='$acomulada' WHERE usuario='$User' AND IdProducto='$idPro';";
+                $resultado = $conexion -> query($sql);
+                echo $sql;
+            }else{
+                $sql= "INSERT INTO Carrito VALUES('$User', '$idPro', '$cantidad');";
+                $resultado = $conexion -> query($sql); 
+            }
+
         }
         header("Location: productos.php");
     }
