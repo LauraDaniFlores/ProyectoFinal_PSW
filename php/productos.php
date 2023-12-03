@@ -47,7 +47,7 @@ if ($_SESSION['usuario']){?>
                 </div>
                 <div>
                 <form method="post" action="productos.php">
-                    <input style="display:none;" class="id" type="int" name="id" value="<?php echo $fila['IdProducto'] ?>">
+                    <input style="display:none;" class="id" type="int" name="id" value="<?php echo $fila['idProducto'] ?>">
                     <input style="display:none;" type="int" name="cantidad" id="cantidad<?php echo $i ?>" value="0">
                     <button class="seleccion_agregar" type="submit" value="<?php echo $i ?>" name="agregar">Agregar</button>       
                 </form>                
