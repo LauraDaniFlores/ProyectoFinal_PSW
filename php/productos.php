@@ -1,7 +1,6 @@
 <?php 
-session_start();
 
-if ($_SESSION['usuario']){?>
+if (isset($_SESSION['usuario'])){?>
     <div id="logeado" style="display:none;">true</div> 
 <?php }else{ ?>
     <div id="logeado" style="display:none;">false</div>
