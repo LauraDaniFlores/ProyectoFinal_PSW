@@ -103,7 +103,6 @@ if ($conexion->connect_errno) {
                 $acomulada = $acomulada + $cantidad;
                 $sql = "UPDATE Carrito set cantidad='$acomulada' WHERE usuario='$User' AND IdProducto='$idPro';";
                 $resultado = $conexion -> query($sql);
-                echo $sql;
             }else{
                 $sql= "INSERT INTO Carrito VALUES('$User', '$idPro', '$cantidad');";
                 $resultado = $conexion -> query($sql); 
@@ -112,8 +111,6 @@ if ($conexion->connect_errno) {
         }
         header("Location: productos.php");
     }
-    header("Location: productos.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
