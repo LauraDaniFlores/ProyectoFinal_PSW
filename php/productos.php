@@ -16,6 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300&family=Playball&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f3a304d792.js" crossorigin="anonymous"></script>
+<<<<<<< Updated upstream
 </head>
 
 <body>
@@ -24,6 +25,20 @@
     ?>
     <script>
         document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Productos —";
+=======
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+</head>
+
+<body>
+    <header>
+        
+        <?php
+            include "menu.php";
+        ?>
+        
+        <script>
+        document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Productos Candy Craze —";
+>>>>>>> Stashed changes
         document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Disfruta de nuestra gran variedad de dulces";
     </script>
 

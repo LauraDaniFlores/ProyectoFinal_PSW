@@ -99,6 +99,45 @@ input,
   display: none;
 }
 
+<<<<<<< Updated upstream
+=======
+@media only screen and (max-width: 1100px) {
+    .formlogin, .div_Registro{
+        width: 600px;
+    }
+    .formlogin .colorback1{
+        padding: 25px 100px;
+        background-color: #FFFFFF;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .formlogin, .div_Registro{
+        width: 400px;
+    }
+    .formlogin .colorback1{
+        padding: 15px 50px;
+        background-color: #FFFFFF;
+    }
+}
+
+.div_Registro small{
+    color: #3D0C11;
+    color: #D8006C;
+}
+
+.div_Registro{
+    margin: 0 auto;
+    /* width: 50%; */
+    width: 1000px;
+
+    margin-top: 50px;
+
+    background-color: #FFFF;
+    /* padding: 40px; */
+    border-radius: 8px;
+    font-family: 'Merienda', cursive;
+}
+>>>>>>> Stashed changes
 /* REGISTRO */
 
 .div_Registro small {
