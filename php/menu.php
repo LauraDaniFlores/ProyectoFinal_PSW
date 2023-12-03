@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-$cantidad;
+$cantidad= null;
 
 if (isset($_SESSION['usuario'])){    
     $servidor='localhost';
