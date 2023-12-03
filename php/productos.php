@@ -7,6 +7,7 @@ if (isset($_SESSION['usuario'])){?>
     <!-- die("You must be logged in!!"); -->
 <?php }
 
+$categorias = array("México", "Japón", "Corea");
     function datos($conexion, $categorias, $num){
         if($num == 3){
             $sql = "SELECT *FROM productos;";
