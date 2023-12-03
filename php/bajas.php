@@ -8,6 +8,9 @@
     <link rel="icon" type="image/png" href="../imagenes/Icon2.png" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Bajas | CandyCraze</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -34,8 +37,26 @@
                 }else{
                     //conexion exitosa
                     if(isset($_POST['submit'])){
+                        
                         //obtenemos datos del formulario
                         $eliminar = $_POST['eliminar'];
+
+                        //hacemos cadena con la sentencia mysql para sacar info del eliminado
+                        $sql1 = "SELECT * FROM productos WHERE idProducto='$eliminar'";
+
+                        // Ejecutar la consulta
+                        $result = $conexion->query($sql1);
+                        if ($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()) {
+                                $id = $row['idProducto'];
+                                $nombre = $row['nombre'];
+                                $descripcion = $row['descripcion'];
+                                $existencias = $row['existencias'];
+                                $precio = $row['precio'];
+                                $categoria = $row['categoria'];
+                                $url = $row['imagen'];
+                            }
+                        }
 
                         //hacemos cadena con la sentencia mysql para eliminar
                         $sql = "DELETE FROM productos WHERE idProducto='$eliminar'"; //cambiar a id
@@ -43,10 +64,10 @@
                         if($conexion->affected_rows >= 1){
                             // echo '<br>Registro borrado <br>';
                             ?>
-                            <script>
+                            <!-- <script>
                                 swal("Bien!","Producto eliminado correctamente!","success");
-                            </script>
-                            <?php    
+                            </script> -->
+                            <?php
                         }else{
                             ?>
                             <script>
@@ -54,7 +75,66 @@
                             </script>
                             <?php
                         }
+
+                        ?>
+                        <!-- Cuando se de click al botón se muestra el modal -->
+                        <script>
+                            $(document).ready(function(){
+                                $('#staticBackdrop').modal('show');
+                            });
+                        </script>
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header colorHeader">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirmar Eliminación</h1>
+                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label class="fw-bold">Nombre del producto:</label>
+                                            <p><?php echo $nombre ?></p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="fw-bold">ID:</label>
+                                            <p><?php echo $id ?></p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="fw-bold">Descripción:</label>
+                                            <p><?php echo $descripcion ?></p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="fw-bold">Precio:</label>
+                                            <p><?php echo $precio ?></p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="fw-bold">Categoría:</label>
+                                            <p><?php echo $categoria ?></p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="fw-bold">Imagen:</label>
+                                            <img src="<?php echo $url ?>" alt="imagen" style="max-height: 100px;" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" style="background-color:#D8006C; border-radius:5px; color:white; border:none; padding:7px" id="bot1" data-bs-dismiss="modal">Confirmar Eliminación</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script>
+                        $(document).ready(function(){
+                            $('#bot1').click(function(){
+                                swal("Bien!","Producto eliminado correctamente!","success");
+                            });
+                        });
+                        </script>
+
+                        <?php
                     }
+                    
                     $sql = 'select *from productos'; //hacemos cadena con la sentencia mysql
                     //que consulta todo el contenido de la tabla
                     $resultado = $conexion -> query($sql); //aplicamos sentencia
@@ -72,7 +152,7 @@
                                 ?>
                             </select>
                             <br>
-                            <button type="submit" value="submit" name="submit" class="btn btn-primary botonP">Eliminar</button>
+                            <button type="submit" value="submit" name="submit" class="botonP" style="background-color:#D8006C; border-radius:5px; color:white; border:none; padding:7px">Eliminar</button>
                         </form>
                         <br>
                         </div>
@@ -105,7 +185,7 @@
                                         echo '<td>'. $fila['categoria'] . '</td>';
                                         $url = $fila['imagen'];
                                         echo '<td>';
-                                        echo "<img src='$url' alt='' style='max-height: 100px;'>";
+                                        echo "<img src='$url' alt='imagen' style='max-height: 100px;'>";
                                         echo '</td>';
                                     echo '</tr>';
                                 }   
