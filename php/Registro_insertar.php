@@ -32,9 +32,9 @@
               header("Location: Registro.php");
             }
             $encrypted_data = openssl_encrypt($password, $cipher, $encryption_key, 0, $iv);
-
+            
+            $flag = true;
             $sql = 'select * from Usuarios';//hacemos cadena con la sentencia mysql que consulta todo el contenido de la tabla
-            // echo $sql;
             $resultado = $conexion -> query($sql); //aplicamos sentencia
             if ($resultado -> num_rows){ //si la consulta genera registros
                 while( $fila = $resultado -> fetch_assoc()){ //recorremos los registros obtenidos de la tabla
