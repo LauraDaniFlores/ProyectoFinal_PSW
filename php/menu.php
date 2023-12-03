@@ -71,7 +71,7 @@
                         if(isset($_SESSION['admin'])){
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="../html/panel.html">Administrador</a>
+                            <a class="nav-link" href="altas.php">Administrador</a>
                         </li>
                         <?php 
                         }
