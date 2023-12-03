@@ -3,6 +3,36 @@
 
 <?php
     session_start();
+
+$cantidad= null;
+
+if (isset($_SESSION['usuario'])){    
+    $servidor='localhost';
+    $cuenta='root';
+    $password='';
+    $bd='Store';
+    
+    //conexion a la base de datos
+    $conexion = new mysqli($servidor,$cuenta,$password,$bd);
+    
+    if ($conexion->connect_errno){
+        die('Error en la conexion');
+    }
+    $usuario = $_SESSION['usuario'];
+    $sql = "SELECT SUM(cantidad) as cant FROM Carrito WHERE usuario='$usuario';";
+    
+    $resultado = $conexion -> query($sql); 
+    while( $fila = $resultado -> fetch_assoc() ){
+        $cantidad = $fila['cant'];
+    }  
+    if($cantidad == null){
+        $cantidad = 0;
+    }  
+
+}else{
+    
+}
+
 ?>
 
 <head>
