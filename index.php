@@ -4,7 +4,7 @@
 <?php
     session_start();
 
-$cantidad= null;
+    $cantidad= null;
 
 if (isset($_SESSION['usuario'])){    
     $servidor='localhost';
@@ -176,7 +176,7 @@ if (isset($_SESSION['usuario'])){
                         </a>
                         <a href="php/carrito.php" class="navbar-nav">
                             <span class="nav-link">
-                                <i class="fa-solid fa-cart-shopping menuIcons"></i>
+                                <i class="fa-solid fa-cart-shopping menuIcons"></i><sub><?php echo $cantidad ?></sub>
                             </span>
                         </a>
                     </div>
