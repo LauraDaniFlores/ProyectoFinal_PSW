@@ -13,27 +13,35 @@ for (const radio of radios) {
             if (envio.readyState == 4 && envio.status == 200){
                 console.log(envio.responseText);
                 document.getElementById('Productos_div').innerHTML=envio.responseText;
+                reactivarClicks();
             }
         }
         envio.send( );
     });
 }
 
+reactivarClicks();
+
 function check() {
     var categ =  document.querySelector('input[name=categoria]:checked').value;
     return categ;
 }
 
+function reactivarClicks () {
+    
 var logueado = document.getElementById('logeado');
+console.log(logueado.innerHTML);
 
 if(logueado.innerHTML == "true"){
     //Cantidad de un producto para agregar al carrito
     var Resta = document.querySelectorAll('button[name="Resta"]');
     var Suma = document.querySelectorAll('button[name="Suma"]');
-    var Agregar = document.querySelectorAll('button[name="agregar"]');
-
+    var Agregar = document.querySelectorAll('button[name="agregar"]'); 
+    
+    console.log(Resta.length);
     for (let j=0; j<Resta.length; j++) {
         Resta[j].addEventListener('click', function(){
+            console.log("Hola");
             let numero = Number(document.getElementById('ProductoCarro'+j).innerHTML);
             if( numero > 0){
                 numero = numero - 1;
@@ -42,6 +50,7 @@ if(logueado.innerHTML == "true"){
             }
         });
     }
+    
 
     for (let j=0; j<Suma.length; j++) {
         Suma[j].addEventListener('click', function(){
@@ -55,23 +64,5 @@ if(logueado.innerHTML == "true"){
             }
         });
     }
-
-    var resta = document.querySelectorAll('.Resta');
-    for (let j=0; j<resta.length; j++) {
-        console.log(resta.innerHTML);
-        resta[j].addEventListener('click', function(){
-            let numero = Number(document.getElementById('ProductoCarro'+j).innerHTML);
-            // console.log(document.getElementById('exis'+j).innerHTML);
-            console.log("Hola");
-            if( numero > 0){
-                numero = numero - 1;
-                document.getElementById('ProductoCarro'+j).innerHTML = numero;
-                document.getElementById('cantidad'+j).value = numero;
-            }
-        });
-    }
 }
-
-
-
-
+}  

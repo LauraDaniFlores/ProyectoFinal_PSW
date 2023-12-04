@@ -1,4 +1,3 @@
-<script src="../js/AJAX_pro.js"></script>
 
 <?php 
     $categorias = array("México", "Japón", "Corea");
@@ -51,15 +50,17 @@
                 <div class="seleccion_productos">
                     <button class="seleccion_boton" type="submit" value="<?php echo $i ?>" name="Resta">-</button>
                     <p id="ProductoCarro<?php echo $i ?>">0</p>
-                    <button class="seleccion_boton" type="submit" value="<?php echo $i ?>" name="Suma">+</button>       
+                    <button class="seleccion_boton" type="submit" value="<?php echo $i ?>" name="Suma">+</button>
+                    
                 </div>
                 <div>
-                <form method="post" action="productos.php">
-                    <input style="display:none;" class="id" type="int" name="id" value="<?php echo $fila['idProducto'] ?>">
-                    <input style="display:none;" type="int" name="cantidad" id="cantidad<?php echo $i ?>" value="0">
-                    
-                    
-                    <div class="alinear">
+                    <form method="post" action="productos.php">
+                        <!-- <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl" style="color: #ff3e9e;"></i> -->
+                        <input style="display:none;" class="id" type="int" name="id" value="<?php echo $fila['idProducto'] ?>">
+                        <input style="display:none;" type="int" name="cantidad" id="cantidad<?php echo $i ?>" value="0">
+
+
+                        <div class="alinear">
 
 
                         <!-- Boton Dinamico -->
@@ -73,12 +74,14 @@
                                     </svg></span>
                             </button>
                         </div>
-
-                </form>                
+                    </form>
                 </div>
-                <?php } ?>
-                <?php $i = $i+1 ?>
-            </div>
+            <?php } else { ?>
+                <button style="display:none;" class="seleccion_boton" type="submit" value="<?php echo $i ?>" name="Resta">-</button>
+                <button style="display:none;" class="seleccion_boton" type="submit" value="<?php echo $i ?>" name="Suma">+</button>
+            <?php } ?>
+            <?php $i = $i + 1 ?>
+        </div>
         <?php } 
     }
 

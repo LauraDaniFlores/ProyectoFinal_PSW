@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 if (isset($_SESSION['usuario'])){?>
     <div id="logeado" style="display:none;">true</div> 
@@ -69,6 +70,9 @@ $categorias = array("México", "Japón", "Corea");
                         </div>
                     </form>
                 </div>
+            <?php } else { ?>
+                <button style="display:none;" class="seleccion_boton" type="submit" value="<?php echo $i ?>" name="Resta">-</button>
+                <button style="display:none;" class="seleccion_boton" type="submit" value="<?php echo $i ?>" name="Suma">+</button>
             <?php } ?>
             <?php $i = $i + 1 ?>
         </div>
