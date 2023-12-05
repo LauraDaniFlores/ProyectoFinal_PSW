@@ -56,6 +56,7 @@ $categorias = array("México", "Japón", "Corea");
                         <div class="alinear">
 
 
+                        <!-- Boton Dinamico -->
                             <button class="button" type="submit" value="<?php echo $i ?>" name="agregar">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"

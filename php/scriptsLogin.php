@@ -6,6 +6,9 @@
     // El captcha es incorrecto
     session_start();
     // unset($_SESSION["usuario"]);
+    if(isset($_SESSION['Bloqueada']) && isset($_SESSION['mal'])){
+        unset($_SESSION['mal']); 
+    }
     if(isset($_SESSION['Equal'])){
         ?>
         <script>
@@ -76,6 +79,21 @@
         unset($_SESSION['error']);
         unset($_SESSION['captcha']);
         unset($_SESSION['intentos']);
+    }
+    if(isset($_SESSION['Bloqueada'])){
+        ?>
+        <script>
+            Swal.fire({
+            icon: "error",
+            title: "¡Oh no!",
+            text: "¡Tu cuenta ha sido bloqueada!",
+            })          
+        </script>
+        <?php
+        unset($_SESSION['error']);
+        unset($_SESSION['captcha']);
+        unset($_SESSION['intentos']);
+        unset($_SESSION['Bloqueada']);
     }
 
     if(isset($_SESSION['mal'])){
