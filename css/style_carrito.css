@@ -1,34 +1,57 @@
 /* Acomodo de los articulos */
 .acomodoart {
     display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(5, 2fr);
+    grid-gap: 20px;
+    grid-column: 3;
+    grid-template-columns: auto auto 2fr auto auto;
     justify-content: space-between;
-    margin: 0 30px;
+    
+    margin: 0 70px;
   }
 
-  .acomodoart div{
+  div.acomodoart{
     background-color: white;
+    /* box-shadow: rgb(201, 201, 201) 0px 1px 4px, rgb(201, 201, 201) 0px 0px 0px 3px;
+    border-radius: 5px; */
+
+    border: 2px solid #e5e5e5;
+    box-shadow: 4px 4px #979696;
+    border-radius: 5px;
   }
 
   .acomodochk div{
     display: flex;
     justify-content: center;
 
-    padding-top: 30px;
+    padding-top: 25px;
+    margin: 25px;
   }
 
   .acomodocant div{
     text-align: center;
+    padding-top: 10px;
+    margin: 25px;
   }
 
   .acomodoindpre div{
-    padding-top: 15px;
+    padding-top: 20px;
+    padding-right: 20px;
+    margin: 25px;
   }
 
   .acomodoart img{
     width: 95px;
     height: 95px;
+    margin: 25px;
+  }
+
+  .acomodoart h3{
+    font-size: large;
+  }
+
+  div.acomododesc {
+    padding-top: 10px;
+    margin: 25px;
   }
 
 
@@ -91,7 +114,12 @@
 
   div.acumulado {
     background-color: white;
-    box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+    /* box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px; */
+
+    border: 2px solid #d8006c41;
+    box-shadow: 4px 4px #D8006C;
+    border-radius: 5px;
+
 
     position: fixed;
     width: 80%;
@@ -109,7 +137,7 @@
       display: flex;
       justify-content: end;
 
-      padding-top: 15px;
+      padding-top: 20px;
       padding-right: 30px;
   }
 
