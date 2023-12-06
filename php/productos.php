@@ -73,7 +73,7 @@ $bd = 'store';
 //conexion a la base de datos
 $conexion = new mysqli($servidor, $cuenta, $password, $bd);
 
-if ($conexion->connect_errno) {
+if($conexion->connect_errno) {
     die('Error en la conexion');
 }
 
@@ -87,7 +87,6 @@ if ($conexion->connect_errno) {
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../imagenes/Icon2.png" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Productos | Candy Craze</title>
 
@@ -173,14 +172,28 @@ if ($conexion->connect_errno) {
     ?>
 
     <!-- <hr id="division_Productos"> -->
+    <!-- Filtro de precios -->
+<!--     <div class="radioacomodo">
+        <div class="radio-input">
+            <input value="value-1" name="value-radio" id="value-1" type="radio">
+            <label for="value-1">$100</label>
+            <input value="value-2" name="value-radio" id="value-2" type="radio">
+            <label for="value-2">$80</label>
+            <input value="value-3" name="value-radio" id="value-3" type="radio">
+            <label for="value-3">$60</label>
+            <input value="value-4" name="value-radio" id="value-4" type="radio">
+            <label for="value-4">$40</label>
+            <input value="value-5" name="value-radio" id="value-5" type="radio">
+            <label for="value-5">$20</label>
+        </div>
+    </div> -->
+
 
     <div id="Productos_div">
         <div class="Div_Productos">
             <?php datos($conexion, $categorias, 3) ?>
         </div>
     </div>
-
-
 
     <?php
     include("footer.php");

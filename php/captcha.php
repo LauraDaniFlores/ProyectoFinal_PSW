@@ -15,7 +15,7 @@ $_SESSION['captcha'] = $captcha_text;
 
 $captcha_code = '';
 $captcha_image_height = 50;
-$captcha_image_width = 180;
+$captcha_image_width = 215;
 $total_characters_on_image = 6;
 
 //The characters that can be used in the CAPTCHA code.

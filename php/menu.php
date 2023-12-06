@@ -22,6 +22,9 @@ if (isset($_SESSION['usuario'])){
     while( $fila = $resultado -> fetch_assoc() ){
         $cantidad = $fila['cant'];
     }    
+    if ($cantidad == null){
+        $cantidad = 0;
+    }
 
 }else{
     

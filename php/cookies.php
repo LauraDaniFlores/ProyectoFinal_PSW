@@ -119,6 +119,7 @@
                             chmod("../archivos/strikes.txt", 0777);
                             if($num == 3){
                                 $_SESSION["intentos"] = $username;
+                                $_SESSION["Bloqueada"] = true;
                             }
                             $_SESSION["mal"] = true;
                             break; 
