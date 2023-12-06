@@ -2,20 +2,27 @@
 <?php 
     $categorias = array("México", "Japón", "Corea");
     $cat = $_GET['cat'];
+    $max = $_GET['max'];
 
-    function totalDatos($conexion, $categorias, $num){
-        if($num == 3){
+    function totalDatos($conexion, $categorias, $num, $max){
+        //SELECT COUNT(IdProducto) AS Total FROM productos where (precio *((100-descuento)/100)) >= 100;
+        if($num == 3 && $max == 0){
             $sql = "SELECT COUNT(IdProducto) AS Total FROM productos;";
-        }else {
+        }else if ($max == 0){
             $sql = "SELECT COUNT(IdProducto) AS Total FROM productos WHERE categoria= '$categorias[$num]';";
         }    
+        if($num == 3 && $max > 0){
+            $sql = "SELECT COUNT(IdProducto) AS Total FROM productos where (precio *((100-descuento)/100)) <= $max";
+        }else if ($max > 0){
+            $sql = "SELECT COUNT(IdProducto) AS Total FROM productos where categoria= '$categorias[$num]' AND (precio *((100-descuento)/100)) <= $max";
+        }
         $resultado = $conexion -> query($sql); 
         while( $fila = $resultado -> fetch_assoc() ){ 
             $salida = $fila['Total'];
         }
         return $salida;
     }
-    function datos($conexion, $categorias, $num){
+    function datos($conexion, $categorias, $num, $max){
         if($num == 3){
             $sql = "SELECT *FROM productos;";
         }else {
@@ -23,9 +30,14 @@
             $sql = "SELECT *FROM productos WHERE Categoria= '$categorias[$num]';";
         }
         $resultado = $conexion -> query($sql); 
-        $i = 0; 
+        $i = -1; 
         while( $fila = $resultado -> fetch_assoc() ){
-            $flag = true; ?>
+            $flag = true; $desplegar= false; 
+            $PrecioD=$fila['precio'] * ((100-$fila['descuento'])/100);
+            if($max == 0 ){ $desplegar = true; $i = $i + 1;
+            }else if($PrecioD <= $max ){ $desplegar = true; $i = $i + 1;}
+            if($desplegar == true){
+            ?>
             <div class="Producto_in">
                 <div class="imagen">
                     <img src="<?php echo $fila['imagen'] ?>" alt="Producto">
@@ -80,9 +92,10 @@
                 <button style="display:none;" class="seleccion_boton" type="submit" value="<?php echo $i ?>" name="Resta">-</button>
                 <button style="display:none;" class="seleccion_boton" type="submit" value="<?php echo $i ?>" name="Suma">+</button>
             <?php } ?>
-            <?php $i = $i + 1 ?>
+            <?php //$i = $i + 1 ?>
         </div>
-        <?php } 
+        <?php }
+        } 
     }
 
     $servidor='localhost';
@@ -100,9 +113,9 @@
 
 
 <div class="encontrados">
-    <p>Productos encontrados: <?php echo totalDatos($conexion, $categorias, $cat) ?></p>
+    <p>Productos encontrados: <?php echo totalDatos($conexion, $categorias, $cat, $max) ?></p>
 </div>
 <div class="Div_Productos">
     <?php 
-    datos($conexion, $categorias, $cat) ?>
+    datos($conexion, $categorias, $cat, $max) ?>
 </div>

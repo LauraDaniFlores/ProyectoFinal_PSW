@@ -1,5 +1,4 @@
 <?php 
-
 $categorias = array("México", "Japón", "Corea");
 function datos($conexion, $categorias, $num){
     if($num == 3){
@@ -162,6 +161,18 @@ if ($conexion->connect_errno) {
             </label>
         </div>
     </div>
+
+    <?php $max = number_format(precioMax($conexion), 1); ?>
+
+    <div class="conteinerRange">
+        <span>0</span>
+        <div class="slidecontainer">
+            <input type="range" min="1" max="<?php echo $max; ?>" value="<?php echo $max; ?>" class="slider" id="myRange">
+        </div>
+        <span id="valor"></span>
+        <button class="filtroPrecio" id="filtro">Filtrar</button>
+    </div>
+
     <?php 
         if (isset($_SESSION['usuario']) && !isset($_SESSION['admin'])){?>
             <div id="logeado" style="display:none;">true</div> 
@@ -169,11 +180,16 @@ if ($conexion->connect_errno) {
             <div id="logeado" style="display:none;">false</div>
         <?php }
     ?>
+
+    <!-- <hr id="division_Productos"> -->
+
     <div id="Productos_div">
         <div class="Div_Productos">
-            <?php datos($conexion, $categorias, 3) ?>
+            <?php datos($conexion, $categorias, 3, 0) ?>
         </div>
     </div>
+
+
 
     <?php
     include("footer.php");
@@ -219,21 +235,40 @@ if(isset($_POST['agregar'])){
                 $resultado1 = $conexion -> query($sql1);
                 while( $fila = $resultado1 -> fetch_assoc() ){ $total = $fila['existencias'];}
                 if($acomulada <= $total){
+                    $_SESSION['articulos'] = $cantidad;
                     $sql = "UPDATE Carrito set cantidad='$acomulada' WHERE usuario='$User' AND IdProducto='$idPro';";
                     $resultado = $conexion -> query($sql);
                 }else{
+                    $_SESSION['articulos'] = $total - ($acomulada - $cantidad );
                     $sql = "UPDATE Carrito set cantidad='$total' WHERE usuario='$User' AND IdProducto='$idPro';";
                     $resultado = $conexion -> query($sql);
                 }
             }else{
+                $_SESSION['articulos'] = $cantidad;
                 $sql= "INSERT INTO Carrito VALUES('$User', '$idPro', '$cantidad');";
                 $resultado = $conexion -> query($sql); 
             }
+            $producto = "SELECT *FROM productos WHERE idProducto=$idPro;";
+            $resultado = $conexion -> query($producto);
+            while( $fila = $resultado -> fetch_assoc() ){ $_SESSION['imagen'] = $fila['imagen']; $_SESSION['nombre'] = $fila['nombre'];}
+            // echo "Hola";
+            $_SESSION['in'] = true;
         }
+        //No me esta agarrando
+        // header("Location: productos.php");
+
     }
     
-    header("Location: productos.php");
 }
+
+function precioMax($conexion){
+    $sql = "SELECT MAX(precio *((100-descuento)/100)) AS max FROM productos;";
+    $resultado = $conexion -> query($sql);
+    while( $fila = $resultado -> fetch_assoc()){ 
+        return $fila['max'];
+    }
+}
+
 function IrLogin(){?>           
     <script>
         Swal.fire({
@@ -242,11 +277,38 @@ function IrLogin(){?>
         imageUrl: "../imagenes/iniciar_Sesión.png",
         imageWidth: 400,
         imageHeight: 200,
-        imageAlt: "Custom image"
+        imageAlt: "Login"
         }).then((result) => {
         if (result.isConfirmed) {
             location. assign('login.php')
         }});
     </script>
 <?php }
+
+if(isset($_SESSION['in'])){
+    ?><script><?php 
+    unset($_SESSION['in']);
+    $_SESSION['producto'] = true;?>
+    location. assign('productos.php');
+    </script>
+<?php }
+
+if(isset($_SESSION['producto'])){?>
+    <script>
+        Swal.fire({
+        title: "Producto agregado",
+        html: "<br><h5>Nombre: <?php echo $_SESSION['nombre'] ?></h5> <br> <h5>Cantidad: <?php echo $_SESSION['articulos'] ?></h5>",
+        imageUrl: "<?php echo $_SESSION['imagen'] ?>", 
+        imageHeight: 150,
+        imageAlt: "Producto"
+        });
+        setime(6000);
+        location. assign('productos.php');
+
+    </script>
+<?php 
+unset($_SESSION['producto']);
+}
+
+
 ?>
