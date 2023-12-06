@@ -53,6 +53,7 @@
 
     <!-- Acomoda los articulos agregados al carrito -->
 
+    <br>
     <section>
 
     <!-- Abre el acomodo del diseño para los articulos agregados al carrito -->
@@ -83,17 +84,17 @@
             </div>
 
             <!-- Seccion de descripcion articulo -->
-            <div>
+            <div class="acomododesc">
                 <!-- Titulo del producto -->
-                <h3>lencfoñwenfcñqokfmcq</h3>
+                <h3><b>lencfoñwenfcñqokfmcqufubvkwelbnvolenwvoñwn</b></h3>
                 <!-- Descripcion del articulo -->
-                <p>cqeblieqwbuflu3</p>
+                <p>cqeblieqwbuflu3oñvnjqwpoivbcnporqu3bviuqwerbvioeubqviuobeuvbeuvbiuoebv9peruq</p>
             </div>
 
 
             <div class="acomodocant">
                 <div>
-                    <h3>Cant.</h3>
+                    <h3><b>Cant.</b></h3>
                     <p>4</p>
                 </div>
             </div>
@@ -103,7 +104,7 @@
             <div class="acomodoindpre">
                 <div>
                     <!-- Precio del articulo -->
-                    <h3>$456.00</h3>
+                    <h3><b>$456.00</b></h3>
                 </div>
             </div>
 
@@ -140,8 +141,8 @@
             </div>
 
 
-            <div>
-                <h3>lencfoñwenfcñqokfmcq</h3>
+            <div class="acomododesc">
+                <h3><b>lencfoñwenfcñqokfmcq</b></h3>
                 <p>cqeblieqwbuflu3</p>
             </div>
 
@@ -149,7 +150,7 @@
 
             <div class="acomodocant">
                 <div>
-                    <h3>Cant.</h3>
+                    <h3><b>Cant.</b></h3>
                     <!-- Numero de la cantidad a comprar del producto -->
                     <p>4</p>
                 </div>
@@ -158,7 +159,7 @@
 
             <div class="acomodoindpre">
                 <div>
-                    <h3>$456.00</h3>
+                    <h3><b>$456.00</b></h3>
                 </div>
             </div>
 
@@ -191,15 +192,15 @@
                 <img class="acomodoart" src="../imagenes/picafresa.png" alt="">
             </div>
 
-            <div>
-                <h3>lencfoñwenfcñqokfmcq</h3>
+            <div class="acomododesc">
+                <h3><b>lencfoñwenfcñqokfmcq</b></h3>
                 <p>cqeblieqwbuflu3</p>
             </div>
 
 
             <div class="acomodocant">
                 <div>
-                    <h3>Cant.</h3>
+                    <h3><b>Cant.</b></h3>
                     <p>4</p>
                 </div>
             </div>
@@ -207,7 +208,7 @@
 
             <div class="acomodoindpre">
                 <div>
-                    <h3>$456.00</h3>
+                    <h3><b>$456.00</b></h3>
                 </div>
             </div>
 
@@ -217,7 +218,7 @@
     </section>
 
 
-    <br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
 
 
     <!-- Acumulable del precio a pagar y el boton de comprar que redireccionara a la pagina de compra -->
@@ -227,7 +228,7 @@
 
             <div class="acomodoprecio">
                 <div class="precio_acumulado">
-                    <h3>Pecio Acumulado</h3>
+                    <h3>Precio Acumulado</h3>
                     <!-- Suma de los precios de los articulos seleccionados a comprar -->
                     <p><b>$3647.00</b></p>
                 </div>
