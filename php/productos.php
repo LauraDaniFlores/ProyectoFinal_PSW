@@ -9,7 +9,6 @@ function datos($conexion, $categorias, $num){
     $resultado = $conexion -> query($sql);
     $i = 0;  
     while( $fila = $resultado -> fetch_assoc() ){
-        
         $flag = true; ?>
         <div class="Producto_in">
             <div class="imagen">
@@ -129,15 +128,7 @@ if ($conexion->connect_errno) {
             document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Productos Candy Craze —";
             document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Disfruta de nuestra gran variedad de dulces";
         </script>
-
-        <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
-                style="height: 100%; width: 100%;">
-                <path d="M0.00,49.98 C150.00,150.00 349.20,-40.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-                    style="stroke: none; fill: #FFFFFF"></path>
-            </svg></div>
-
     </header>
-
 
     <!-- Filtro -->
     <div class="radioacomodo">
@@ -185,7 +176,7 @@ if ($conexion->connect_errno) {
 
     <div id="Productos_div">
         <div class="Div_Productos">
-            <?php datos($conexion, $categorias, 3, 0) ?>
+            <?php datos($conexion, $categorias, 3) ?>
         </div>
     </div>
 
