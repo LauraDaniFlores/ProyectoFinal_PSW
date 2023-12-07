@@ -255,7 +255,6 @@ if(isset($_POST['agregar'])){
             $producto = "SELECT *FROM productos WHERE idProducto=$idPro;";
             $resultado = $conexion -> query($producto);
             while( $fila = $resultado -> fetch_assoc() ){ $_SESSION['imagen'] = $fila['imagen']; $_SESSION['nombre'] = $fila['nombre'];}
-            // echo "Hola";
             $_SESSION['in'] = true;
         }
         //No me esta agarrando
@@ -306,7 +305,7 @@ if(isset($_SESSION['producto'])){?>
         imageHeight: 150,
         imageAlt: "Producto"
         });
-        setime(6000);
+        setTimeout(10000);
         location. assign('productos.php');
 
     </script>
