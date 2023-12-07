@@ -50,192 +50,85 @@
 
     </header>
 
-
     <!-- Acomoda los articulos agregados al carrito -->
 
-    <br>
-    <section>
+    <section class="section_Carrito">
 
-    <!-- Abre el acomodo del diseño para los articulos agregados al carrito -->
-        <div class="acomodoart">
+    <?php 
+       //$_SESSION['usuario']
+        if (isset($_SESSION['usuario']) && !isset($_SESSION['admin'])){
+            $usuario = $_SESSION['usuario'];
 
-        <!-- Checkbox del articulo -->
-            <div class="acomodochk">
-                <div class="checkbox-wrapper">
-                    <input checked="" type="checkbox" class="check" id="check1-61">
-                    <label for="check1-61" class="label">
-                        <svg width="45" height="45" viewBox="0 0 95 95">
-                            <rect x="30" y="20" width="50" height="50" stroke="black" fill="none"></rect>
-                            <g transform="translate(0,-952.36222)">
-                                <path
-                                    d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4"
-                                    stroke="black" stroke-width="3" fill="none" class="path1"></path>
-                            </g>
-                        </svg>
-                    </label>
-                </div>
-            </div>
+            $CantPro = "Select count(IdProducto) as t from Carrito where usuario='$usuario';";
+            $result = $conexion -> query($CantPro);
+            while( $fila3 = $result -> fetch_assoc() ){ 
+                $CantPro = $fila3['t'];
+            }
+            $flag= false;
+            if($CantPro != 0){
+                $flag= true;
+                $productos = "SELECT *FROM Carrito WHERE usuario='$usuario'";
+                $resultado = $conexion -> query($productos);
+                $i=0;
+                while( $fila = $resultado -> fetch_assoc() ){ 
+                    $id = $fila['IdProducto'];
+                    $info = "SELECT *FROM productos WHERE idProducto=$id";
+                    $resultado1 = $conexion -> query($info);
+                    while( $fila2 = $resultado1 -> fetch_assoc() ){
+                        $precio = ($fila2['precio']*((100-$fila2['descuento'])/100))*$fila['cantidad'];
+                        InfoProCarrito($fila2['imagen'], $fila2['nombre'], $fila2['descripcion'], $fila['cantidad'], $precio , $i);
+                        $precioTotal += $precio;
+                    } 
+                    $i += 1;
+                }
+            }else{?>
+                <section class="preguntasTitle">
+                <h2>¡Tu carrito esta vacío!</h2>
+                <div class="linea"></div>
+                <br>
+                <p> Para agregar productos a tu carrito regresa a la página <a class="linkcarrito" href="productos.php">productos</a>, en donde encontrarás una gran variedad de dulces.
+                    
+                </p>
+                </section>
+                <div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" 
+                style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" 
+                style="stroke: none; fill: #fff;"></path></svg></div>
+            <?php }
+        }else{ ?>
+            <section class="preguntasTitle">
+                <h3>¡Tu carrito esta vacío!</h3>
+                <h2>Nuestra tienda brinda productos de la mejor calidad</h2>
+                <div class="linea"></div>
+                <br>
+                <p>Para poder escoger los productos que llamen tu atención es necesario que te registres con tu cuenta y podrás endulzarte con nuestra variedad de productos.
+                    Si aún no tienes cuenta, ¡no te preocupes! es muy fácil y sencillo.
+                    Entra al siguiente link y <a class="linkcarrito" href="registro.php">registrate</a>. 
+                </p>
+                </section>
+                <div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" 
+                style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" 
+                style="stroke: none; fill: #fff;"></path></svg></div>
 
-
-
-            <!-- Imagen del articulo -->
-            <div>
-                <img class="acomodoart" src="../imagenes/picafresa.png" alt="">
-            </div>
-
-            <!-- Seccion de descripcion articulo -->
-            <div class="acomododesc">
-                <!-- Titulo del producto -->
-                <h3><b>lencfoñwenfcñqokfmcqufubvkwelbnvolenwvoñwn</b></h3>
-                <!-- Descripcion del articulo -->
-                <p>cqeblieqwbuflu3oñvnjqwpoivbcnporqu3bviuqwerbvioeubqviuobeuvbeuvbiuoebv9peruq</p>
-            </div>
-
-
-            <div class="acomodocant">
-                <div>
-                    <h3><b>Cant.</b></h3>
-                    <p>4</p>
-                </div>
-            </div>
-
-
+        <?php }
+    ?>
     
-            <div class="acomodoindpre">
-                <div>
-                    <!-- Precio del articulo -->
-                    <h3><b>$456.00</b></h3>
-                </div>
-            </div>
-
-
-        </div>
-
-        <br>
-
-        <!-- Cierra diseño -->
-
-
-        <div class="acomodoart">
-
-            <div class="acomodochk">
-                <div class="checkbox-wrapper">
-                    <input checked="" type="checkbox" class="check" id="check2-61">
-                    <label for="check2-61" class="label">
-                        <svg width="45" height="45" viewBox="0 0 95 95">
-                            <rect x="30" y="20" width="50" height="50" stroke="black" fill="none"></rect>
-                            <g transform="translate(0,-952.36222)">
-                                <path
-                                    d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4"
-                                    stroke="black" stroke-width="3" fill="none" class="path1"></path>
-                            </g>
-                        </svg>
-                    </label>
-                </div>
-            </div>
-
-
-
-            <div>
-                <img class="acomodoart" src="../imagenes/picafresa.png" alt="">
-            </div>
-
-
-            <div class="acomododesc">
-                <h3><b>lencfoñwenfcñqokfmcq</b></h3>
-                <p>cqeblieqwbuflu3</p>
-            </div>
-
-
-
-            <div class="acomodocant">
-                <div>
-                    <h3><b>Cant.</b></h3>
-                    <!-- Numero de la cantidad a comprar del producto -->
-                    <p>4</p>
-                </div>
-            </div>
-
-
-            <div class="acomodoindpre">
-                <div>
-                    <h3><b>$456.00</b></h3>
-                </div>
-            </div>
-
-
-        </div>
-
-        <br>
-
-        <div class="acomodoart">
-
-            <div class="acomodochk">
-                <div class="checkbox-wrapper">
-                    <input checked="" type="checkbox" class="check" id="check3-61">
-                    <label for="check3-61" class="label">
-                        <svg width="45" height="45" viewBox="0 0 95 95">
-                            <rect x="30" y="20" width="50" height="50" stroke="black" fill="none"></rect>
-                            <g transform="translate(0,-952.36222)">
-                                <path
-                                    d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4"
-                                    stroke="black" stroke-width="3" fill="none" class="path1"></path>
-                            </g>
-                        </svg>
-                    </label>
-                </div>
-            </div>
-
-
-
-            <div>
-                <img class="acomodoart" src="../imagenes/picafresa.png" alt="">
-            </div>
-
-            <div class="acomododesc">
-                <h3><b>lencfoñwenfcñqokfmcq</b></h3>
-                <p>cqeblieqwbuflu3</p>
-            </div>
-
-
-            <div class="acomodocant">
-                <div>
-                    <h3><b>Cant.</b></h3>
-                    <p>4</p>
-                </div>
-            </div>
-
-
-            <div class="acomodoindpre">
-                <div>
-                    <h3><b>$456.00</b></h3>
-                </div>
-            </div>
-
-
-
-        </div>
     </section>
-
-
-    <br><br><br><br><br><br><br><br>
 
 
     <!-- Acumulable del precio a pagar y el boton de comprar que redireccionara a la pagina de compra -->
     <footer>
-
+    <?php 
+    if (isset($_SESSION['usuario']) && !isset($_SESSION['admin']) && $flag){?>
         <div class="acumulado">
-
             <div class="acomodoprecio">
                 <div class="precio_acumulado">
                     <h3>Precio Acumulado</h3>
                     <!-- Suma de los precios de los articulos seleccionados a comprar -->
-                    <p><b>$3647.00</b></p>
+                    <p><b><?php echo $precioTotal ?></b></p>
                 </div>
-
             </div>
-
-
 
             <div class="acomodocom">
                 <div class="bcompra">
@@ -247,12 +140,66 @@
                     </a>
                 </div>
             </div>
-
         </div>
+        <?php } ?>
     </footer>
-
-
 
 </body>
 
 </html>
+
+<?php 
+//Precio total de los elementos
+function InfoProCarrito($img, $nombre, $descripcion, $cantidad, $precio, $i){?>
+
+    <!-- Abre el acomodo del diseño para los articulos agregados al carrito -->
+    <div class="acomodoart">
+            <!-- Checkbox del articulo -->
+            <div class="acomodochk">
+                <div class="checkbox-wrapper">
+                    <input checked="" type="checkbox" class="check" name="Productos" id="elegido<?php echo $i?>">
+                    <label for="elegido<?php echo $i?>" class="label">
+                        <svg width="45" height="45" viewBox="0 0 95 95">
+                            <rect x="30" y="20" width="50" height="50" stroke="black" fill="none"></rect>
+                            <g transform="translate(0,-952.36222)">
+                                <path
+                                    d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4"
+                                    stroke="black" stroke-width="3" fill="none" class="path1"></path>
+                            </g>
+                        </svg>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Imagen del articulo -->
+            <div class="img_acomodo">
+                <img class="acomodoart" src="<?php echo $img ?>" alt="">
+            </div>
+            
+            <!-- Seccion de descripcion articulo -->
+            <div class="acomododesc">
+                <!-- Titulo del producto -->
+                <h3><b><?php echo $nombre ?></b></h3>
+                <!-- Descripcion del articulo -->
+                <p><?php echo $descripcion ?></p>
+            </div>
+
+            <div class="acomodocant">
+                <div>
+                    <!-- Cantidad del articulo -->
+                    <h3><b>Cant.</b></h3>
+                    <p><?php echo $cantidad ?></p>
+                </div>
+            </div>
+
+            <!-- Cantidad del articulo -->
+            <div class="acomodoindpre">
+                <div>
+                    <h3><b><?php echo $precio ?></b></h3>
+                </div>
+            </div>
+
+        </div>
+<?php }
+
+?>
