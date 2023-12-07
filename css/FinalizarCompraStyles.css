@@ -1,0 +1,192 @@
+
+/* Quitar incrementador del input */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] { 
+    -moz-appearance:textfield; 
+}
+.main{
+    /* background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(../imagenes/fondo_Compra.png);
+    background-position: center;
+    background-size: cover; */
+    background-color: white;
+}
+.div_main{
+    width: 900px;
+    height: 800px;
+    margin: 8% auto;
+    display: flex;
+    justify-self: center;
+    background-color: #F9DEC9;
+    border: 1px solid #d8006c;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.main .div_main h2{
+    text-align: center;
+    color: #000;
+    font-size: 40px;
+    font-weight: bold;
+}
+.div_main .div_TotalDeCompra, .div_main .formulario_envio, .div_main .Forma_Pago{
+    width: 80%;
+    position: absolute;
+    top: 130px;
+    left: 10%; 
+    transition: 0.5s;
+}   
+form input, select{
+    padding: 10px 5px;
+    width: 45%;
+    margin: 20px 15px;
+    border: 0.5px solid #d8006c;    
+    outline: none;
+    background: transparent;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+form label{
+    width: 45%;
+    margin: 20px 15px 0px;
+}
+form p{
+    width: 45%;
+    margin: 0px 15px 0px;
+}
+.div_main form .formulario_envio select{
+    margin: 0 15px;
+}
+
+.div_main form .formulario_envio input, .div_main form .formulario_envio select{
+    margin-top: 5px;
+}
+.div_main form .div_TotalDeCompra .div_cupon input{
+    width: 60%;
+}
+.div_main .div_imYgas{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.div_main .div_imYgas div{
+    width: 50%;
+}
+.div_main .div_imYgas div input{
+    width: 80%;
+}
+.div_main .div_TotalDeCompra{
+    left: 1100px;
+}
+.div_main .Forma_Pago{
+    left: 1100px
+}
+div .linea{
+    margin-bottom: 30px;
+}
+.block{
+    display: block;
+}
+button.ValidarCupon{
+    width: 200px;
+}
+.div_main .Cupon{
+    margin-bottom: 5px;
+}
+small {
+    color: #d8006c;
+    margin: 0px 15px 0px;
+    margin-top: -10px;
+}
+.GastoEnvioPorque{
+    width: 80%;
+}
+.div_main .div_Total{
+    margin-top: 15px;
+}
+
+
+
+/* Botones de Next y Back*/
+.bth-box{
+    width: 100%;
+    margin: 30px auto;
+    text-align: center;
+    position: absolute;
+    top: 550px
+}
+form button{
+    width: 200px;
+    margin: 0 10px;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    background-color: #d8006c;
+    border-color: #d8006c; 
+    padding: 10px;
+    font-weight: bold;
+    color: #FFF;
+}
+form button:hover{
+    background-color: #3d0c11;
+    border-color: #3d0c11;
+  }
+
+
+/* Barra superiror que avanza */
+.main .div_main .header{
+    margin: 20px 0;
+    padding: 0;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    width: 900px;
+}
+.main .div_main .header ul{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+.main .div_main .header ul li{
+    position: relative; 
+    margin-right: 50px;
+    transition: 0.3s;
+}
+.main .div_main .header ul li:last-child{
+    margin-right: 0;
+}
+.main .div_main .header ul li:before{
+    content: ""; 
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 70px;
+    width: 100%;
+    height: 5px;
+    background-color: #d8006c;
+    transition: .5s;
+}
+.main .div_main .header ul li:first-child:before{
+    display: none;
+}
+.main .div_main .header ul li div{
+    padding: 5px;
+    border-radius: 50%;
+}
+.main .div_main .header ul li p{
+    width: 50px;
+    height: 50px;
+    background-color: #d8006c;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+}
+.main .div_main .header ul li.active:before, .main .div_main .header ul li.active p{
+    background-color: black;
+}
