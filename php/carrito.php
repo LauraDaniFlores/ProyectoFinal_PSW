@@ -132,6 +132,8 @@
                 </div>
             </div>
 
+            <input class="totalinput" type="number" style="display:none;" name="total" value="<?php echo $precioTotal ?>">
+
             <div class="acomodocom">
                 <div class="bcompra">
                     <button class="fancy" type="submit" name="Finalizar">
