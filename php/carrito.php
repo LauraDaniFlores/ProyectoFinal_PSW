@@ -70,13 +70,14 @@
                 $productos = "SELECT *FROM Carrito WHERE usuario='$usuario'";
                 $resultado = $conexion -> query($productos);
                 $i=0;
+                ?> <form method="POST" action="FinalizarCompra.php"> <?php
                 while( $fila = $resultado -> fetch_assoc() ){ 
                     $id = $fila['IdProducto'];
                     $info = "SELECT *FROM productos WHERE idProducto=$id";
                     $resultado1 = $conexion -> query($info);
                     while( $fila2 = $resultado1 -> fetch_assoc() ){
                         $precio = ($fila2['precio']*((100-$fila2['descuento'])/100))*$fila['cantidad'];
-                        InfoProCarrito($fila2['imagen'], $fila2['nombre'], $fila2['descripcion'], $fila['cantidad'], $precio , $i);
+                        InfoProCarrito($id, $fila2['imagen'], $fila2['nombre'], $fila2['descripcion'], $fila['cantidad'], $precio , $i);
                         $precioTotal += $precio;
                     } 
                     $i += 1;
@@ -126,38 +127,40 @@
                 <div class="precio_acumulado">
                     <h3>Precio Acumulado</h3>
                     <!-- Suma de los precios de los articulos seleccionados a comprar -->
-                    <p><b><?php echo $precioTotal ?></b></p>
+                    <!-- <p><b class="total"><?php echo $precioTotal ?></b></p> -->
+                    <p><b class="total"><?php echo $precioTotal ?></b></p>
                 </div>
             </div>
 
             <div class="acomodocom">
                 <div class="bcompra">
-                    <a class="fancy" href="#pagina_de_compra">
+                    <button class="fancy" type="submit" name="Finalizar">
                         <span class="top-key"></span>
                         <span class="text">Comprar Ahora</span>
                         <span class="bottom-key-1"></span>
                         <span class="bottom-key-2"></span>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
+        </form>
         <?php } ?>
     </footer>
-
+    <script src="../js/Carrito.js"></script>
 </body>
 
 </html>
 
 <?php 
 //Precio total de los elementos
-function InfoProCarrito($img, $nombre, $descripcion, $cantidad, $precio, $i){?>
+function InfoProCarrito($id, $img, $nombre, $descripcion, $cantidad, $precio, $i){?>
 
     <!-- Abre el acomodo del diseño para los articulos agregados al carrito -->
     <div class="acomodoart">
             <!-- Checkbox del articulo -->
             <div class="acomodochk">
                 <div class="checkbox-wrapper">
-                    <input checked="" type="checkbox" class="check" name="Productos" id="elegido<?php echo $i?>">
+                    <input checked="" type="checkbox" class="check" name="Productos" id="elegido<?php echo $i?>" value="<?php echo $id?>">
                     <label for="elegido<?php echo $i?>" class="label">
                         <svg width="45" height="45" viewBox="0 0 95 95">
                             <rect x="30" y="20" width="50" height="50" stroke="black" fill="none"></rect>
@@ -195,7 +198,7 @@ function InfoProCarrito($img, $nombre, $descripcion, $cantidad, $precio, $i){?>
             <!-- Cantidad del articulo -->
             <div class="acomodoindpre">
                 <div>
-                    <h3><b><?php echo $precio ?></b></h3>
+                    <h3><b id="precio<?php echo $i?>"><?php echo $precio ?></b></h3>
                 </div>
             </div>
 
