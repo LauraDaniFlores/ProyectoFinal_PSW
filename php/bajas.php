@@ -157,7 +157,6 @@
                         </div>
                     <?php
                     }
-                    //continaumos con la consulta de datos a la tabla usuarios
                     //vemos datos en un tabla de html
                     $sql = 'select * from productos';//hacemos cadena con la sentencia mysql que consulta todo el contenido de la tabla
                     $resultado = $conexion -> query($sql); //aplicamos sentencia
