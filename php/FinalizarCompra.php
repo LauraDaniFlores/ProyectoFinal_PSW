@@ -19,6 +19,7 @@
         document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Una forma fácil de consumir tus dulces favoritos";
     </script>
     <?php 
+        $usuario = $_SESSION['usuario'];
         $precioTotal = $_POST['total']; 
         echo "<script>var precioTotal = '$precioTotal';</script>";   
         $_SESSION['Productos'] = $_POST['Productos'];
@@ -33,6 +34,29 @@
             }
             return $codigo;
         }
+        $servidor='localhost';
+        $cuenta='root';
+        $password='';
+        $bd='Store';
+     
+        $conexion = new mysqli($servidor,$cuenta,$password,$bd);
+
+        if ($conexion->connect_errno){
+            die('Error en la conexion');
+        }else{
+            $Compras = "SELECT COUNT(Usuario) AS veces FROM Ventas WHERE usuario = '$usuario'";
+            $resultado = $conexion -> query($Compras); 
+            while( $fila = $resultado -> fetch_assoc()){ 
+                $Compras = $fila["veces"]; 
+            }
+
+            if($Compras == 0){
+                echo "<script>var ComprasHechas = false;</script>";   
+            }else{
+                echo "<script>var ComprasHechas = true;</script>";   
+            }
+        }
+        
     ?>
     <main class="main">
         <div class="div_main">
