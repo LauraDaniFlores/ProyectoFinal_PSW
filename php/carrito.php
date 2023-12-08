@@ -318,7 +318,7 @@ function InfoProCarrito($id, $img, $nombre, $descripcion, $cantidad, $precio, $i
         <!-- Checkbox del articulo -->
         <div class="acomodochk">
             <div class="checkbox-wrapper">
-                <input checked="" type="checkbox" class="check" name="Productos" id="elegido<?php echo $i ?>"
+                <input checked="" type="checkbox" class="check" name="Productos[]" id="elegido<?php echo $i ?>"
                     value="<?php echo $id ?>">
                 <label for="elegido<?php echo $i ?>" class="label">
                     <svg width="45" height="45" viewBox="0 0 95 95">
