@@ -23,6 +23,16 @@
         echo "<script>var precioTotal = '$precioTotal';</script>";   
         $_SESSION['Productos'] = $_POST['Productos'];
         $_SESSION['precioTotal'] = $precioTotal;
+        $codigo = ""; 
+        function numerorandom(){
+            $codigo = "";
+            $caracteres="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            $max=strlen($caracteres)-1;
+            for($i=0;$i<10;$i++){
+                $codigo.=$caracteres[mt_rand(0,$max)];
+            }
+            return $codigo;
+        }
     ?>
     <main class="main">
         <div class="div_main">
@@ -56,8 +66,8 @@
                     <input type="email" name="Correo" id="Correo" placeholder="Correo Electrónico" required>
                     <label for="Direccion">Dirección</label>
                     <label for="CodigoPostal">Código Postal</label>
-                    <input type="text" name="Direccion" id="Direccion" placeholder="Dirección" required>
-                    <input type="number" name="CodigoPostal" id="CodigoPostal" placeholder="Código Postal" min="0" max="100000" required>
+                    <input type="text" name="Direccion" id="Direccion" placeholder="Indica tu Dirección" required>
+                    <input type="number" name="CodigoPostal" id="CodigoPostal" placeholder="Ingresa los 5 dígitos" min="0" max="100000" required>
                     <label for="Pais">País</label>
                     <label for="Ciudad">Ciudad</label>
                     <select name="Pais" id="Pais" required>
@@ -68,7 +78,7 @@
                     <input type="text" name="Ciudad" id="Ciudad" placeholder="Ciudad" required>
                     <label for="NumeroTelefonico">Número Telefónico</label>
                     <label for=""></label>
-                    <input type="number" name="NumeroTelefonico" id="NumeroTelefonico" placeholder="Número Telefónico" min="0" max="1000000000" required>
+                    <input type="number" name="NumeroTelefonico" id="NumeroTelefonico" placeholder="Ingresa los 10 dígitos" min="0" max="1000000000" required>
                     <button type="button" class="editar" id="editar">Editar</button>
                     <div class="bth-box">
                         <button type="button" class="next" id="Next1" >Siguiente</button>
@@ -137,17 +147,17 @@
                     <h2>Forma de Pago</h2>
                     <div class="linea"></div>
                     <section class="bancos">
-                        <label class="BBVA putborder">
+                        <label class="labelB putborder" id="BBVA1">
                             <input type="radio" name="TipoDePago" id="BBVA" value="BBVA" checked>
-                            <img src="../imagenes/BBVA.png" alt="BBVA">
+                            <img class="BBVA" src="../imagenes/BBVA.png" alt="BBVA">
                         </label>
-                        <label class="Santander">
+                        <label class="labelB" id="Santander1">
                             <input type="radio" name="TipoDePago" id="Santander" value="Santander">
-                            <img src="../imagenes/Santander.png" alt="">
+                            <img class="Santander" src="../imagenes/Santander.png" alt="Santander">
                         </label>
-                        <label class="OXXO">
+                        <label class="labelB" id="OXXO1">
                             <input type="radio" name="TipoDePago" id="OXXO" value="OXXO">
-                            <img src="../imagenes/OXXO.png" alt="">
+                            <img class="OXXO" src="../imagenes/OXXO.png" alt="OXXO">
                         </label>
                     </section>
 
@@ -158,6 +168,16 @@
                         <label class="Bseguridad" for="Bseguridad">Código de seguridad<input type="number" class="block Bseguridad" name="Bseguridad" id="Bseguridad" size="3" placeholder="CVV" required></label>
                     </section>
 
+                    <section class="optionOxxo">
+                        <p>
+                            Ahora tienes la oportunidad de pagar tus compras en tu OXXO más cercano. Disfruta de esta 
+                            gran ventaja que tienes en tus manos.
+                            Copia el código siguiente y muestráselo al cajero. Y el pago estará hecho.
+                        </p>
+                        <?php $codigo = numerorandom(); ?>
+                        <p class="codigo"><?php echo $codigo; ?></p>
+                        <input type="text" id="codigo" style="display:none" value=<?php echo $codigo; ?>>
+                    </section>
                     <div class="bth-box">
                         <button type="button" class="back" id="Back2">Retroceder</button>
                         <button type="submit" class="Enviar" id="Enviar">Finalizar</button>
@@ -175,5 +195,4 @@
 </html>
 
 <?php
-
 ?>
