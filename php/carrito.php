@@ -33,6 +33,127 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
+<?php
+
+function loader(){
+
+    $numeroloader = range(0, 5);
+    foreach ($numeroloader as &$v) {
+        $v = rand(1, 5);
+    }
+
+    if ($numeroloader[0] == 1) {
+
+        ?>
+
+        <div class="acomodoloaders">
+            <div class="🤚">
+                <div class="👉"></div>
+                <div class="👉"></div>
+                <div class="👉"></div>
+                <div class="👉"></div>
+                <div class="🌴"></div>
+                <div class="👍"></div>
+            </div>
+        </div>
+
+    <?php
+    } elseif ($numeroloader[0] == 2) {
+        ?>
+        <div class="acomodoloaders">
+            <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
+                <div class="wheel"></div>
+                <div class="hamster">
+                    <div class="hamster__body">
+                        <div class="hamster__head">
+                            <div class="hamster__ear"></div>
+                            <div class="hamster__eye"></div>
+                            <div class="hamster__nose"></div>
+                        </div>
+                        <div class="hamster__limb hamster__limb--fr"></div>
+                        <div class="hamster__limb hamster__limb--fl"></div>
+                        <div class="hamster__limb hamster__limb--br"></div>
+                        <div class="hamster__limb hamster__limb--bl"></div>
+                        <div class="hamster__tail"></div>
+                    </div>
+                </div>
+                <div class="spoke"></div>
+            </div>
+        </div>
+
+    <?php
+    } elseif ($numeroloader[0] == 3) {
+        ?>
+        <div class="cafeteraloader">
+            <div class="loader">
+                <div class="container">
+                    <div class="coffee-header">
+                        <div class="coffee-header__buttons coffee-header__button-one"></div>
+                        <div class="coffee-header__buttons coffee-header__button-two"></div>
+                        <div class="coffee-header__display"></div>
+                        <div class="coffee-header__details"></div>
+                    </div>
+                    <div class="coffee-medium">
+                        <div class="coffe-medium__exit"></div>
+                        <div class="coffee-medium__arm"></div>
+                        <div class="coffee-medium__liquid"></div>
+                        <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
+                        <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
+                        <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
+                        <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
+                        <div class="coffee-medium__cup"></div>
+                    </div>
+                    <div class="coffee-footer"></div>
+                </div>
+            </div>
+
+
+        </div>
+
+    <?php
+    } elseif ($numeroloader[0] == 4) {
+        ?>
+
+        <div class="acomodoloaders">
+            <div class="paleta"></div>
+        </div>
+
+    <?php
+    } elseif ($numeroloader[0] == 5) {
+        ?>
+        <div class="acomodolampara">
+            <div class="lamp">
+                <div class="glass">
+                    <div class="lava">
+                        <div class="blob"></div>
+                        <div class="blob"></div>
+                        <div class="blob"></div>
+                        <div class="blob top"></div>
+                        <div class="blob bottom"></div>
+                    </div>
+                </div>
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <defs>
+                    <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                            result="goo"></feColorMatrix>
+                        <feBlend in="SourceGraphic" in2="goo"></feBlend>
+                    </filter>
+                </defs>
+            </svg>
+        </div>
+
+    <?php
+
+    }
+
+}
+?>
+
+
 <body>
     <header>
         <?php
@@ -97,121 +218,7 @@
                         <!-- Condicionales de los loaders que se muestran -->
 
                         <?php
-
-
-                        /* Genera numero aleatorio sin repetir en un arreglo */
-                        $numeroloader = range(0, 5);
-                        foreach ($numeroloader as &$v) {
-                            $v = rand(1, 5);
-                        }
-
-
-                        if ($numeroloader[0] == 1) {
-                            ?>
-
-
-                            <div class="acomodoloaders">
-                                <div class="🤚">
-                                    <div class="👉"></div>
-                                    <div class="👉"></div>
-                                    <div class="👉"></div>
-                                    <div class="👉"></div>
-                                    <div class="🌴"></div>
-                                    <div class="👍"></div>
-                                </div>
-                            </div>
-
-                            <?php
-                        } elseif ($numeroloader[0] == 2) {
-                            ?>
-                            <div class="acomodoloaders">
-                                <div aria-label="Orange and tan hamster running in a metal wheel" role="img"
-                                    class="wheel-and-hamster">
-                                    <div class="wheel"></div>
-                                    <div class="hamster">
-                                        <div class="hamster__body">
-                                            <div class="hamster__head">
-                                                <div class="hamster__ear"></div>
-                                                <div class="hamster__eye"></div>
-                                                <div class="hamster__nose"></div>
-                                            </div>
-                                            <div class="hamster__limb hamster__limb--fr"></div>
-                                            <div class="hamster__limb hamster__limb--fl"></div>
-                                            <div class="hamster__limb hamster__limb--br"></div>
-                                            <div class="hamster__limb hamster__limb--bl"></div>
-                                            <div class="hamster__tail"></div>
-                                        </div>
-                                    </div>
-                                    <div class="spoke"></div>
-                                </div>
-                            </div>
-
-                            <?php
-                        } elseif ($numeroloader[0] == 3) {
-                            ?>
-                            <div class="cafeteraloader">
-                                <div class="loader">
-                                    <div class="container">
-                                        <div class="coffee-header">
-                                            <div class="coffee-header__buttons coffee-header__button-one"></div>
-                                            <div class="coffee-header__buttons coffee-header__button-two"></div>
-                                            <div class="coffee-header__display"></div>
-                                            <div class="coffee-header__details"></div>
-                                        </div>
-                                        <div class="coffee-medium">
-                                            <div class="coffe-medium__exit"></div>
-                                            <div class="coffee-medium__arm"></div>
-                                            <div class="coffee-medium__liquid"></div>
-                                            <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
-                                            <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
-                                            <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
-                                            <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
-                                            <div class="coffee-medium__cup"></div>
-                                        </div>
-                                        <div class="coffee-footer"></div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                            <?php
-                        } elseif ($numeroloader[0] == 4) {
-
-                            ?>
-                            <div class="acomodoloaders">
-                                <div class="paleta"></div>
-                            </div>
-
-                            <?php
-                        } elseif ($numeroloader[0] == 5) {
-                            ?>
-                            <div class="acomodolampara">
-                                <div class="lamp">
-                                    <div class="glass">
-                                        <div class="lava">
-                                            <div class="blob"></div>
-                                            <div class="blob"></div>
-                                            <div class="blob"></div>
-                                            <div class="blob top"></div>
-                                            <div class="blob bottom"></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-                                    <defs>
-                                        <filter id="goo">
-                                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
-                                            <feColorMatrix in="blur" mode="matrix"
-                                                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"></feColorMatrix>
-                                            <feBlend in="SourceGraphic" in2="goo"></feBlend>
-                                        </filter>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <?php
-                        }
+                            loader();
                         ?>
 
 
@@ -223,6 +230,12 @@
                             <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
                                 style="stroke: none; fill: #fff;"></path>
                         </svg></div>
+
+                    <footer>
+                        <?php
+                            include "footer.php"
+                        ?>
+                    </footer>
                 <?php }
         } else { ?>
                 <section class="preguntasTitle">
@@ -240,121 +253,7 @@
                     <!-- Condicionales de los loaders que se muestran -->
 
                     <?php
-
-
-                    /* Genera numero aleatorio sin repetir en un arreglo */
-                    $numeroloader = range(0, 5);
-                    foreach ($numeroloader as &$v) {
-                        $v = rand(1, 5);
-                    }
-
-
-                    if ($numeroloader[0] == 1) {
-                        ?>
-
-
-                        <div class="acomodoloaders">
-                            <div class="🤚">
-                                <div class="👉"></div>
-                                <div class="👉"></div>
-                                <div class="👉"></div>
-                                <div class="👉"></div>
-                                <div class="🌴"></div>
-                                <div class="👍"></div>
-                            </div>
-                        </div>
-
-                        <?php
-                    } elseif ($numeroloader[0] == 2) {
-                        ?>
-                        <div class="acomodoloaders">
-                            <div aria-label="Orange and tan hamster running in a metal wheel" role="img"
-                                class="wheel-and-hamster">
-                                <div class="wheel"></div>
-                                <div class="hamster">
-                                    <div class="hamster__body">
-                                        <div class="hamster__head">
-                                            <div class="hamster__ear"></div>
-                                            <div class="hamster__eye"></div>
-                                            <div class="hamster__nose"></div>
-                                        </div>
-                                        <div class="hamster__limb hamster__limb--fr"></div>
-                                        <div class="hamster__limb hamster__limb--fl"></div>
-                                        <div class="hamster__limb hamster__limb--br"></div>
-                                        <div class="hamster__limb hamster__limb--bl"></div>
-                                        <div class="hamster__tail"></div>
-                                    </div>
-                                </div>
-                                <div class="spoke"></div>
-                            </div>
-                        </div>
-
-                        <?php
-                    } elseif ($numeroloader[0] == 3) {
-                        ?>
-                        <div class="cafeteraloader">
-                            <div class="loader">
-                                <div class="container">
-                                    <div class="coffee-header">
-                                        <div class="coffee-header__buttons coffee-header__button-one"></div>
-                                        <div class="coffee-header__buttons coffee-header__button-two"></div>
-                                        <div class="coffee-header__display"></div>
-                                        <div class="coffee-header__details"></div>
-                                    </div>
-                                    <div class="coffee-medium">
-                                        <div class="coffe-medium__exit"></div>
-                                        <div class="coffee-medium__arm"></div>
-                                        <div class="coffee-medium__liquid"></div>
-                                        <div class="coffee-medium__smoke coffee-medium__smoke-one"></div>
-                                        <div class="coffee-medium__smoke coffee-medium__smoke-two"></div>
-                                        <div class="coffee-medium__smoke coffee-medium__smoke-three"></div>
-                                        <div class="coffee-medium__smoke coffee-medium__smoke-for"></div>
-                                        <div class="coffee-medium__cup"></div>
-                                    </div>
-                                    <div class="coffee-footer"></div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                        <?php
-                    } elseif ($numeroloader[0] == 4) {
-
-                        ?>
-                        <div class="acomodoloaders">
-                            <div class="paleta"></div>
-                        </div>
-
-                        <?php
-                    } elseif ($numeroloader[0] == 5) {
-                        ?>
-                        <div class="acomodolampara">
-                            <div class="lamp">
-                                <div class="glass">
-                                    <div class="lava">
-                                        <div class="blob"></div>
-                                        <div class="blob"></div>
-                                        <div class="blob"></div>
-                                        <div class="blob top"></div>
-                                        <div class="blob bottom"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-                                <defs>
-                                    <filter id="goo">
-                                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
-                                        <feColorMatrix in="blur" mode="matrix"
-                                            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"></feColorMatrix>
-                                        <feBlend in="SourceGraphic" in2="goo"></feBlend>
-                                    </filter>
-                                </defs>
-                            </svg>
-                        </div>
-                        <?php
-                    }
+                        loader();
                     ?>
 
 
@@ -364,8 +263,11 @@
                         <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
                             style="stroke: none; fill: #fff;"></path>
                     </svg></div>
+                        
+                
 
-            <?php }
+            <?php 
+            }
         ?>
 
     </section>
@@ -380,13 +282,13 @@
                     <div class="precio_acumulado">
                         <h3>Precio Acumulado</h3>
                         <!-- Suma de los precios de los articulos seleccionados a comprar -->
-                        <!-- <p><b class="total"><?php echo "$" . $precioTotal . ".00" ?></b></p> -->
-                        <p><b class="total">
-                                <?php echo "$" . $precioTotal . ".00" ?>
-                            </b></p>
+                        <!-- <p><b class="total"><?php echo $precioTotal ?></b></p> -->
+                        <p><b>$</b><b class="total">
+                                <?php echo $precioTotal ?>
+                            </b><b>.00</b></p>
                     </div>
                 </div>
-
+              
             <input class="totalinput" type="number" style="display:none;" name="total" value="<?php echo $precioTotal ?>">
             
             <div class="acomodocom">
@@ -397,7 +299,6 @@
                         <span class="bottom-key-1"></span>
                         <span class="bottom-key-2"></span>
                     </button>
-
                 </div>
             </div>
             </form>
@@ -463,9 +364,9 @@ function InfoProCarrito($id, $img, $nombre, $descripcion, $cantidad, $precio, $i
         <!-- Cantidad del articulo -->
         <div class="acomodoindpre">
             <div>
-                <h3><b id="precio<?php echo $i ?>">
-                        <?php echo "$" . $precio . ".00" ?>
-                    </b></h3>
+                <h3><b>$</b><b id="precio<?php echo $i ?>">
+                        <?php echo $precio ?>
+                    </b><b>.00</b></h3>
             </div>
         </div>
 
