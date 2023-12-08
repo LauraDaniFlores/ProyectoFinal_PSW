@@ -49,6 +49,11 @@ form input, select{
     border-radius: 5px;
     margin-top: 5px;
 }
+form input:hover, form select:hover{
+    border: 0.5px solid #3D0C11;    
+    background-color: #F78CA2;
+    color: white;
+}
 form label{
     width: 45%;
     margin: 20px 15px 0px;
@@ -97,6 +102,13 @@ button.ValidarCupon{
 .div_main .Cupon{
     margin-bottom: 5px;
 }
+.div_main .div_cupon{
+    position: relative;
+}
+.div_cupon .cuponDescuento {
+    position: absolute;
+    top: 90px;
+}
 small {
     color: #d8006c;
     margin: 0px 15px 0px;
@@ -135,8 +147,10 @@ form button{
 form button:hover{
     background-color: #3d0c11;
     border-color: #3d0c11;
-  }
-
+}
+button.editar{
+    width: 200px;
+}
 
 /* Barra superiror que avanza */
 .main .div_main .header{
@@ -189,4 +203,79 @@ form button:hover{
 }
 .main .div_main .header ul li.active:before, .main .div_main .header ul li.active p{
     background-color: black;
+}
+
+/* Tabla */
+.div_main table{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.div_main table .tdPrecio{
+    width: 5%;
+}
+.div_main p{
+    width: 100%;
+}
+.div_main table .signoPesos{
+    text-align: end;
+    padding-right: 8px;
+}
+.div_main table .totalNeta{
+    font-weight: bold;
+}
+
+/* Bancos */
+
+.div_main .bancos label img{
+    width: 70%;
+}
+.div_main .bancos{
+    display: flex; 
+    justify-content: center;
+}
+.div_main .bancos label{
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 200px;
+    background-color: #FFF;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+[type=radio] + img {
+    cursor: pointer;
+}
+[type=radio]:checked > .formBanco{
+    outline: 2px solid #d8006c;
+}
+.div_main .formBanco{
+    margin: 30px auto;
+}
+.div_main .formBanco label{
+    width: 70%;
+    margin: 0 auto;
+}
+.div_main .formBanco input{
+    width: 100%;
+    margin-left: 0;
+    /* background-color: #FFF; */
+}
+.div_main .formBanco label.Bfecha{
+    width: 45%;
+    margin-left: 15%;
+}
+
+.div_main .formBanco label.Bseguridad{
+    width: 25%;
+}
+.div_main .Forma_Pago label.putborder{
+    outline: 2px solid #d8006c;
 }

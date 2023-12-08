@@ -18,9 +18,15 @@
         document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Finalizar Compra —";
         document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Una forma fácil de consumir tus dulces favoritos";
     </script>
+    <?php 
+        $precioTotal = $_POST['total']; 
+        echo "<script>var precioTotal = '$precioTotal';</script>";   
+        $_SESSION['Productos'] = $_POST['Productos'];
+        $_SESSION['precioTotal'] = $precioTotal;
+    ?>
     <main class="main">
         <div class="div_main">
-            <form action="" method="post" class="formFinalizar">
+            <form action="Pedidos_PDF.php" method="post" class="formFinalizar">
                 <div class="header">
                     <ul>
                         <li class="active form_1_progressbar">
@@ -63,6 +69,7 @@
                     <label for="NumeroTelefonico">Número Telefónico</label>
                     <label for=""></label>
                     <input type="number" name="NumeroTelefonico" id="NumeroTelefonico" placeholder="Número Telefónico" min="0" max="1000000000" required>
+                    <button type="button" class="editar" id="editar">Editar</button>
                     <div class="bth-box">
                         <button type="button" class="next" id="Next1" >Siguiente</button>
                     </div>
@@ -92,8 +99,33 @@
                     </div>
                     <div class="div_Total">
                         <h2>Total</h2>
-                        <p></p>
-
+                        <table>
+                            <tr>
+                                <td><p>Precio Total de los Productos</p></td>
+                                <td class="tdPrecio signoPesos"><p>$</p></td>
+                                <td class="tdPrecio"><p id="totalAbsoluto"></p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Descuento del Cupón</p></td>
+                                <td class="tdPrecio signoPesos"><p>-$</p></td>
+                                <td class="tdPrecio"><p id="cuponNeto">0</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Impuestos</p></td>
+                                <td class="tdPrecio signoPesos"><p>$</p></td>
+                                <td class="tdPrecio"><p id="impuestoNeto"></p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Gastos de Envío</p></td>
+                                <td class="tdPrecio signoPesos"><p>$</p></td>
+                                <td class="tdPrecio"><p id="gastosNeto"></p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Total</p></td>
+                                <td class="tdPrecio signoPesos totalNeta"><p>$</p></td>
+                                <td class="tdPrecio totalNeta"><p id="totalNeta"></p></td>
+                            </tr>
+                        </table>
                     </div>
                     <div class="bth-box">
                         <button type="button" class="back" id="Back1">Retroceder</button>
@@ -104,13 +136,28 @@
                 <div class="Forma_Pago" id="form3">
                     <h2>Forma de Pago</h2>
                     <div class="linea"></div>
-                    <input type="text" name="Nombre_Completo" placeholder="Nombre Completo" required>
-                    <input type="email" name="Correo" placeholder="Correo Electrónico" required>
-                    <input type="text" name="Direccion" placeholder="Dirección" required>
-                    <input type="text" name="Ciudad" placeholder="Ciudad" required>
-                    <input type="text" name="Pais" placeholder="País" required>
-                    <input type="number" name="CodigoPostal" placeholder="Código Postal" min="0" max="100000" required>
-                    <input type="number" name="NumeroTelefonico" placeholder="Número Telefónico" min="0" max="1000000000" required>
+                    <section class="bancos">
+                        <label class="BBVA putborder">
+                            <input type="radio" name="TipoDePago" id="BBVA" value="BBVA" checked>
+                            <img src="../imagenes/BBVA.png" alt="BBVA">
+                        </label>
+                        <label class="Santander">
+                            <input type="radio" name="TipoDePago" id="Santander" value="Santander">
+                            <img src="../imagenes/Santander.png" alt="">
+                        </label>
+                        <label class="OXXO">
+                            <input type="radio" name="TipoDePago" id="OXXO" value="OXXO">
+                            <img src="../imagenes/OXXO.png" alt="">
+                        </label>
+                    </section>
+
+                    <section class="formBanco">
+                        <label class="block" for="Bname">Nombre del titular de tarjeta<input type="text" class="block" name="Bname" id="Bname" placeholder="Ingresa tu nombre completo" required></label>
+                        <label class="block" for="Btarjeta">Número de la tarjeta<input type="number" class="block" name="Btarjeta" id="Btarjeta" placeholder="0000 0000 0000 0000" size="16" required></label>
+                        <label class="Bfecha" for="Bfecha">Fecha de vencimiento<input type="text" class="block Bfecha" name="Bfecha" id="Bfecha" size="5" placeholder="01/24" required></label>
+                        <label class="Bseguridad" for="Bseguridad">Código de seguridad<input type="number" class="block Bseguridad" name="Bseguridad" id="Bseguridad" size="3" placeholder="CVV" required></label>
+                    </section>
+
                     <div class="bth-box">
                         <button type="button" class="back" id="Back2">Retroceder</button>
                         <button type="submit" class="Enviar" id="Enviar">Finalizar</button>
