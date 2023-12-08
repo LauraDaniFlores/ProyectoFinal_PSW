@@ -1,4 +1,3 @@
-
 var Part1 = document.getElementById("form1"); 
 var Part2 = document.getElementById("form2");
 var Part3 = document.getElementById("form3"); 
@@ -7,13 +6,18 @@ var Next1 = document.getElementById("Next1");
 var Next2 = document.getElementById("Next2");
 var Back1 = document.getElementById("Back1");
 var Back2 = document.getElementById("Back2");
+var Editar = document.getElementById("editar");
+
+var form_2_progressbar = document.querySelector(".form_2_progressbar");
+var form_3_progressbar = document.querySelector(".form_3_progressbar");
+
 
 var Validar = document.getElementById("ValidarCupon"); 
-
-var form_2_progressbar = document.querySelector(".form_2_progressbar")
-var form_3_progressbar = document.querySelector(".form_3_progressbar")
+var paises = document.getElementsByClassName("paises");
 
 const cupones = ["BIENVENIDA15"];
+const cuponesDescuento = [15];
+var precioNeto;
 
 Next1.onclick = function(){
     var name = document.getElementById("Nombre_Completo");
@@ -58,74 +62,115 @@ Next1.onclick = function(){
         ciudad.disabled = true; 
         numero.disabled = true;
         document.getElementById("Pais").disabled = true; 
-        
-        var paises = document.getElementsByClassName("paises");
+        document.getElementById("totalAbsoluto").innerHTML = precioTotal;
+
         for(const paiss of paises){
             paiss.innerHTML = pais; 
         }
 
-
-        let preciototal = 400; 
-        if(preciototal > 350){
+        var impuestoNeto = document.getElementById("impuestoNeto");
+        var gastosNeto = document.getElementById("gastosNeto"); 
+        var impues; 
+        if(precioTotal > 350){
             GastosE.value = 0
+            gastosNeto.innerHTML = 0;
             document.getElementById("GastoEnvioPorque").innerHTML = "¡Tu envío es gratis! Has comprado más de $350 pesos en productos.";
             boolGastosDeEnvio = false; 
         }
         if(pais === "México"){
-            Impuestos.value = preciototal*0.16; 
+            impues = 0.16; 
             GastosDeEnvio = 90; 
-
         }else if(pais === "Estados Unidos"){
-            Impuestos.value = preciototal*0.19; 
+            impues = 0.19; 
             GastosDeEnvio = 200; 
         }else{
-            Impuestos.value = preciototal*0.24; 
+            impues = 0.24; 
             GastosDeEnvio = 350; 
         }
+        impues = precioTotal * impues;
+        Impuestos.value = impues;
+        impuestoNeto.innerHTML = impues; 
         if(boolGastosDeEnvio){
             GastosE.value = GastosDeEnvio;
+            gastosNeto.innerHTML = GastosDeEnvio;
+        }else{
+            GastosDeEnvio = 0; 
         }
-
+        precioNeto = Number(precioTotal) + Number(GastosDeEnvio) + Number(impues); 
+        document.getElementById("totalNeta").innerHTML = precioNeto;
+    }else if(!EstaCorrecto){
+        Swal.fire({
+            icon: "question",
+            title: "¡Han faltado campos!",
+            text: "Vuelve a revisar tus datos",
+            background: "#fff",
+        });   
     }
 }
 
 Back1.onclick = function(){
     Part1.style.left = "10%"; 
     Part2.style.left = "1100px"; 
-    form_2_progressbar.classList.remove("active")
+    form_2_progressbar.classList.remove("active");
 }
 
 Next2.onclick = function(){
     Part2.style.left = "-1100px"; 
     Part3.style.left = "10%"; 
-    form_3_progressbar.classList.add("active")
+    form_3_progressbar.classList.add("active");
 }
 
 Back2.onclick = function(){
     Part2.style.left = "10%"; 
     Part3.style.left = "1100px"; 
-    form_3_progressbar.classList.remove("active")
+    form_3_progressbar.classList.remove("active");
 }
 
 Validar.onclick = function(){
     var cupon = document.getElementById("Cupon");
-    for(const Cupones of cupones){
-        if(Cupones === cupon.value){
+    for(let i=0; i<3; i++){
+        if(cupones[i] == cupon.value){
             cupon.disabled = true; 
-            document.getElementById("cuponDescuento").innerHTML = "Tu descuento es del 15%"
+            document.getElementById("cuponDescuento").innerHTML = "Tu descuento es del "+cuponesDescuento[i]+"%";
+            var precioCupon = precioTotal * (cuponesDescuento[i]/100); 
+            document.getElementById("cuponNeto").innerHTML = precioCupon;
+            precioNeto = Number(precioNeto) - Number(precioCupon); 
+            document.getElementById("totalNeta").innerHTML = precioNeto;    
             break; 
         }
-        console.log(document.getElementById("cuponDescuento"))
-        if(document.getElementById("cuponDescuento").innerHTML.length == 0){
-            cupon.value = "";
-            Swal.fire({
-            icon: "question",
-            title: "¡No es correcto!",
-            text: "Por el momento este cupón no está disponible",
-            background: "#fff",
-            })          
-        }
+    }
+    if(document.getElementById("cuponDescuento").innerHTML.length == 0){
+        cupon.value = "";
+        Swal.fire({
+        icon: "question",
+        title: "¡No es correcto!",
+        text: "Por el momento este cupón no está disponible",
+        background: "#fff",
+        })          
+    }
+}
 
-    } 
+Editar.onclick = function(){
+    document.getElementById("Nombre_Completo").disabled = false; 
+    document.getElementById("Correo").disabled = false; 
+    document.getElementById("Direccion").disabled = false;
+    document.getElementById("CodigoPostal").disabled = false; 
+    document.getElementById("Ciudad").disabled = false; 
+    document.getElementById("NumeroTelefonico").disabled = false;
+    document.getElementById("Pais").disabled = false;
+}
 
+var TipoDe = document.querySelectorAll('input[name="TipoDePago"]'); 
+
+for (const banco of TipoDe) {
+    banco.addEventListener('click', function(){
+        misdatos=check(); 
+        var select = document.querySelector('label[class='+misdatos+']'); 
+        select.style.outline="2px solid #d8006c"; 
+    });
+}
+
+function check() {
+    var bank =  document.querySelector('input[name=TipoDePago]:checked').value;
+    return bank;
 }

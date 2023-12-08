@@ -387,18 +387,17 @@
                     </div>
                 </div>
 
-                <input class="totalinput" type="number" style="display:none;" name="total"
-                    value="<?php echo "$" . $precioTotal . ".00" ?>">
+            <input class="totalinput" type="number" style="display:none;" name="total" value="<?php echo $precioTotal ?>">
+            
+            <div class="acomodocom">
+                <div class="bcompra">
+                    <button class="fancy" type="submit" name="Finalizar">
+                        <span class="top-key"></span>
+                        <span class="text">Comprar Ahora</span>
+                        <span class="bottom-key-1"></span>
+                        <span class="bottom-key-2"></span>
+                    </button>
 
-                <div class="acomodocom">
-                    <div class="bcompra">
-                        <button class="fancy" type="submit" name="Finalizar">
-                            <span class="top-key"></span>
-                            <span class="text">Comprar Ahora</span>
-                            <span class="bottom-key-1"></span>
-                            <span class="bottom-key-2"></span>
-                        </button>
-                    </div>
                 </div>
             </div>
             </form>
@@ -430,6 +429,7 @@ function InfoProCarrito($id, $img, $nombre, $descripcion, $cantidad, $precio, $i
                         </g>
                     </svg>
                 </label>
+
             </div>
         </div>
 
