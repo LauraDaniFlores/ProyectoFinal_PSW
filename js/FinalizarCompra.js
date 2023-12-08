@@ -15,8 +15,8 @@ var form_3_progressbar = document.querySelector(".form_3_progressbar");
 var Validar = document.getElementById("ValidarCupon"); 
 var paises = document.getElementsByClassName("paises");
 
-const cupones = ["BIENVENIDA15"];
-const cuponesDescuento = [15];
+const cupones = ["BIENVENIDA15", "DULCE2024", "NAVIDULCE30"];
+const cuponesDescuento = [15, 20, 30];
 var precioNeto;
 
 Next1.onclick = function(){
@@ -38,9 +38,9 @@ Next1.onclick = function(){
     var boolGastosDeEnvio = true; 
 
     if (name.value.length !== 0) {
-        if(numero.value.length !== 0 ){
+        if(numero.value.length === 10 ){
             if(direccion.value.length !== 0 ){
-                if(codigo.value.length !== 0 ){
+                if(codigo.value.length === 5 ){
                     if(ciudad.value.length !== 0 ){
                         if (correo.value.match(validRegex)) {
                             EstaCorrecto = true; 
@@ -102,7 +102,7 @@ Next1.onclick = function(){
         Swal.fire({
             icon: "question",
             title: "¡Han faltado campos!",
-            text: "Vuelve a revisar tus datos",
+            text: "Vuelve a revisar tus datos una vez más",
             background: "#fff",
         });   
     }
@@ -164,9 +164,10 @@ var TipoDe = document.querySelectorAll('input[name="TipoDePago"]');
 
 for (const banco of TipoDe) {
     banco.addEventListener('click', function(){
-        misdatos=check(); 
-        var select = document.querySelector('label[class='+misdatos+']'); 
-        select.style.outline="2px solid #d8006c"; 
+        quitarborde();
+        quitarblancoyNegro();
+        ponerfondo();
+        opciones();
     });
 }
 
@@ -174,3 +175,55 @@ function check() {
     var bank =  document.querySelector('input[name=TipoDePago]:checked').value;
     return bank;
 }
+function ponerfondo(){
+    datos = check();
+    misdatos=datos+"1"; 
+    var select = document.getElementById(misdatos); 
+    select.style.outline="2px solid #d8006c"; 
+    document.querySelector('img[class='+datos+']').style.filter = 'grayscale(100%)';
+}
+function quitarborde(){
+    var selected = document.getElementsByClassName('labelB'); 
+    for(const sel of selected){
+        sel.style.outline="none"; 
+    }
+}
+
+function quitarblancoyNegro(){
+    var selected = document.querySelectorAll(".labelB img"); 
+    for(const sel of selected){
+        sel.style.filter = 'none';; 
+    }
+}
+
+function opciones(){
+    datos = check();
+    if(datos === "BBVA"){
+        displayStyle("block", "none", true);
+        var oxxo = document.getElementsByClassName("formBanco");
+        oxxo[0].classList.remove("nuevoDiseño");
+    }else if(datos === "Santander"){
+        displayStyle("block", "none", true);
+        var oxxo = document.getElementsByClassName("formBanco");
+        oxxo[0].classList.add("nuevoDiseño");
+    }else if(datos === "OXXO"){
+        displayStyle("none", "block", false);
+    }
+}
+
+function displayStyle(first, second, bool){
+    var Bname = document.getElementById("Bname"); 
+    var Btarjeta = document.getElementById("Btarjeta"); 
+    var Bfecha = document.getElementById("Bfecha"); 
+    var Bseguridad = document.getElementById("Bseguridad"); 
+    var oxxo = document.getElementsByClassName("formBanco");
+    oxxo[0].style.display = first;  
+    var optionOxxo = document.getElementsByClassName("optionOxxo");
+    optionOxxo[0].style.display = second;
+    Bname.required = bool;
+    Btarjeta.required = bool;
+    Bfecha.required = bool;
+    Bseguridad.required = bool;
+}
+
+

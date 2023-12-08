@@ -122,7 +122,6 @@ small {
 }
 
 
-
 /* Botones de Next y Back*/
 .bth-box{
     width: 100%;
@@ -258,6 +257,7 @@ button.editar{
 }
 .div_main .formBanco{
     margin: 30px auto;
+    border: 1px solid #F9DEC9;
 }
 .div_main .formBanco label{
     width: 70%;
@@ -278,4 +278,43 @@ button.editar{
 }
 .div_main .Forma_Pago label.putborder{
     outline: 2px solid #d8006c;
+}
+.div_main .optionOxxo{
+    width: 80%;
+    position: absolute;
+    top: 220px;
+    left: 10%; 
+    text-align: justify;
+    display: none;  
+    box-sizing: content-box;  
+}
+.div_main .optionOxxo p.codigo{
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #d8006c;
+    border-radius: 10px;
+    box-sizing: content-box;
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px 0;
+}
+.div_main .optionOxxo p{
+    box-sizing: content-box;
+    width: 100%;
+    margin: 20px 0;
+}
+.nuevoDiseño{
+    border: 1px solid #d8006c;
+}
+.nuevoDiseño label{
+    color: #3D0C11; 
+}
+.nuevoDiseño input{
+    border: 0.5px solid #3d0c11;
+    background-color: #FFF;
+    color: black; 
+}
+.nuevoDiseño input::placeholder {
+    color: #F78CA2;
+    opacity: 1; /* Firefox */
 }
