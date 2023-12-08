@@ -47,7 +47,7 @@
                     </div>
                     <div class="contenidoCC">
                         <h2>Instagram</h2>
-                        <p>Candy Craze</p>
+                        <p>candycraze2023</p>
                     </div>
                 </div>
                 <div class="cuadroCC">

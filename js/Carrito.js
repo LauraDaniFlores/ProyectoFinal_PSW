@@ -6,10 +6,12 @@ for( let i=0; i<Check.length; i++){
         var precio = Number(document.getElementById("precio"+i).innerHTML);
         var preciototal = Number(document.getElementsByClassName("total")[0].innerHTML);
         if(Check[i].checked){
-            document.getElementsByClassName("total")[0].innerHTML = preciototal + precio;
+            final = preciototal + precio;
         }else{
-            document.getElementsByClassName("total")[0].innerHTML = preciototal - precio;
+            final = preciototal - precio;
         }
+        document.getElementsByClassName("total")[0].innerHTML = final;
+        document.getElementsByClassName("totalinput")[0].value = final;
     })
 }
 
