@@ -282,10 +282,9 @@ function loader(){
                     <div class="precio_acumulado">
                         <h3>Precio Acumulado</h3>
                         <!-- Suma de los precios de los articulos seleccionados a comprar -->
-                        <!-- <p><b class="total"><?php echo $precioTotal ?></b></p> -->
                         <p><b>$</b><b class="total">
                                 <?php echo $precioTotal ?>
-                            </b><b>.00</b></p>
+                            </b></p>
                     </div>
                 </div>
               
@@ -342,9 +341,7 @@ function InfoProCarrito($id, $img, $nombre, $descripcion, $cantidad, $precio, $i
         <!-- Seccion de descripcion articulo -->
         <div class="acomododesc">
             <!-- Titulo del producto -->
-            <h3><b>
-                    <?php echo $nombre ?>
-                </b></h3>
+            <h3><b><?php echo $nombre ?></b></h3>
             <!-- Descripcion del articulo -->
             <p>
                 <?php echo $descripcion ?>
@@ -364,15 +361,13 @@ function InfoProCarrito($id, $img, $nombre, $descripcion, $cantidad, $precio, $i
         <!-- Cantidad del articulo -->
         <div class="acomodoindpre">
             <div>
-                <h3><b>$</b><b id="precio<?php echo $i ?>">
-                        <?php echo $precio ?>
-                    </b><b>.00</b></h3>
+                <h3><b>$</b><b id="precio<?php echo $i ?>"><?php echo $precio ?></b></h3>
             </div>
         </div>
 
         <!-- Boton de eliminar -->
         <div class="acomodobtd">
-            <form action="">
+            <!-- <form action=""> -->
                 <button class="deleteboton" name="delete">
                     <svg viewBox="0 0 448 512" class="svgIcon">
                         <path
@@ -380,7 +375,7 @@ function InfoProCarrito($id, $img, $nombre, $descripcion, $cantidad, $precio, $i
                         </path>
                     </svg>
                 </button>
-            </form>
+            <!-- </form> -->
 
         </div>
 
