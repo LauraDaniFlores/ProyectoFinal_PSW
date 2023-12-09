@@ -110,6 +110,7 @@ if($conexion->connect_errno) {
 
     <!-- Scripts para funciones externas -->
     <script src="https://kit.fontawesome.com/f3a304d792.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Animaciones link -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />

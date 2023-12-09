@@ -192,6 +192,7 @@ function loader(){
                 $productos = "SELECT *FROM Carrito WHERE usuario='$usuario'";
                 $resultado = $conexion->query($productos);
                 $i = 0;
+                $precioTotal=0; 
                 ?>
                 <form method="POST" action="FinalizarCompra.php">
                     <?php
@@ -229,8 +230,7 @@ function loader(){
                             style="height: 100%; width: 100%;">
                             <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
                                 style="stroke: none; fill: #fff;"></path>
-                        </svg></div>
-
+                    </svg></div>
                 <?php }
         } else { ?>
                 <section class="preguntasTitle">

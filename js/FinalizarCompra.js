@@ -11,7 +11,6 @@ var Editar = document.getElementById("editar");
 var form_2_progressbar = document.querySelector(".form_2_progressbar");
 var form_3_progressbar = document.querySelector(".form_3_progressbar");
 
-
 var Validar = document.getElementById("ValidarCupon"); 
 var paises = document.getElementsByClassName("paises");
 
@@ -128,8 +127,15 @@ Back2.onclick = function(){
 
 Validar.onclick = function(){
     var cupon = document.getElementById("Cupon");
+    var texto = "Por el momento este cupón no está disponible"; 
     for(let i=0; i<3; i++){
         if(cupones[i] == cupon.value){
+            if(i == 0){
+                if(ComprasHechas === true){
+                    texto = "Este cupón solo es válido para tu primer compra";
+                    break;  
+                }
+            }
             cupon.disabled = true; 
             document.getElementById("cuponDescuento").innerHTML = "Tu descuento es del "+cuponesDescuento[i]+"%";
             var precioCupon = precioTotal * (cuponesDescuento[i]/100); 
@@ -144,7 +150,7 @@ Validar.onclick = function(){
         Swal.fire({
         icon: "question",
         title: "¡No es correcto!",
-        text: "Por el momento este cupón no está disponible",
+        text: texto,
         background: "#fff",
         })          
     }
