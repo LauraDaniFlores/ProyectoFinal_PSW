@@ -202,6 +202,7 @@
                         <p class="codigo"><?php echo $codigo; ?></p>
                         <input type="text" id="codigo" style="display:none" value=<?php echo $codigo; ?>>
                     </section>
+                    
                     <div class="bth-box">
                         <button type="button" class="back" id="Back2">Retroceder</button>
                         <button type="submit" class="Enviar" id="Enviar">Finalizar</button>

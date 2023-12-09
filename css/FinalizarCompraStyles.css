@@ -262,19 +262,23 @@ button.editar{
 .div_main .formBanco label{
     width: 70%;
     margin: 0 auto;
+    color: #255CBF; 
+    border-radius: 10px;
 }
 .div_main .formBanco input{
     width: 100%;
     margin-left: 0;
-    /* background-color: #FFF; */
+    border: 0.5px solid #255CBF;
 }
 .div_main .formBanco label.Bfecha{
     width: 45%;
     margin-left: 15%;
+    margin-bottom: 0;
 }
 
 .div_main .formBanco label.Bseguridad{
     width: 25%;
+    margin-bottom: 0;
 }
 .div_main .Forma_Pago label.putborder{
     outline: 2px solid #d8006c;
@@ -303,18 +307,19 @@ button.editar{
     width: 100%;
     margin: 20px 0;
 }
-.nuevoDiseño{
-    border: 1px solid #d8006c;
+.div_main section.nuevoDiseño{
+    /* border: 1px solid #d8006c; */
 }
-.nuevoDiseño label{
-    color: #3D0C11; 
+.div_main section.nuevoDiseño label{
+    color: #b70000; 
+    border-radius: 10px;
 }
-.nuevoDiseño input{
-    border: 0.5px solid #3d0c11;
-    background-color: #FFF;
+.div_main section.nuevoDiseño input{
+    border: 0.5px solid #b70000;
     color: black; 
+    background-color: #F9DEC9;
 }
-.nuevoDiseño input::placeholder {
-    color: #F78CA2;
-    opacity: 1; /* Firefox */
+.div_main .nuevoDiseño input::placeholder {
+    color: #000;
+    opacity: .5; 
 }
