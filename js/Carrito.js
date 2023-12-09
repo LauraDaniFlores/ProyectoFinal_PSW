@@ -15,6 +15,17 @@ for( let i=0; i<Check.length; i++){
     })
 }
 
+var total_Boton = document.getElementsByClassName("total")[0];
+var finalizar = document.getElementById("Finalizar");
+
+finalizar.addEventListener('click', event => {
+    var total_Boton = document.getElementsByClassName("total")[0];
+    if(total_Boton.innerHTML == 0){
+        event.preventDefault();
+        console.log(total_Boton.innerHTML);
+    }
+});
+
 var Borrar = document.querySelectorAll('button[name="delete"]');
 var usuario = document.getElementById('usuario').innerHTML;
 
@@ -24,17 +35,15 @@ for (let j=0; j<Borrar.length; j++) {
         var sql = "DELETE FROM Carrito WHERE IdProducto ="+id+" AND usuario='"+usuario+"';";
 
         misdatos="sql="+sql;
-        console.log(misdatos);
+        // console.log(misdatos);
 
         var envio = new XMLHttpRequest();        
         envio.open("GET","Funcion_Carrito.php?"+misdatos, true);  
         envio.onreadystatechange=function(){
             if (envio.readyState == 4 && envio.status == 200){
-                console.log("Listo");
-                console.log(envio.responseText);
+                location. assign('carrito.php');
             }
         }
         envio.send();
-        location. assign('carrito.php');
     });
 }

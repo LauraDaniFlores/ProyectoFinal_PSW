@@ -1,4 +1,5 @@
 <?php 
+
     $servidor = 'localhost';
     $cuenta = 'root';
     $password = '';
@@ -13,4 +14,5 @@
 
     $sql = $_GET['sql'];
     $result = $conexion->query($sql);
+    
 ?>
