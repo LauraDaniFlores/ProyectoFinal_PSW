@@ -34,10 +34,10 @@
             }
             return $codigo;
         }
-        $servidor='localhost';
+        $servidor='localhost:3307';
         $cuenta='root';
         $password='';
-        $bd='Store';
+        $bd='store1';
      
         $conexion = new mysqli($servidor,$cuenta,$password,$bd);
 
@@ -101,7 +101,7 @@
                     </select>
                     <input type="text" name="Ciudad" id="Ciudad" placeholder="Ciudad" required>
                     <label for="NumeroTelefonico">Número Telefónico</label>
-                    <label for=""></label>
+                    <br>
                     <input type="number" name="NumeroTelefonico" id="NumeroTelefonico" placeholder="Ingresa los 10 dígitos" min="0" max="1000000000" required>
                     <button type="button" class="editar" id="editar">Editar</button>
                     <div class="bth-box">
@@ -122,12 +122,12 @@
                         <div class="div_impuestos">
                             <label for="Impuestos">Impuestos</label>
                             <p class="paises"></p>
-                            <input type="text" id="Impuestos" name="Impuestos" value="10" disabled>
+                            <input type="text" id="Impuestos" name="Impuestos" value="10" readOnly>
                         </div>
                         <div class="div_gastosEnvio">
                             <label for="GastosE">Gastos de Envío</label>
                             <p class="paises"></p>
-                            <input type="text" id="GastosE" name="GastosE" value="40" disabled>
+                            <input type="text" id="GastosE" name="GastosE" value="40" readOnly>
                             <small class="block GastoEnvioPorque" id="GastoEnvioPorque"></small>
                         </div>
                     </div>
@@ -142,7 +142,11 @@
                             <tr>
                                 <td><p>Descuento del Cupón</p></td>
                                 <td class="tdPrecio signoPesos"><p>-$</p></td>
-                                <td class="tdPrecio"><p id="cuponNeto">0</p></td>
+                                <td class="tdPrecio">
+                                    <p id="cuponNeto">0</p>
+                                    <input type="hidden" name="cuponValor" id="cuponValor" value="0">
+                                </td>
+
                             </tr>
                             <tr>
                                 <td><p>Impuestos</p></td>
