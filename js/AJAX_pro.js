@@ -72,6 +72,7 @@ var slider = document.getElementById("myRange");
 var output = document.getElementById("valor");
 output.innerHTML = slider.value;
 
+
 slider.oninput = function() {
   output.innerHTML = this.value;
 }
@@ -79,16 +80,16 @@ slider.oninput = function() {
 var botonFiltro = document.getElementsByClassName("filtroPrecio")[0];
 
 botonFiltro.addEventListener('click', function(){
-    console.log("Hola");
+    // console.log("Hola");
     //output.innerHTML
     misdatos="cat="+check()+"&max="+output.innerHTML;
-        console.log(misdatos);
+        // console.log(misdatos);
 
         var filtro = new XMLHttpRequest();        
         filtro.open("GET","producto_mostrar.php?"+misdatos, true);  
         filtro.onreadystatechange=function(){
             if (filtro.readyState == 4 && filtro.status == 200){
-                console.log(filtro.responseText);
+                // console.log(filtro.responseText);
                 document.getElementById('Productos_div').innerHTML=this.responseText;
                 reactivarClicks();
             }
