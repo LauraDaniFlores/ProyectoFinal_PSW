@@ -54,13 +54,13 @@ Next1.onclick = function(){
         Part2.style.left = "10%"; 
         form_2_progressbar.classList.add("active"); 
 
-        name.disabled = true; 
-        correo.disabled = true; 
-        direccion.disabled = true; 
-        codigo.disabled = true; 
-        ciudad.disabled = true; 
-        numero.disabled = true;
-        document.getElementById("Pais").disabled = true; 
+        name.readOnly = true; 
+        correo.readOnly = true; 
+        direccion.readOnly = true; 
+        codigo.readOnly = true; 
+        ciudad.readOnly = true; 
+        numero.readOnly = true;
+        document.getElementById("Pais").readOnly = true; 
         document.getElementById("totalAbsoluto").innerHTML = precioTotal;
 
         for(const paiss of paises){
@@ -136,10 +136,11 @@ Validar.onclick = function(){
                     break;  
                 }
             }
-            cupon.disabled = true; 
+            cupon.readOnly = true; 
             document.getElementById("cuponDescuento").innerHTML = "Tu descuento es del "+cuponesDescuento[i]+"%";
             var precioCupon = precioTotal * (cuponesDescuento[i]/100); 
             document.getElementById("cuponNeto").innerHTML = precioCupon;
+            document.getElementById("cuponValor").value = precioCupon;
             precioNeto = Number(precioNeto) - Number(precioCupon); 
             document.getElementById("totalNeta").innerHTML = precioNeto;    
             break; 
@@ -157,13 +158,13 @@ Validar.onclick = function(){
 }
 
 Editar.onclick = function(){
-    document.getElementById("Nombre_Completo").disabled = false; 
-    document.getElementById("Correo").disabled = false; 
-    document.getElementById("Direccion").disabled = false;
-    document.getElementById("CodigoPostal").disabled = false; 
-    document.getElementById("Ciudad").disabled = false; 
-    document.getElementById("NumeroTelefonico").disabled = false;
-    document.getElementById("Pais").disabled = false;
+    document.getElementById("Nombre_Completo").readOnly = false; 
+    document.getElementById("Correo").readOnly = false; 
+    document.getElementById("Direccion").readOnly = false;
+    document.getElementById("CodigoPostal").readOnly = false; 
+    document.getElementById("Ciudad").readOnly = false; 
+    document.getElementById("NumeroTelefonico").readOnly = false;
+    document.getElementById("Pais").readOnly = false;
 }
 
 var TipoDe = document.querySelectorAll('input[name="TipoDePago"]'); 
