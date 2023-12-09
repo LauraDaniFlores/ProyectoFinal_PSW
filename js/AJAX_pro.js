@@ -43,7 +43,6 @@ function reactivarClicks () {
         // console.log(Resta.length);
         for (let j=0; j<Resta.length; j++) {
             Resta[j].addEventListener('click', function(){
-                console.log("Hola");
                 let numero = Number(document.getElementById('ProductoCarro'+j).innerHTML);
                 if( numero > 0){
                     numero = numero - 1;

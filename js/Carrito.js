@@ -15,4 +15,26 @@ for( let i=0; i<Check.length; i++){
     })
 }
 
+var Borrar = document.querySelectorAll('button[name="delete"]');
+var usuario = document.getElementById('usuario').innerHTML;
 
+for (let j=0; j<Borrar.length; j++) {
+    Borrar[j].addEventListener('click', function(){
+        var id = document.getElementById('elegido'+j).value;
+        var sql = "DELETE FROM Carrito WHERE IdProducto ="+id+" AND usuario='"+usuario+"';";
+
+        misdatos="sql="+sql;
+        console.log(misdatos);
+
+        var envio = new XMLHttpRequest();        
+        envio.open("GET","Funcion_Carrito.php?"+misdatos, true);  
+        envio.onreadystatechange=function(){
+            if (envio.readyState == 4 && envio.status == 200){
+                console.log("Listo");
+                console.log(envio.responseText);
+            }
+        }
+        envio.send();
+        location. assign('carrito.php');
+    });
+}
