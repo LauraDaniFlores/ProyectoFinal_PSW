@@ -31,8 +31,8 @@ Next1.onclick = function(){
     var GastosE = document.getElementById("GastosE");
 
     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    // var EstaCorrecto = false; 
-    var EstaCorrecto = true; 
+    var EstaCorrecto = false; 
+    // var EstaCorrecto = true; 
     var GastosDeEnvio = 0; 
     var boolGastosDeEnvio = true; 
 
