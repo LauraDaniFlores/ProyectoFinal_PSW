@@ -29,7 +29,7 @@
     if($conexion -> connect_errno){
         die('Error en la conexión');
     }else{
-        require('../fpdf/fpdf.php');
+        require('../librerias/fpdf/fpdf.php');
         $pdf = new FPDF();
         $pdf->addPage("P","Letter");
         
