@@ -86,7 +86,7 @@ Next1.onclick = function(){
             impues = 0.24; 
             GastosDeEnvio = 350; 
         }
-        impues = precioTotal * impues;
+        impues = (precioTotal * impues).toFixed(2);
         Impuestos.value = impues;
         impuestoNeto.innerHTML = impues; 
         if(boolGastosDeEnvio){
@@ -95,7 +95,7 @@ Next1.onclick = function(){
         }else{
             GastosDeEnvio = 0; 
         }
-        precioNeto = Number(precioTotal) + Number(GastosDeEnvio) + Number(impues); 
+        precioNeto = (Number(precioTotal) + Number(GastosDeEnvio) + Number(impues)).toFixed(2); 
         document.getElementById("totalNeta").innerHTML = precioNeto;
     }else if(!EstaCorrecto){
         Swal.fire({
@@ -138,9 +138,9 @@ Validar.onclick = function(){
             }
             cupon.disabled = true; 
             document.getElementById("cuponDescuento").innerHTML = "Tu descuento es del "+cuponesDescuento[i]+"%";
-            var precioCupon = precioTotal * (cuponesDescuento[i]/100); 
+            var precioCupon = (precioTotal * (cuponesDescuento[i]/100)).toFixed(2); 
             document.getElementById("cuponNeto").innerHTML = precioCupon;
-            precioNeto = Number(precioNeto) - Number(precioCupon); 
+            precioNeto = (Number(precioNeto) - Number(precioCupon)).toFixed(2); 
             document.getElementById("totalNeta").innerHTML = precioNeto;    
             break; 
         }
