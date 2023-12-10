@@ -30,10 +30,10 @@ $telefono = $_SESSION["telRecibo"];
 $correo = $_SESSION["correoRecibo"];
 
 
-$servidor = "localhost:3307";
+$servidor = "localhost";
 $cuenta = "root";
 $password = "";
-$bd = "store1";
+$bd = "Store";
 
 //conexión a la base de datos
 $conexion = new mysqli($servidor, $cuenta, $password, $bd);
