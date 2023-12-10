@@ -106,11 +106,20 @@ if (isset($_SESSION['usuario'])){
                         }
                         ?>
                     </ul>
-                    <a href="login.php" class="navbar-nav">
-                        <span class="nav-link">
-                            <i class="fa-solid fa-user menuIcons"></i>
-                        </span>
-                    </a>
+                    <?php 
+                        if(!isset($_SESSION['usuario'])){?>
+                            <a href="login.php" class="navbar-nav">
+                                <span class="nav-link">
+                                    <i class="fa-solid fa-user menuIcons"></i>
+                                </span>
+                            </a>
+                    <?php }elseif(isset($_SESSION['usuario'])){ ?>
+                        <a href="logout.php" class="navbar-nav">
+                            <span class="nav-link">
+                                <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>
+                            </span>
+                        </a>
+                    <?php } ?>
 
                     <a href="carrito.php" class="navbar-nav">
                         <span class="nav-link">

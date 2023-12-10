@@ -10,8 +10,8 @@ for( let i=0; i<Check.length; i++){
         }else{
             final = preciototal - precio;
         }
-        document.getElementsByClassName("total")[0].innerHTML = final;
-        document.getElementsByClassName("totalinput")[0].value = final;
+        document.getElementsByClassName("total")[0].innerHTML = Number(final).toFixed(2);
+        document.getElementsByClassName("totalinput")[0].value = Number(final).toFixed(2);
     })
 }
 
@@ -20,7 +20,7 @@ var finalizar = document.getElementById("Finalizar");
 
 finalizar.addEventListener('click', event => {
     var total_Boton = document.getElementsByClassName("total")[0];
-    if(total_Boton.innerHTML == 0){
+    if(total_Boton.innerHTML == 0.00){
         event.preventDefault();
         console.log(total_Boton.innerHTML);
     }

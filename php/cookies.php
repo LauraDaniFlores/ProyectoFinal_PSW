@@ -158,12 +158,6 @@
         }
         header("Location: login.php");
     }
-    if(isset($_POST["logout"])){
-        unset($_SESSION['usuario']);
-        unset($_SESSION['admin']);
-        $_SESSION['logout'] = true;
-        header("Location: login.php");
-    }
 
 ?>
 

@@ -54,13 +54,13 @@ Next1.onclick = function(){
         Part2.style.left = "10%"; 
         form_2_progressbar.classList.add("active"); 
 
-        name.disabled = true; 
-        correo.disabled = true; 
-        direccion.disabled = true; 
-        codigo.disabled = true; 
-        ciudad.disabled = true; 
-        numero.disabled = true;
-        document.getElementById("Pais").disabled = true; 
+        name.readOnly = true; 
+        correo.readOnly = true; 
+        direccion.readOnly = true; 
+        codigo.readOnly = true; 
+        ciudad.readOnly = true; 
+        numero.readOnly = true;
+        document.getElementById("Pais").readOnly = true; 
         document.getElementById("totalAbsoluto").innerHTML = precioTotal;
 
         for(const paiss of paises){
@@ -71,7 +71,7 @@ Next1.onclick = function(){
         var gastosNeto = document.getElementById("gastosNeto"); 
         var impues; 
         if(precioTotal > 350){
-            GastosE.value = 0
+            GastosE.value = "$"+0
             gastosNeto.innerHTML = 0;
             document.getElementById("GastoEnvioPorque").innerHTML = "¡Tu envío es gratis! Has comprado más de $350 pesos en productos.";
             boolGastosDeEnvio = false; 
@@ -86,16 +86,16 @@ Next1.onclick = function(){
             impues = 0.24; 
             GastosDeEnvio = 350; 
         }
-        impues = precioTotal * impues;
-        Impuestos.value = impues;
+        impues = (precioTotal * impues).toFixed(2);
+        Impuestos.value = "$"+impues;
         impuestoNeto.innerHTML = impues; 
         if(boolGastosDeEnvio){
-            GastosE.value = GastosDeEnvio;
+            GastosE.value = "$"+GastosDeEnvio;
             gastosNeto.innerHTML = GastosDeEnvio;
         }else{
             GastosDeEnvio = 0; 
         }
-        precioNeto = Number(precioTotal) + Number(GastosDeEnvio) + Number(impues); 
+        precioNeto = (Number(precioTotal) + Number(GastosDeEnvio) + Number(impues)).toFixed(2); 
         document.getElementById("totalNeta").innerHTML = precioNeto;
     }else if(!EstaCorrecto){
         Swal.fire({
@@ -136,11 +136,12 @@ Validar.onclick = function(){
                     break;  
                 }
             }
-            cupon.disabled = true; 
+            cupon.readOnly = true; 
             document.getElementById("cuponDescuento").innerHTML = "Tu descuento es del "+cuponesDescuento[i]+"%";
-            var precioCupon = precioTotal * (cuponesDescuento[i]/100); 
+            var precioCupon = (precioTotal * (cuponesDescuento[i]/100)).toFixed(2); 
             document.getElementById("cuponNeto").innerHTML = precioCupon;
-            precioNeto = Number(precioNeto) - Number(precioCupon); 
+            precioNeto = (Number(precioNeto) - Number(precioCupon)).toFixed(2); 
+            document.getElementById("cuponValor").value = precioCupon;
             document.getElementById("totalNeta").innerHTML = precioNeto;    
             break; 
         }
@@ -157,13 +158,13 @@ Validar.onclick = function(){
 }
 
 Editar.onclick = function(){
-    document.getElementById("Nombre_Completo").disabled = false; 
-    document.getElementById("Correo").disabled = false; 
-    document.getElementById("Direccion").disabled = false;
-    document.getElementById("CodigoPostal").disabled = false; 
-    document.getElementById("Ciudad").disabled = false; 
-    document.getElementById("NumeroTelefonico").disabled = false;
-    document.getElementById("Pais").disabled = false;
+    document.getElementById("Nombre_Completo").readOnly = false; 
+    document.getElementById("Correo").readOnly = false; 
+    document.getElementById("Direccion").readOnly = false;
+    document.getElementById("CodigoPostal").readOnly = false; 
+    document.getElementById("Ciudad").readOnly = false; 
+    document.getElementById("NumeroTelefonico").readOnly = false;
+    document.getElementById("Pais").readOnly = false;
 }
 
 var TipoDe = document.querySelectorAll('input[name="TipoDePago"]'); 
