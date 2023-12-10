@@ -16,7 +16,7 @@ input[type=number] {
 }
 .div_main{
     width: 900px;
-    height: 800px;
+    height: 925px;
     margin: 8% auto;
     display: flex;
     justify-self: center;
@@ -255,20 +255,35 @@ button.editar{
 [type=radio]:checked > .formBanco{
     outline: 2px solid #d8006c;
 }
+
+
+
 .div_main .formBanco{
     margin: 30px auto;
     border: 1px solid #F9DEC9;
 }
+
+/* Prueba cambiar de color */
+.div_main section.formBanco {
+    /* background-color: #255CBF; */
+    background-image: url('../imagenes/fondobbva3.jpg');
+    width: 650px;
+    height: auto;
+    /* padding-bottom: 20px; */
+
+}
+
 .div_main .formBanco label{
     width: 70%;
-    margin: 0 auto;
-    color: #255CBF; 
+    margin: 0 auto; 
     border-radius: 10px;
+    color: white;
 }
 .div_main .formBanco input{
     width: 100%;
     margin-left: 0;
-    border: 0.5px solid #255CBF;
+    border: 0.5px solid white;
+    background-color: white;
 }
 .div_main .formBanco label.Bfecha{
     width: 45%;
@@ -309,15 +324,23 @@ button.editar{
 }
 .div_main section.nuevoDiseño{
     /* border: 1px solid #d8006c; */
+
+    background-image: url('../imagenes/fondosantan4.jpg');
+    width: 650px;
+    height: auto;
+
+    /* padding-bottom: 20px; */
 }
+
+
 .div_main section.nuevoDiseño label{
-    color: #b70000; 
+    color: white; 
     border-radius: 10px;
 }
 .div_main section.nuevoDiseño input{
-    border: 0.5px solid #b70000;
+    border: 0.5px solid white;
     color: black; 
-    background-color: #F9DEC9;
+    background-color: white;
 }
 .div_main .nuevoDiseño input::placeholder {
     color: #000;
