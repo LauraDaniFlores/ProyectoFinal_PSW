@@ -22,7 +22,7 @@
             <div>
                 <?php
             
-                $servidor='localhost:33065';
+                $servidor='localhost:3307';
                 $cuenta='root';
                 $password='';
                 $bd='store';
