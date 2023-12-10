@@ -87,21 +87,39 @@ $(document).ready(function() {
         // Obtener el array de etiquetas
         var etiquetas = obtenerEtiquetas();
 
-        // Obtener los datos del formulario
-        var formData = $(this).serializeArray(); // Obtener los datos del formulario
+        var data = new FormData();
+
+        //Form data
+        var form_data = $(this).serializeArray();
+        $.each(form_data, function (key, input) {
+            data.append(input.name, input.value);
+        });
 
         // Agregar el array 'etiquetas' a los datos del formulario
-        formData.push({ name: 'etiquetas', value: JSON.stringify(etiquetas) });
+        data.append('etiquetas', JSON.stringify(etiquetas));
+        
 
+        //File data
+        var file_data = $('input[name="file"]')[0].files;
+        for (var i = 0; i < file_data.length; i++) {
+            data.append("file", file_data[0]);
+        }
+
+        // console.log(file_data[0])
+        // for (var pair of data.entries()) {
+        //     console.log(pair[0]+ ', ' + pair[1]); 
+        // }
+                
         // Enviar los datos mediante AJAX
         $.ajax({
             url: "modificaciones.php",
             type: "POST",
-            data: formData, // Enviar los datos del formulario y el array combinados
+            data: data,
+            processData: false,
+            contentType: false,
             success: function(response) {
                 // Manejar la respuesta del servidor si es necesario
                 console.log("Solicitud AJAX exitosa");
-                console.log(JSON.stringify(formData)); // Mostrar los datos enviados
                 location.reload();
             },
             error: function(xhr, status, error) {
