@@ -276,12 +276,12 @@ function loader(){
                         <h3>Precio Acumulado</h3>
                         <!-- Suma de los precios de los articulos seleccionados a comprar -->
                         <p><b>$</b><b class="total">
-                                <?php echo $precioTotal ?>
+                                <?php echo number_format($precioTotal, 2) ?>
                             </b></p>
                     </div>
                 </div>
               
-            <input class="totalinput" type="number" style="display:none;" name="total" value="<?php echo $precioTotal ?>">
+            <p class="totalinput" style="display:none;"> <?php echo number_format($precioTotal, 2) ?> </p>
             
             <div class="acomodocom">
                 <div class="bcompra">
@@ -355,7 +355,7 @@ function InfoProCarrito($id, $img, $nombre, $descripcion, $cantidad, $precio, $i
         <!-- Cantidad del articulo -->
         <div class="acomodoindpre">
             <div>
-                <h3><b>$</b><b id="precio<?php echo $i ?>"><?php echo $precio ?></b></h3>
+                <h3><b>$</b><b id="precio<?php echo $i ?>"><?php echo number_format($precio, 2) ?></b></h3>
             </div>
         </div>
 

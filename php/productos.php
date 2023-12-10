@@ -163,15 +163,27 @@ if($conexion->connect_errno) {
         </div>
     </div>
 
-    <?php $max = number_format(precioMax($conexion), 1); ?>
+    <?php $max = round(precioMax($conexion), 0, PHP_ROUND_HALF_UP); ?>
 
-    <div class="conteinerRange">
-        <span>0</span>
-        <div class="slidecontainer">
-            <input type="range" min="1" max="<?php echo $max; ?>" value="<?php echo $max; ?>" class="slider" id="myRange">
+    <div class="ContenedorFiltro">
+        <div class="conteinerRange">
+            <span>0</span>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="<?php echo $max; ?>" value="<?php echo $max; ?>" class="slider" id="myRange">
+            </div>
+            <span id="valor"></span>
         </div>
-        <span id="valor"></span>
-        <button class="filtroPrecio" id="filtro">Filtrar</button>
+
+        <div class="conteinerSelect">
+            <select name="categoria" id="categorias">
+                <?php 
+                echo Select($conexion); 
+                ?>
+            </select>
+        </div>
+        <div class="conteinerboton">
+            <button class="filtroPrecio" id="filtro">Filtrar</button>
+        </div>
     </div>
 
     <?php 
@@ -273,6 +285,16 @@ if(isset($_POST['agregar'])){
             // <script>location. assign('productos.php');</script>
         }
     }
+}
+
+function Select($conexion){
+    $sql = "Select *from etiquetas;";
+    $resultado = $conexion -> query($sql);
+    $select = '<option value="5">Todos</option>';
+    while( $fila = $resultado -> fetch_assoc()){
+        $select.= '<option value="'.$fila['idEtiqueta'].'">'.$fila['etiqueta'].'</option>';
+    }
+    return $select;
 }
 
 function precioMax($conexion){

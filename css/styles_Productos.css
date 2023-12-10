@@ -197,8 +197,16 @@
   color: #F78CA2;
 }
 
+.ContenedorFiltro{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
 .slidecontainer {
-  width: 60%;
+  width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -208,13 +216,26 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 60px;
   /* border: .5px solid #999; */
-  padding: 50px;
+  padding: 20px;
   /* width: 60%; */
-  width: 600px;
-  margin: 0px auto;
+  width: 40%;
   /* border-radius: 20px; */
+}
+.conteinerSelect{
+  width: 15%;
+}
+
+.conteinerSelect Select{
+  width: 70%;
+  border-radius: 20px;
+  /* background-color: #f3a3b3; */
+  padding: 3px;
+  font-size: 14px;
+  text-align: center;
+}
+.conteinerSelect Select:hover{
+  box-shadow: 3px 3px 3px #F78CA2;
 }
 
 .slider {
@@ -251,11 +272,13 @@
   background: #04AA6D;
   cursor: pointer;
 }
-
+.conteinerboton{
+  padding: 20px;
+  margin-right: 40px;
+}
 .filtroPrecio{
   width: 100px;
   padding: 3px;
-  margin-left: 40px;
   font-size: 13px;
   height: 25px;
   border: .5px solid wheat;
