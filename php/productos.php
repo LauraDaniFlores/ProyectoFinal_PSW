@@ -156,7 +156,7 @@ if($conexion->connect_errno) {
         </div>
     </div>
 
-    <?php $max = round(precioMax($conexion), 0, PHP_ROUND_HALF_UP); ?>
+    <?php $max = number_format(precioMax($conexion), 1); ?>
 
     <div class="conteinerRange">
         <span>0</span>
