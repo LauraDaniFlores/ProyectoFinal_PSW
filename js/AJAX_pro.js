@@ -6,7 +6,7 @@ var radios = document.querySelectorAll('input[name=categoria]');
 for (const radio of radios) {
     radio.addEventListener('click', function(){
     
-        misdatos="cat="+check()+"&max=0";
+        misdatos="cat="+check()+"&max=0&cate=5";
         console.log(misdatos);
 
         var envio = new XMLHttpRequest();        
@@ -72,6 +72,7 @@ var slider = document.getElementById("myRange");
 var output = document.getElementById("valor");
 output.innerHTML = slider.value;
 
+var select = document.getElementById("categorias");
 
 slider.oninput = function() {
   output.innerHTML = this.value;
@@ -80,19 +81,18 @@ slider.oninput = function() {
 var botonFiltro = document.getElementsByClassName("filtroPrecio")[0];
 
 botonFiltro.addEventListener('click', function(){
-    // console.log("Hola");
-    //output.innerHTML
-    misdatos="cat="+check()+"&max="+output.innerHTML;
-        // console.log(misdatos);
+
+    misdatos="cat="+check()+"&max="+output.innerHTML+"&cate="+select.value;
+    console.log(misdatos);
 
         var filtro = new XMLHttpRequest();        
         filtro.open("GET","producto_mostrar.php?"+misdatos, true);  
         filtro.onreadystatechange=function(){
             if (filtro.readyState == 4 && filtro.status == 200){
-                // console.log(filtro.responseText);
                 document.getElementById('Productos_div').innerHTML=this.responseText;
                 reactivarClicks();
             }
         }
         filtro.send( );
 });
+
