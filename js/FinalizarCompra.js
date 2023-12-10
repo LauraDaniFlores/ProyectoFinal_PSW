@@ -71,7 +71,7 @@ Next1.onclick = function(){
         var gastosNeto = document.getElementById("gastosNeto"); 
         var impues; 
         if(precioTotal > 350){
-            GastosE.value = 0
+            GastosE.value = "$"+0
             gastosNeto.innerHTML = 0;
             document.getElementById("GastoEnvioPorque").innerHTML = "¡Tu envío es gratis! Has comprado más de $350 pesos en productos.";
             boolGastosDeEnvio = false; 
@@ -86,16 +86,16 @@ Next1.onclick = function(){
             impues = 0.24; 
             GastosDeEnvio = 350; 
         }
-        impues = precioTotal * impues;
-        Impuestos.value = impues;
+        impues = (precioTotal * impues).toFixed(2);
+        Impuestos.value = "$"+impues;
         impuestoNeto.innerHTML = impues; 
         if(boolGastosDeEnvio){
-            GastosE.value = GastosDeEnvio;
+            GastosE.value = "$"+GastosDeEnvio;
             gastosNeto.innerHTML = GastosDeEnvio;
         }else{
             GastosDeEnvio = 0; 
         }
-        precioNeto = Number(precioTotal) + Number(GastosDeEnvio) + Number(impues); 
+        precioNeto = (Number(precioTotal) + Number(GastosDeEnvio) + Number(impues)).toFixed(2); 
         document.getElementById("totalNeta").innerHTML = precioNeto;
     }else if(!EstaCorrecto){
         Swal.fire({
@@ -138,10 +138,11 @@ Validar.onclick = function(){
             }
             cupon.readOnly = true; 
             document.getElementById("cuponDescuento").innerHTML = "Tu descuento es del "+cuponesDescuento[i]+"%";
-            var precioCupon = precioTotal * (cuponesDescuento[i]/100); 
+            var precioCupon = (precioTotal * (cuponesDescuento[i]/100)).toFixed(2); 
             document.getElementById("cuponNeto").innerHTML = precioCupon;
+            document.getElementById("cuponNeto").value = precioCupon;
+            precioNeto = (Number(precioNeto) - Number(precioCupon)).toFixed(2); 
             document.getElementById("cuponValor").value = precioCupon;
-            precioNeto = Number(precioNeto) - Number(precioCupon); 
             document.getElementById("totalNeta").innerHTML = precioNeto;    
             break; 
         }

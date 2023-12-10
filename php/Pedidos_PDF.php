@@ -9,13 +9,22 @@
     </script>
     <link rel="stylesheet" href="../css/styleRecibo.css">
 </head>
-<?php 
-    include("menu.php");
-    $servidor='localhost:3307';
-    $cuenta='root';
-    $password='';
-    $bd='store1';
-     
+<header>
+    <?php
+    include "menu.php";
+    ?>
+    <script>
+        document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Pedido Realizado Exitosamente —";
+        document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Esperamos lo disfrutes y tenerte de vuelta con nosotros";
+    </script>
+    <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+            style="height: 100%; width: 100%;">
+            <path d="M0.00,49.98 C150.00,150.00 349.20,-40.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                style="stroke: none; fill: #FFFFFF"></path>
+        </svg></div>
+
+</header>
+<?php     
     //conexion a la base de datos
     $conexion = new mysqli($servidor,$cuenta,$password,$bd);
 
@@ -58,8 +67,8 @@
             $_SESSION['correoRecibo'] = $_POST['Correo'];
             $_SESSION['direccionRecibo'] = $_POST['Direccion'] . ", C.P. " . $_POST['CodigoPostal'] . ", " . $_POST['Ciudad'] . ", " . $_POST['Pais'] . ".";
             $_SESSION['telRecibo'] = $_POST['NumeroTelefonico'];
-            $_SESSION['impuestosRecibo'] = $_POST['Impuestos'];
-            $_SESSION['envioRecibo'] = $_POST['GastosE'];
+            $_SESSION['impuestosRecibo'] = substr($_POST['Impuestos'],1);
+            $_SESSION['envioRecibo'] = substr($_POST['GastosE'],1);
             $_SESSION['tipoPagoRecibo'] = $_POST['TipoDePago'];
             $_SESSION['nombrePagoRecibo'] = $_POST['Bname'];
             $_SESSION['tarjetaRecibo'] = $_POST['Btarjeta'];
@@ -67,7 +76,12 @@
                 $tarjeta = str_repeat('*', strlen($_SESSION['tarjetaRecibo']) - 4) . substr($_SESSION['tarjetaRecibo'], -4);
             }
             $_SESSION['IdPedido'] = $maxIdPedido;
-            $_SESSION['cupon'] = $_POST['cuponValor'];
+            if(isset($_POST['cuponValor'])){
+                $_SESSION['cupon'] = $_POST['cuponValor'];
+            }else{
+                $_SESSION['cupon'] = 0;
+            }
+            
         }
         
 ?>
@@ -153,11 +167,11 @@
                         </tr>
                         <tr>
                             <td class="bold">Impuestos:</td>
-                            <td class="precio">$ <?php echo number_format($_SESSION['impuestosRecibo'], 2);?></td>
+                            <td class="precio">$<?php echo number_format($_SESSION['impuestosRecibo'],2);?></td>
                         </tr>
                         <tr>
                             <td class="bold">Envío:</td>
-                            <td class="precio">$ <?php echo number_format($_SESSION['envioRecibo'], 2);?></td>
+                            <td class="precio">$<?php echo number_format($_SESSION['envioRecibo'],2);?></td>
                         </tr>
                         <tr id="vacio"></tr>
                         <tr>
