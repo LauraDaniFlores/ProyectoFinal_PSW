@@ -52,7 +52,7 @@ form input, select{
 form input:hover, form select:hover{
     border: 0.5px solid #3D0C11;    
     background-color: #F78CA2;
-    color: white;
+    /* color: white; */
 }
 form label{
     width: 45%;

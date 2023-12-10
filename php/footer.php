@@ -84,7 +84,7 @@
                   <h2>Candy Craze</h2>
                   <p class="pr-5 text-white-50">Embárcate en un viaje de sabores exquisitos en nuestra dulcería internacional, donde cada bocado es una ventana abierta a la deliciosa diversidad de dulces de todo el mundo.</p>
                   <p>
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61551438060854&mibextid=2JQ9oc" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://instagram.com/candycraze2023?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 </p>
                 </div>
