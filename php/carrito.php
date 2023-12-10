@@ -279,7 +279,7 @@ function loader(){
                     </div>
                 </div>
               
-            <p class="totalinput" style="display:none;"> <?php echo number_format($precioTotal, 2) ?> </p>
+            <input class="totalinput" type="number" name="total" step=".01" style="display:none;" value="<?php echo number_format($precioTotal, 2) ?>">            
             
             <div class="acomodocom">
                 <div class="bcompra">
