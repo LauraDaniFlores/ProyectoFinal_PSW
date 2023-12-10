@@ -1,4 +1,5 @@
 <?php 
+
 $categorias = array("México", "Japón", "Corea");
 function datos($conexion, $categorias, $num){
     if($num == 3){
@@ -65,7 +66,7 @@ function datos($conexion, $categorias, $num){
 <?php }
 }
 
-$servidor = 'localhost';
+$servidor = 'localhost:3307';
 $cuenta = 'root';
 $password = '';
 $bd = 'store';
@@ -116,6 +117,8 @@ if($conexion->connect_errno) {
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -128,8 +131,19 @@ if($conexion->connect_errno) {
             document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Productos Candy Craze —";
             document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Disfruta de nuestra gran variedad de dulces";
         </script>
+        <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+                style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C150.00,150.00 349.20,-40.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                    style="stroke: none; fill: #FFFFFF"></path>
+            </svg></div>
     </header>
-
+    
+    <section class="preguntasTitle">
+        <h3>¡Los mejores dulces están en Candy Craze!</h3>
+        <h2>Productos</h2>
+        <div class="linea"></div>
+        <br>
+    </section>
     <!-- Filtro -->
     <div class="radioacomodo">
         <div class="radio-inputs">
@@ -153,15 +167,27 @@ if($conexion->connect_errno) {
         </div>
     </div>
 
-    <?php $max = number_format(precioMax($conexion), 1); ?>
+    <?php $max = round(precioMax($conexion), 0, PHP_ROUND_HALF_UP); ?>
 
-    <div class="conteinerRange">
-        <span>0</span>
-        <div class="slidecontainer">
-            <input type="range" min="1" max="<?php echo $max; ?>" value="<?php echo $max; ?>" class="slider" id="myRange">
+    <div class="ContenedorFiltro">
+        <div class="conteinerRange">
+            <span>0</span>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="<?php echo $max; ?>" value="<?php echo $max; ?>" class="slider" id="myRange">
+            </div>
+            <span id="valor"></span>
         </div>
-        <span id="valor"></span>
-        <button class="filtroPrecio" id="filtro">Filtrar</button>
+
+        <div class="conteinerSelect">
+            <select name="categoria" id="categorias">
+                <?php 
+                echo Select($conexion); 
+                ?>
+            </select>
+        </div>
+        <div class="conteinerboton">
+            <button class="filtroPrecio" id="filtro">Filtrar</button>
+        </div>
     </div>
 
     <?php 
@@ -241,28 +267,38 @@ if(isset($_POST['agregar'])){
                 while( $fila = $resultado1 -> fetch_assoc() ){ $total = $fila['existencias'];}
                 if($acomulada <= $total){
                     $_SESSION['articulos'] = $cantidad;
-                    $sql = "UPDATE Carrito set cantidad='$acomulada' WHERE usuario='$User' AND IdProducto='$idPro';";
-                    $resultado = $conexion -> query($sql);
+                    $agregar = "UPDATE Carrito set cantidad='$acomulada' WHERE usuario='$User' AND IdProducto='$idPro';";
+                    // $resultado = $conexion -> query($sql);
                 }else{
                     $_SESSION['articulos'] = $total - ($acomulada - $cantidad );
-                    $sql = "UPDATE Carrito set cantidad='$total' WHERE usuario='$User' AND IdProducto='$idPro';";
-                    $resultado = $conexion -> query($sql);
+                    $agregar = "UPDATE Carrito set cantidad='$total' WHERE usuario='$User' AND IdProducto='$idPro';";
+                    // $resultado = $conexion -> query($sql);
                 }
             }else{
                 $_SESSION['articulos'] = $cantidad;
-                $sql= "INSERT INTO Carrito VALUES('$User', '$idPro', '$cantidad');";
-                $resultado = $conexion -> query($sql); 
+                $agregar= "INSERT INTO Carrito VALUES('$User', '$idPro', '$cantidad');";
+                // $resultado = $conexion -> query($sql); 
             }
+            // echo $sql;
             $producto = "SELECT *FROM productos WHERE idProducto=$idPro;";
             $resultado = $conexion -> query($producto);
             while( $fila = $resultado -> fetch_assoc() ){ $_SESSION['imagen'] = $fila['imagen']; $_SESSION['nombre'] = $fila['nombre'];}
-            $_SESSION['in'] = true;
+            Agregar($agregar);
+            $_SESSION['adentro'] = false;
+            
+            // <script>location. assign('productos.php');</script>
         }
-        //No me esta agarrando
-        // header("Location: productos.php");
-
     }
-    
+}
+
+function Select($conexion){
+    $sql = "Select *from etiquetas;";
+    $resultado = $conexion -> query($sql);
+    $select = '<option value="5">Todos</option>';
+    while( $fila = $resultado -> fetch_assoc()){
+        $select.= '<option value="'.$fila['idEtiqueta'].'">'.$fila['etiqueta'].'</option>';
+    }
+    return $select;
 }
 
 function precioMax($conexion){
@@ -289,30 +325,49 @@ function IrLogin(){?>
     </script>
 <?php }
 
-if(isset($_SESSION['in'])){
-    ?><script><?php 
-    unset($_SESSION['in']);
-    $_SESSION['producto'] = true;?>
-    location. assign('productos.php');
-    </script>
-<?php }
-
-if(isset($_SESSION['producto'])){?>
+function Agregar($agregar){ ?>
     <script>
-        Swal.fire({
-        title: "Producto agregado",
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: "btn",
+          cancelButton: "btn"
+        },
+      });
+      swalWithBootstrapButtons.fire({
+        title: "Producto seleccionado",
         html: "<br><h5>Nombre: <?php echo $_SESSION['nombre'] ?></h5> <br> <h5>Cantidad: <?php echo $_SESSION['articulos'] ?></h5>",
         imageUrl: "<?php echo $_SESSION['imagen'] ?>", 
         imageHeight: 150,
-        imageAlt: "Producto"
-        });
-        setTimeout(10000);
-        location. assign('productos.php');
+        imageAlt: "Producto",
+        showCancelButton: true, 
+        confirmButtonColor: "#D8006C",    
+        cancelButtonColor: "#3D0C11",          
+        confirmButtonText: "Sí, agregar!",
+        cancelButtonText: "No agregar",
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+            var sql = "<?php echo $agregar ?>";
 
-    </script>
-<?php 
-unset($_SESSION['producto']);
-}
+            misdatos="sql="+sql;
+            console.log(misdatos);
 
+            var envio = new XMLHttpRequest();        
+            envio.open("GET","Funcion_Carrito.php?"+misdatos, true);  
+            envio.onreadystatechange=function(){
+                if (envio.readyState == 4 && envio.status == 200){
+                    location. assign('productos.php');
+                }
+            }
+            envio.send();
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+            location. assign('productos.php');
+        }
+      });
+    </script>  
+<?php }
 
 ?>

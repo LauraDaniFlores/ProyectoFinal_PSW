@@ -3,26 +3,10 @@
     $categorias = array("México", "Japón", "Corea");
     $cat = $_GET['cat'];
     $max = $_GET['max'];
+    $cate = $_GET['cate'];
 
-    function totalDatos($conexion, $categorias, $num, $max){
+    function totalDatos($conexion, $categorias, $num, $max, $cate){
         //SELECT COUNT(IdProducto) AS Total FROM productos where (precio *((100-descuento)/100)) >= 100;
-        if($num == 3 && $max == 0){
-            $sql = "SELECT COUNT(IdProducto) AS Total FROM productos;";
-        }else if ($max == 0){
-            $sql = "SELECT COUNT(IdProducto) AS Total FROM productos WHERE categoria= '$categorias[$num]';";
-        }    
-        if($num == 3 && $max > 0){
-            $sql = "SELECT COUNT(IdProducto) AS Total FROM productos where (precio *((100-descuento)/100)) <= $max";
-        }else if ($max > 0){
-            $sql = "SELECT COUNT(IdProducto) AS Total FROM productos where categoria= '$categorias[$num]' AND (precio *((100-descuento)/100)) <= $max";
-        }
-        $resultado = $conexion -> query($sql); 
-        while( $fila = $resultado -> fetch_assoc() ){ 
-            $salida = $fila['Total'];
-        }
-        return $salida;
-    }
-    function datos($conexion, $categorias, $num, $max){
         if($num == 3){
             $sql = "SELECT *FROM productos;";
         }else {
@@ -34,8 +18,48 @@
         while( $fila = $resultado -> fetch_assoc() ){
             $flag = true; $desplegar= false; 
             $PrecioD=$fila['precio'] * ((100-$fila['descuento'])/100);
-            if($max == 0 ){ $desplegar = true; $i = $i + 1;
-            }else if($PrecioD <= $max ){ $desplegar = true; $i = $i + 1;}
+
+            $etiqueta = "SELECT *FROM etiquetasproductos WHere idProducto=".$fila['idProducto'].";";
+            $resultado_eti = $conexion -> query($etiqueta); 
+            while( $eti_nombre = $resultado_eti -> fetch_assoc() ){
+                $etiqueta_id = $eti_nombre['idEtiqueta'];
+            }
+            if($max == 0 && $cate == 5){ 
+                $desplegar = true; $i = $i + 1;
+            }else if($PrecioD <= $max && $cate == 5){ 
+                $desplegar = true; $i = $i + 1;
+            }else if($PrecioD <= $max && $cate == $etiqueta_id){
+                $desplegar = true; $i = $i + 1;
+            }
+        }    
+        return $i;
+    }
+
+    function datos($conexion, $categorias, $num, $max, $cate){
+        if($num == 3){
+            $sql = "SELECT *FROM productos;";
+        }else {
+            //categoria
+            $sql = "SELECT *FROM productos WHERE Categoria= '$categorias[$num]';";
+        }
+        $resultado = $conexion -> query($sql); 
+        $i = -1; 
+        while( $fila = $resultado -> fetch_assoc() ){
+            $flag = true; $desplegar= false; 
+            $PrecioD=$fila['precio'] * ((100-$fila['descuento'])/100);
+
+            $etiqueta = "SELECT *FROM etiquetasproductos WHere idProducto=".$fila['idProducto'].";";
+            $resultado_eti = $conexion -> query($etiqueta); 
+            while( $eti_nombre = $resultado_eti -> fetch_assoc() ){
+                $etiqueta_id = $eti_nombre['idEtiqueta'];
+            }
+            if($max == 0 && $cate == 5){ 
+                $desplegar = true; $i = $i + 1;
+            }else if($PrecioD <= $max && $cate == 5){ 
+                $desplegar = true; $i = $i + 1;
+            }else if($PrecioD <= $max && $cate == $etiqueta_id){
+                $desplegar = true; $i = $i + 1;
+            }
             if($desplegar == true){
             ?>
             <div class="Producto_in">
@@ -98,10 +122,10 @@
         } 
     }
 
-    $servidor='localhost';
+    $servidor='localhost:3307';
     $cuenta='root';
     $password='';
-    $bd='Store';
+    $bd='store';
     
     //conexion a la base de datos
     $conexion = new mysqli($servidor,$cuenta,$password,$bd);
@@ -113,9 +137,9 @@
 
 
 <div class="encontrados">
-    <p>Productos encontrados: <?php echo totalDatos($conexion, $categorias, $cat, $max) ?></p>
+    <p>Productos encontrados: <?php echo totalDatos($conexion, $categorias, $cat, $max, $cate)+1 ?></p>
 </div>
 <div class="Div_Productos">
     <?php 
-    datos($conexion, $categorias, $cat, $max) ?>
+    datos($conexion, $categorias, $cat, $max, $cate) ?>
 </div>

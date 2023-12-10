@@ -25,6 +25,7 @@
 
 </header>
 <?php     
+
     //conexion a la base de datos
     $conexion = new mysqli($servidor,$cuenta,$password,$bd);
 

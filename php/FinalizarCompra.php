@@ -41,10 +41,10 @@
             }
             return $codigo;
         }
-        $servidor = 'localhost:3307';
+        $servidor = 'localhost';
         $cuenta = 'root';
         $password = '';
-        $bd = 'store1';
+        $bd = 'Store';
 
         $conexion = new mysqli($servidor, $cuenta, $password, $bd);
 
