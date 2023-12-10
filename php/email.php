@@ -64,16 +64,12 @@
 
       session_start();
       $_SESSION['enviado'] = true;
-      header('Location: ../index.php');
-      exit();
   }
-  ?>
-
-  <?php
-      $servidor='llocalhost:3307';
+      $servidor='localhost';
       $cuenta='root';
       $password='';
-      $bd='store';
+      $bd='Store';
+                        
       
       //conexion a la base de datos
       $conexion = new mysqli($servidor,$cuenta,$password,$bd);
@@ -83,18 +79,12 @@
       }
 
       else{
-          //conexion exitosa
-
-          /*revisar si traemos datos a insertar en la bd  dependiendo
-          de que el boton de enviar del formulario se le dio clic*/
-
           if(isset($_POST['submit'])&& !empty($_POST['correosub'])){
-                  //obtenemos datos del formulario
             $sub = $_POST['correosub'];
                   
-            //hacemos cadena con la sentencia mysql para insertar datos
             $sql = "INSERT INTO usuariossubs (correousu) VALUES('$sub')";
-            $conexion->query($sql);  //aplicamos sentencia que inserta datos en la tabla usuarios de la base de datos
+            $conexion->query($sql);
           }
       }
+      header('Location: ../index.php');
 ?>
