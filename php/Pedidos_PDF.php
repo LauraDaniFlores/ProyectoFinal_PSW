@@ -1,6 +1,6 @@
 <head>
-    <script src="https://kit.fontawesome.com/d60c975bf8.js" crossorigin="anonymous"></script>
-    <script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/d60c975bf8.js" crossorigin="anonymous"></script><script>
         function crearPDF() {
             // window.location.href = 'crearPDF.php';
             var newWindow = window.open('reciboPDF.php', '_blank');
@@ -28,20 +28,6 @@
         </svg></div>
 </header>
 <?php     
-$_SESSION['recibo'] = true; 
-
-    if(isset($_SESSION['recibo'])){
-        ?>
-        <script>
-            Swal.fire({
-            icon: "success",
-            title: "Tu compra ha sido exitosa",
-            text: "Gracias por comprar en nuestra tienda",
-            })
-        </script>
-        <?php
-        unset($_SESSION['recibo']);
-    }
 
     $servidor='localhost';
     $cuenta='root';
@@ -217,9 +203,19 @@ $_SESSION['recibo'] = true;
     include("correoRecibo.php");
     include("footer.php");
     }
-?>
-    
-    
 
+    if(isset($_SESSION['recibo'])){
+        ?>
+        <script>
+            Swal.fire({
+            icon: "success",
+            title: "Tu compra ha sido exitosa",
+            text: "Gracias por comprar en nuestra tienda",
+            })
+        </script>
+        <?php
+        unset($_SESSION['recibo']);
+    }
+?>
 
 
