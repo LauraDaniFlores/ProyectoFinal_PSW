@@ -1,3 +1,6 @@
+<?php
+    $_SESSION['recibo'] = true;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,12 +12,12 @@
     <script src="https://kit.fontawesome.com/24d265bea9.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Finalizar Compra</title>
 </head>
 
 <body>
     <header>
-
         <?php
         include("menu.php");
         ?>
@@ -41,11 +44,11 @@
             }
             return $codigo;
         }
-        $servidor = 'localhost';
-        $cuenta = 'root';
-        $password = '';
-        $bd = 'Store';
-
+        $servidor='localhost';
+        $cuenta='root';
+        $password='';
+        $bd='Store';
+     
         $conexion = new mysqli($servidor, $cuenta, $password, $bd);
 
         if ($conexion->connect_errno) {
@@ -281,6 +284,3 @@
 </body>
 
 </html>
-
-<?php
-?>
