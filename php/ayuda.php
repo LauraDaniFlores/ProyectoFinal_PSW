@@ -78,7 +78,7 @@
                         </button>
                     </h2>
                     <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Aceptamos pagos con tarjeta de crédito (Visa, MasterCard, American Express) y PayPal. Lamentablemente, no aceptamos pagos en efectivo en este momento ya que somos una tienda únicamente en linea.</div>
+                        <div class="accordion-body">Aceptamos pagos con tarjeta de crédito (Visa, MasterCard, American Express) y PayPal. Lamentablemente, no aceptamos pagos en efectivo en este momento ya que somos una tienda únicamente en línea.</div>
                     </div>
                 </div>
 

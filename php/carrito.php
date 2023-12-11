@@ -161,7 +161,7 @@ function loader(){
         ?>
         <script>
             document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Carrito de Productos —";
-            document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Recuerda que no tienes limite de compra";
+            document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Recuerda que no tienes límite de compra";
         </script>
 
         <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
@@ -240,7 +240,7 @@ function loader(){
                     <p>Para poder escoger los productos que llamen tu atención es necesario que te registres con tu cuenta y
                         podrás endulzarte con nuestra variedad de productos.
                         Si aún no tienes cuenta, ¡no te preocupes! es muy fácil y sencillo.
-                        Entra al siguiente link y <a class="linkcarrito" href="registro.php">registrate</a>.
+                        Entra al siguiente link y <a class="linkcarrito" href="registro.php">regístrate</a>.
                     </p>
 
 

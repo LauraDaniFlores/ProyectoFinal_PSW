@@ -8,6 +8,8 @@
         }
     </script>
     <link rel="stylesheet" href="../css/styleRecibo.css">
+    <link rel="icon" type="image/png" href="../imagenes/Icon2.png" />
+
 </head>
 <header>
     <?php
@@ -22,10 +24,14 @@
             <path d="M0.00,49.98 C150.00,150.00 349.20,-40.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
                 style="stroke: none; fill: #FFFFFF"></path>
         </svg></div>
-
 </header>
 <?php     
 
+    $servidor='localhost';
+    $cuenta='root';
+    $password='';
+    $bd='Store';
+            
     //conexion a la base de datos
     $conexion = new mysqli($servidor,$cuenta,$password,$bd);
 
