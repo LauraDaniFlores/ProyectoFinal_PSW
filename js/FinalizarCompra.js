@@ -140,6 +140,7 @@ Validar.onclick = function(){
             document.getElementById("cuponDescuento").innerHTML = "Tu descuento es del "+cuponesDescuento[i]+"%";
             var precioCupon = (precioTotal * (cuponesDescuento[i]/100)).toFixed(2); 
             document.getElementById("cuponNeto").innerHTML = precioCupon;
+            document.getElementById("cuponNeto").value = precioCupon;
             precioNeto = (Number(precioNeto) - Number(precioCupon)).toFixed(2); 
             document.getElementById("cuponValor").value = precioCupon;
             document.getElementById("totalNeta").innerHTML = precioNeto;    

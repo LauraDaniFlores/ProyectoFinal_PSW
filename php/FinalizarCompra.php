@@ -177,6 +177,7 @@
                                 </td>
                                 <td class="tdPrecio">
                                     <p id="cuponNeto">0</p>
+                                    <input type="hidden" name="cuponValor" id="cuponValor" value="0">
                                 </td>
                             </tr>
                             <tr>
