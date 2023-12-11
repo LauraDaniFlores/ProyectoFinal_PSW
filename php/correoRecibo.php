@@ -30,10 +30,10 @@ $telefono = $_SESSION["telRecibo"];
 $correo = $_SESSION["correoRecibo"];
 
 
-$servidor = "localhost:3307";
-$cuenta = "root";
-$password = "";
-$bd = "store1";
+$servidor='localhost';
+$cuenta='root';
+$password='';
+$bd='Store';
 
 //conexión a la base de datos
 $conexion = new mysqli($servidor, $cuenta, $password, $bd);
@@ -49,13 +49,13 @@ try{
     $mail->Port       = 587;
     $mail->SMTPDebug  = 0;
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'sanchez.gtz20@gmail.com';
-    $mail->Password   = 'bdinmksaubyhhxeg';
+    $mail->Username   = 'candycraze511@gmail.com';
+    $mail->Password   = 'jyyb icpr joso jrwu';
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {    
         $nombre = $nombre;
         $email = $correo;
-        $mail->SetFrom('sanchez.gtz20@gmail.com', 'Candy Craze');
+        $mail->SetFrom('candycraze511@gmail.com', 'Candy Craze');
         $mail->AddAddress($email, $nombre);
 
         $mail->isHTML(true);

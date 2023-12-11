@@ -9,6 +9,8 @@
     </script>
     <link rel="stylesheet" href="../css/styleRecibo.css">
     <link rel="icon" type="image/png" href="../imagenes/Icon2.png" />
+    <title>Recibo de Compra | Candy Craze</title>
+
 
 </head>
 <header>
@@ -26,6 +28,20 @@
         </svg></div>
 </header>
 <?php     
+$_SESSION['recibo'] = true; 
+
+    if(isset($_SESSION['recibo'])){
+        ?>
+        <script>
+            Swal.fire({
+            icon: "success",
+            title: "Tu compra ha sido exitosa",
+            text: "Gracias por comprar en nuestra tienda",
+            })
+        </script>
+        <?php
+        unset($_SESSION['recibo']);
+    }
 
     $servidor='localhost';
     $cuenta='root';
