@@ -1,3 +1,6 @@
+<?php
+    include ("menu.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,9 +25,6 @@
 </head>
 
 <body>
-    <?php
-        include ("menu.php");
-    ?>
     <script>
         document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Contáctanos —";
         document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "¡Envíanos un mensaje y estaremos encantados de responderte!";

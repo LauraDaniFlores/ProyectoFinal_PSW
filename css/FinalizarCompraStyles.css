@@ -8,6 +8,7 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] { 
     -moz-appearance:textfield; 
 }
+
 .main{
     /* background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(../imagenes/fondo_Compra.png);
     background-position: center;
@@ -16,11 +17,11 @@ input[type=number] {
 }
 .div_main{
     width: 900px;
-    height: 925px;
-    margin: 8% auto;
+    height: 810px;
+    margin: 4% auto;
     display: flex;
     justify-self: center;
-    background-color: #F9DEC9;
+    background-color: #FFEFF3;
     border: 1px solid #d8006c;
     border-radius: 10px;
     position: relative;
@@ -39,36 +40,7 @@ input[type=number] {
     left: 10%; 
     transition: 0.5s;
 }   
-form input, select{
-    padding: 10px 5px;
-    width: 45%;
-    margin: 20px 15px;
-    border: 0.5px solid #d8006c;    
-    outline: none;
-    background: transparent;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-form input:hover, form select:hover{
-    border: 0.5px solid #3D0C11;    
-    background-color: #F78CA2;
-    /* color: white; */
-}
-form label{
-    width: 45%;
-    margin: 20px 15px 0px;
-}
-form p{
-    width: 45%;
-    margin: 0px 15px 0px;
-}
-.div_main form .formulario_envio select{
-    margin: 0 15px;
-}
 
-.div_main form .formulario_envio input, .div_main form .formulario_envio select{
-    margin-top: 5px;
-}
 .div_main form .div_TotalDeCompra .div_cupon input{
     width: 60%;
 }
@@ -91,13 +63,15 @@ form p{
     left: 1100px
 }
 div .linea{
-    margin-bottom: 30px;
+    margin: 1px 300px 20px 300px;
+    width: 100px;
 }
 .block{
     display: block;
 }
 button.ValidarCupon{
-    width: 200px;
+    width: 300px;
+    margin-top: 15px;
 }
 .div_main .Cupon{
     margin-bottom: 5px;
@@ -118,17 +92,17 @@ small {
     width: 80%;
 }
 .div_main .div_Total{
-    margin-top: 35px;
+    margin-top: 0;
 }
 
 
 /* Botones de Next y Back*/
 .bth-box{
     width: 100%;
-    margin: 30px auto;
+    margin: 0 auto;
     text-align: center;
     position: absolute;
-    top: 630px
+    top: 550px
 }
 form button{
     width: 200px;
@@ -146,16 +120,20 @@ form button{
 form button:hover{
     background-color: #3d0c11;
     border-color: #3d0c11;
+    transition: background-color 0.3s ease;
 }
 button.editar{
-    width: 200px;
+    width: 335px;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 48.5px;
 }
 
 /* Barra superiror que avanza */
 .main .div_main .header{
-    margin: 20px 0;
+    margin-top: 60px;
     padding: 0;
-    margin-bottom: 35px;
+    margin-bottom: 0;
     display: flex;
     justify-content: center;
     width: 900px;
@@ -176,9 +154,9 @@ button.editar{
 .main .div_main .header ul li:before{
     content: ""; 
     position: absolute;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
-    right: 70px;
+    right: 55px;
     width: 100%;
     height: 5px;
     background-color: #d8006c;
@@ -199,9 +177,21 @@ button.editar{
     text-align: center;
     line-height: 50px;
     border-radius: 50%;
+    position: relative;
 }
+.main .div_main .header ul li p i{
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    
+}
+
 .main .div_main .header ul li.active:before, .main .div_main .header ul li.active p{
     background-color: black;
+}
+
+.div_main .div_imYgas {
+    margin-top: 20px;
 }
 
 /* Tabla */
@@ -212,6 +202,12 @@ button.editar{
 }
 .div_main table .tdPrecio{
     width: 5%;
+}
+.div_main table td {
+    color:black;
+}
+.div_main table tr td p {
+    margin-bottom: 8px;
 }
 .div_main p{
     width: 100%;
@@ -232,6 +228,7 @@ button.editar{
 .div_main .bancos{
     display: flex; 
     justify-content: center;
+    gap: 20px;
 }
 .div_main .bancos label{
     display: flex; 
@@ -259,7 +256,7 @@ button.editar{
 
 
 .div_main .formBanco{
-    margin: 30px auto;
+    margin: 20px auto;
     border: 1px solid #F9DEC9;
 }
 
@@ -268,8 +265,7 @@ button.editar{
     /* background-color: #255CBF; */
     background-image: url('../imagenes/fondobbva3.jpg');
     width: 650px;
-    height: 400px;
-
+    height: 350px;
     border: 2px solid #46cbff;
     box-shadow: 4px 4px #005887;
     border-radius: 5px;
@@ -282,7 +278,6 @@ button.editar{
 .div_main .formBanco label{
     width: 70%;
     margin: 0 auto; 
-    border-radius: 10px;
     color: white;
 }
 .div_main .formBanco input{
@@ -290,6 +285,11 @@ button.editar{
     margin-left: 0;
     border: 0.5px solid white;
     background-color: white;
+    border-radius: 5px;
+    height: 40px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    padding-left: 3px;
 }
 .div_main .formBanco label.Bfecha{
     width: 45%;
@@ -333,7 +333,7 @@ button.editar{
 
     background-image: url('../imagenes/fondosantan5.jpg');
     width: 650px;
-    height: auto;
+    height: 350px;
     border: 2px solid #ed2424;
     box-shadow: 4px 4px #a90000;
     border-radius: 5px;
@@ -354,4 +354,92 @@ button.editar{
 .div_main .nuevoDiseño input::placeholder {
     color: #000;
     opacity: .5; 
+}
+
+.formFinalizar label {
+    font-weight: bold;
+    color: black;
+}
+
+.formulario_envio .input-group {
+  height: 40px;
+}
+
+.formulario_envio .form-control,
+.formulario_envio .input-group-text {
+  border: 1px solid #d8006c;
+}
+
+.formulario_envio .input-group-text {
+  background-color: #f8b3c1;
+}
+
+.formulario_envio i {
+  color: #d8006c;
+}
+
+/**/
+.div_cupon .input-group {
+  height: 40px;
+}
+
+.div_cupon .form-control,
+.div_cupon .input-group-text {
+  border: 1px solid #d8006c;
+}
+
+.div_cupon .input-group-text {
+  background-color: #f8b3c1;
+}
+
+.div_cupon i {
+  color: #d8006c;
+}
+
+.div_cupon label {
+    margin-bottom: 8px;
+}
+
+/**/
+.div_impuestos .input-group {
+  height: 40px;
+}
+
+.div_impuestos .form-control,
+.div_impuestos .input-group-text {
+  border: 1px solid #d8006c;
+}
+
+.div_impuestos .input-group-text {
+  background-color: #f8b3c1;
+}
+
+.div_impuestos i {
+  color: #d8006c;
+}
+
+.div_impuestos label {
+    margin-bottom: 8px;
+}
+
+/**/
+.div_gastosEnvio .input-group {
+  height: 40px;
+}
+
+.div_gastosEnvio .form-control,
+.div_gastosEnvio .input-group-text {
+  border: 1px solid #d8006c;
+}
+
+.div_gastosEnvio .input-group-text {
+  background-color: #f8b3c1;
+}
+
+.div_gastosEnvio i {
+  color: #d8006c;
+}
+
+.div_gastosEnvio label {
+    margin-bottom: 8px;
 }

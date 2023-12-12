@@ -568,3 +568,9 @@ div.acumulado {
   }
 }
 
+header{
+    position:relative;   
+}
+.wave{
+    position:absolute;
+}
