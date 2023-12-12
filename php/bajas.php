@@ -24,13 +24,13 @@
                 <h1 id="tituloP">Bajas de productos</h1>
                 <?php
             
-                $servidor='localhost:3307';
+                $servidor='localhost';
                 $cuenta='root';
                 $password='';
-                $bd='store';
-            
-                //conexion a la base de datos
-                $conexion = new mysqli($servidor,$cuenta,$password,$bd);
+                $bd='Store';
+                        
+                //conexión a la base de datos
+                $conexion = new mysqli($servidor, $cuenta, $password, $bd);
 
                 if ($conexion->connect_errno){
                     die('Error en la conexion');

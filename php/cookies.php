@@ -9,14 +9,14 @@
         $encryption_key = "12345678901234567890123456789012"; 
         $iv = str_repeat("0", openssl_cipher_iv_length($cipher));
 
-        $servidor='localhost:3307';
+        $servidor='localhost';
         $cuenta='root';
         $password='';
-        $bd='store';
-         
-        //conexion a la base de datos
-        $conexion = new mysqli($servidor,$cuenta,$password,$bd);
-    
+        $bd='Store';
+                
+        //conexión a la base de datos
+        $conexion = new mysqli($servidor, $cuenta, $password, $bd);
+
         if ($conexion->connect_errno){
              die('Error en la conexion');
         }

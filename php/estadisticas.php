@@ -24,11 +24,11 @@
                 <p id="tituloP">Historial de ventas de CandyCraze</p>
                 <?php
             
-                $servidor='localhost:33065';
+                $servidor='localhost';
                 $cuenta='root';
                 $password='';
-                $bd='store';
-
+                $bd='Store';
+                
                 $datosVendidos1 = array();
                 $infoProd = array();
 

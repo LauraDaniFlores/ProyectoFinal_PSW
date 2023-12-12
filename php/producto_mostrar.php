@@ -122,10 +122,11 @@
         } 
     }
 
-    $servidor='localhost:3307';
+    $servidor='localhost';
     $cuenta='root';
     $password='';
-    $bd='store';
+    $bd='Store';
+            
     
     //conexion a la base de datos
     $conexion = new mysqli($servidor,$cuenta,$password,$bd);

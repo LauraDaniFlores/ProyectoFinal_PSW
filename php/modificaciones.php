@@ -25,10 +25,11 @@
         <div class="d-flex flex-column contenido">
             <h2>Modificar productos</h2>
             <?php
-                $servidor = 'localhost:3307';
-                $cuenta = 'root';
-                $password = '';
-                $bd = 'store';
+
+                $servidor='localhost';
+                $cuenta='root';
+                $password='';
+                $bd='Store';
                 
                 //conexión a la base de datos
                 $conexion = new mysqli($servidor, $cuenta, $password, $bd);
@@ -36,7 +37,7 @@
                 if($conexion -> connect_errno){
                     die('Error en la conexión');
                 }else{
-                    if(isset($_POST['nombre']) ){                        
+                    if(isset($_POST['nombre']) ){  
                         $nombre = $_POST['nombre'];
                         $descripcion = $_POST['descripcion'];
                         $existencias = $_POST['existencias'];
@@ -44,16 +45,16 @@
                         $descuento = $_POST['descuento'];
                         $id = $_POST['idProducto'];
                         $categoria = $_POST['categoria'];
-                        
                         $etiquetas = json_decode($_POST['etiquetas'],true);  
 
                         //--------------------IMAGEN-----------------------------------------------
+
                         $targetFile="";
                         if(isset($_FILES["file"]) && !(empty($_FILES["file"]["tmp_name"]))){
                             $targetDir = "../uploads/";  // Directorio donde se guardarán las imágenes
                             $targetFile = $targetDir . basename($_FILES["file"]["name"]);
-                    
                             // Verificar si el archivo es una imagen real
+
                             $check = getimagesize($_FILES["file"]["tmp_name"]);
                             if ($check !== false) {
                                 if (!move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
@@ -69,6 +70,7 @@
                             }
                         }
                         //--------------------------------------------------------------------------
+
                         if($targetFile != ""){
                             $ne = "UPDATE productos SET nombre='$nombre', descripcion='$descripcion', existencias=$existencias, precio=$precio, imagen='$targetFile', descuento=$descuento, categoria ='$categoria' WHERE idProducto='$id';";
                         }else{
@@ -99,16 +101,13 @@
                             $sql_insert_relacion = "INSERT INTO etiquetasproductos VALUES ('$id', '$idEtiqueta')";
                             $conexion->query($sql_insert_relacion);
                         }
-
-                        
-
                     }
                     
                 
             ?>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable modal-lg">
-                    <form action="" id="formulario-datos"  enctype="multipart/form-data">
+                    <form action="" id="formulario-datos" enctype="multipart/form-data">
                         <div class="modal-content ">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar producto</h1>

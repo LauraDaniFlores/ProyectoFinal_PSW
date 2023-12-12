@@ -18,10 +18,10 @@
     $correo = $_SESSION['correoRecibo'];
     
     
-    $servidor = 'localhost:3307';
-    $cuenta = 'root';
-    $password = '';
-    $bd = 'store1';
+    $servidor='localhost';
+    $cuenta='root';
+    $password='';
+    $bd='Store';
     
     //conexión a la base de datos
     $conexion = new mysqli($servidor, $cuenta, $password, $bd);

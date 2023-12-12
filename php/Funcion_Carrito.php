@@ -1,10 +1,10 @@
 <?php 
 
-    $servidor = 'localhost:3307';
-    $cuenta = 'root';
-    $password = '';
-    $bd = 'store';
-
+    $servidor='localhost';
+    $cuenta='root';
+    $password='';
+    $bd='Store';
+        
     //conexion a la base de datos
     $conexion = new mysqli($servidor, $cuenta, $password, $bd);
 

@@ -22,11 +22,11 @@
             <h2>Altas de Productos</h2>
             <?php
                 
-                $servidor = 'localhost:3307';
-                $cuenta = 'root';
-                $password = '';
-                $bd = 'store';
-                
+                $servidor='localhost';
+                $cuenta='root';
+                $password='';
+                $bd='Store';
+                        
                 //conexión a la base de datos
                 $conexion = new mysqli($servidor, $cuenta, $password, $bd);
                 
