@@ -1,3 +1,7 @@
+<?php
+    include ("menu.php");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,9 +19,6 @@
     <title>Iniciar Sesión | Candy Craze</title>
 </head>
 <body>
-    <?php
-        include ("menu.php");
-    ?>
     <script>
         document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Inicia Sesión —";
         document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Desbloquea la posibilidad de comprar todos tus dulces favoritos";
@@ -107,4 +108,5 @@
 
 <?php 
     include('scriptsLogin.php');
+    include ('Regis_script.php');
 ?>

@@ -1,6 +1,18 @@
+<?php
+include "menu.php";
+?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  var pathElement = document.querySelector('.wave path');
+
+  if (pathElement) {
+    pathElement.style.fill = '#ffffff'; 
+  }
+</script>
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://kit.fontawesome.com/d60c975bf8.js" crossorigin="anonymous"></script><script>
+    <script src="https://kit.fontawesome.com/d60c975bf8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script>
         function crearPDF() {
             // window.location.href = 'crearPDF.php';
             var newWindow = window.open('reciboPDF.php', '_blank');
@@ -14,28 +26,22 @@
 
 </head>
 <header>
-    <?php
-    include "menu.php";
-    ?>
+    
     <script>
         document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Pedido Realizado Exitosamente —";
         document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Esperamos lo disfrutes y tenerte de vuelta con nosotros";
     </script>
-    <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
-            style="height: 100%; width: 100%;">
-            <path d="M0.00,49.98 C150.00,150.00 349.20,-40.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-                style="stroke: none; fill: #FFFFFF"></path>
-        </svg></div>
+      
 </header>
 <?php     
 
-    $servidor='localhost';
-    $cuenta='root';
-    $password='';
-    $bd='Store';
-            
+    $servidor = 'localhost';
+    $cuenta = 'id21647894_candycraze';
+    $password = 'DataBase/90';
+    $bd = 'id21647894_store';
+     
     //conexion a la base de datos
-    $conexion = new mysqli($servidor,$cuenta,$password,$bd);
+    $conexion = new mysqli($servidor, $cuenta, $password, $bd);
 
     if ($conexion->connect_errno){
          die('Error en la conexion');
@@ -95,7 +101,7 @@
         
 ?>
 <body>
-    <h2 id="titulopag">Recibo de compra</h2>
+    <h2 id="titulopag" style="font-family:'Merienda',cursive;">Recibo de compra</h2>
     <div class="linea"></div>
     <div id="recibo-container">
         <div id="recibo">
@@ -120,7 +126,7 @@
                 
                     <?php
                         $TOTAL=0;
-                        $consulta = "SELECT pv.IdProducto, pv.Cantidad, p.nombre, p.precio, p.descuento FROM productovendidos pv JOIN productos p ON pv.IdProducto = p.idProducto WHERE pv.IdPedido =". $_SESSION['IdPedido'] . ";";
+                        $consulta = "SELECT pv.IdProducto, pv.Cantidad, p.nombre, p.precio, p.descuento FROM ProductoVendidos pv JOIN productos p ON pv.IdProducto = p.idProducto WHERE pv.IdPedido =". $_SESSION['IdPedido'] . ";";
                         $result = $conexion->query($consulta);
                         if ($result->num_rows > 0) {
                             while ($fila = $result->fetch_assoc()) {
@@ -203,7 +209,7 @@
     include("correoRecibo.php");
     include("footer.php");
     }
-
+    
     if(isset($_SESSION['recibo'])){
         ?>
         <script>
@@ -217,5 +223,8 @@
         unset($_SESSION['recibo']);
     }
 ?>
+    
+    
+
 
 
