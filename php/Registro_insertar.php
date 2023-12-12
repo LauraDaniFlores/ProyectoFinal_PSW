@@ -9,10 +9,10 @@
     $encryption_key = "12345678901234567890123456789012"; 
     $iv = str_repeat("0", openssl_cipher_iv_length($cipher));
 
-    $servidor = 'localhost';
-    $cuenta = 'id21647894_candycraze';
-    $password = 'DataBase/90';
-    $bd = 'id21647894_store';
+    $servidor='localhost';
+    $cuenta='root';
+    $password='';
+    $bd='Store';
      
     //conexion a la base de datos
     $conexion = new mysqli($servidor, $cuenta, $password, $bd);

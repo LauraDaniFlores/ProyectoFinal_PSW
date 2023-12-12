@@ -24,10 +24,10 @@
                 <p id="tituloP">Historial de ventas de CandyCraze</p>
                 <?php
             
-                $servidor = 'localhost';
-                $cuenta = 'id21647894_candycraze';
-                $password = 'DataBase/90';
-                $bd = 'id21647894_store';
+                $servidor='localhost';
+                $cuenta='root';
+                $password='';
+                $bd='Store';
                  
                 $datosVendidos1 = array();
                 $infoProd = array();

@@ -8,10 +8,10 @@
     $cantidad= null;
 
 if (isset($_SESSION['usuario'])){    
-    $servidor = 'localhost';
-    $cuenta = 'id21647894_candycraze';
-    $password = 'DataBase/90';
-    $bd = 'id21647894_store';
+    $servidor='localhost';
+    $cuenta='root';
+    $password='';
+    $bd='Store';
     
     //conexión a la base de datos
     $conexion = new mysqli($servidor, $cuenta, $password, $bd);

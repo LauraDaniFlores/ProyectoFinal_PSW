@@ -51,10 +51,10 @@ $_SESSION['recibo']=true;
             }
             return $codigo;
         }
-        $servidor = 'localhost';
-        $cuenta = 'id21647894_candycraze';
-        $password = 'DataBase/90';
-        $bd = 'id21647894_store';
+        $servidor='localhost';
+        $cuenta='root';
+        $password='';
+        $bd='Store';
          
         //conexion a la base de datos
         $conexion = new mysqli($servidor, $cuenta, $password, $bd);
