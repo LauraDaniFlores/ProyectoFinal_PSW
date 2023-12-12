@@ -289,3 +289,9 @@
   background: #F78CA2;
   color: white;
 }
+header{
+    position:relative;   
+}
+.wave{
+    position:absolute;
+}

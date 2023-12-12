@@ -1,4 +1,6 @@
 <?php 
+include "menu.php";
+
 
 $categorias = array("México", "Japón", "Corea");
 function datos($conexion, $categorias, $num){
@@ -66,11 +68,12 @@ function datos($conexion, $categorias, $num){
 <?php }
 }
 
-$servidor = 'localhost';
-$cuenta = 'root';
-$password = '';
-$bd = 'Store';
 
+$servidor = 'localhost';
+$cuenta = 'id21647894_candycraze';
+$password = 'DataBase/90';
+$bd = 'id21647894_store';
+ 
 //conexion a la base de datos
 $conexion = new mysqli($servidor, $cuenta, $password, $bd);
 
@@ -122,20 +125,20 @@ if($conexion->connect_errno) {
 </head>
 
 <body>
-
+    
     <header>
-        <?php
-        include "menu.php";
-        ?>
         <script>
             document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Productos Candy Craze —";
             document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Disfruta de nuestra gran variedad de dulces";
         </script>
-        <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+        
+           
+         <div class="wave" style="height: 200px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
                 style="height: 100%; width: 100%;">
                 <path d="M0.00,49.98 C150.00,150.00 349.20,-40.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
                     style="stroke: none; fill: #FFFFFF"></path>
             </svg></div>
+
     </header>
     
     <section class="preguntasTitle">
@@ -314,7 +317,7 @@ function IrLogin(){?>
         Swal.fire({
         title: "¡Lo sentimos!",
         text: "Debes iniciar sesión para agregar productos",
-        imageUrl: "../imagenes/iniciar_Sesión.png",
+        imageUrl: "../imagenes/iniciar_Sesion.png",
         imageWidth: 400,
         imageHeight: 200,
         imageAlt: "Login"

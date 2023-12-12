@@ -24,11 +24,11 @@
                 <p id="tituloP">Historial de ventas de CandyCraze</p>
                 <?php
             
-                $servidor='localhost';
-                $cuenta='root';
-                $password='';
-                $bd='Store';
-                
+                $servidor = 'localhost';
+                $cuenta = 'id21647894_candycraze';
+                $password = 'DataBase/90';
+                $bd = 'id21647894_store';
+                 
                 $datosVendidos1 = array();
                 $infoProd = array();
 
@@ -39,7 +39,7 @@
                 }else{
                     
                     //vemos datos en un tabla de html
-                    $sql2 = 'SELECT p.idProducto, p.nombre, p.categoria, SUM(pv.cantidad) as totalCantidad FROM productos p JOIN productovendidos pv ON p.idProducto = pv.idProducto GROUP BY p.idProducto;';//hacemos cadena con la sentencia mysql que consulta todo el contenido de la tabla
+                    $sql2 = 'SELECT p.idProducto, p.nombre, p.categoria, SUM(pv.cantidad) as totalCantidad FROM productos p JOIN ProductoVendidos pv ON p.idProducto = pv.idProducto GROUP BY p.idProducto;';//hacemos cadena con la sentencia mysql que consulta todo el contenido de la tabla
                     $resultado2 = $conexion -> query($sql2); //aplicamos sentencia
 
                     if ($resultado2 -> num_rows){ //si la consulta genera registros
