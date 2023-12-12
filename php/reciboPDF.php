@@ -18,12 +18,12 @@
     $correo = $_SESSION['correoRecibo'];
     
     
-    $servidor = 'localhost';
-    $cuenta = 'id21647894_candycraze';
-    $password = 'DataBase/90';
-    $bd = 'id21647894_store';
-     
-    //conexion a la base de datos
+    $servidor='localhost';
+    $cuenta='root';
+    $password='';
+    $bd='Store';
+    
+    //conexión a la base de datos
     $conexion = new mysqli($servidor, $cuenta, $password, $bd);
     
     if($conexion -> connect_errno){
@@ -106,7 +106,7 @@
         $cont=0;
         
         // Consulta SQL para obtener el id más alto en la tabla productos
-        $consulta = "SELECT pv.IdProducto, pv.Cantidad, p.nombre, p.precio, p.descuento FROM ProductoVendidos pv JOIN productos p ON pv.IdProducto = p.idProducto WHERE pv.IdPedido = $IdPedido;";
+        $consulta = "SELECT pv.IdProducto, pv.Cantidad, p.nombre, p.precio, p.descuento FROM productovendidos pv JOIN productos p ON pv.IdProducto = p.idProducto WHERE pv.IdPedido = $IdPedido;";
         $result = $conexion->query($consulta);
         if ($result->num_rows > 0) {
             while ($fila = $result->fetch_assoc()) {

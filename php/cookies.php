@@ -1,25 +1,22 @@
-<?php
-    session_start();
-    ob_start(); 
-?>
 <head>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <?php            
+    session_start();
     if(isset($_POST["submit"])){
         $cipher = "AES-256-CBC"; 
         $encryption_key = "12345678901234567890123456789012"; 
         $iv = str_repeat("0", openssl_cipher_iv_length($cipher));
 
-        $servidor = 'localhost';
-        $cuenta = 'id21647894_candycraze';
-        $password = 'DataBase/90';
-        $bd = 'id21647894_store';
-         
-        //conexion a la base de datos
+        $servidor='localhost';
+        $cuenta='root';
+        $password='';
+        $bd='Store';
+                
+        //conexión a la base de datos
         $conexion = new mysqli($servidor, $cuenta, $password, $bd);
-    
+
         if ($conexion->connect_errno){
              die('Error en la conexion');
         }
@@ -43,7 +40,7 @@
                 $usuarioEncontrado = true; 
             }
 
-            $sql = 'SELECT *FROM Usuarios';//hacemos cadena con la sentencia mysql que consulta todo el contenido de la tabla
+            $sql = 'select * from usuarios';//hacemos cadena con la sentencia mysql que consulta todo el contenido de la tabla
             $resultado = $conexion -> query($sql); //aplicamos sentencia
             if ($resultado -> num_rows){ //si la consulta genera registros
                 while( $fila = $resultado -> fetch_assoc()){ //recorremos los registros obtenidos de la tabla

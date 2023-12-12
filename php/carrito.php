@@ -1,6 +1,3 @@
-<?php
-    include "menu.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +8,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../imagenes/Icon2.png" />
 
-    <title>Carrito | Candy Craze</title>
+    <title>Carrito de compra | Candy Craze</title>
 
     <!-- Hojas de estilo -->
     <link rel="stylesheet" href="../css/estilospagp.css">
@@ -159,16 +156,20 @@ function loader(){
 
 <body>
     <header>
+        <?php
+        include "menu.php";
+        ?>
         <script>
             document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Carrito de Productos —";
             document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Recuerda que no tienes límite de compra";
         </script>
 
-          <div class="wave" style="height: 200px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+        <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
                 style="height: 100%; width: 100%;">
                 <path d="M0.00,49.98 C150.00,150.00 349.20,-40.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
                     style="stroke: none; fill: #FFFFFF"></path>
             </svg></div>
+
     </header>
 
     <!-- Acomoda los articulos agregados al carrito -->
@@ -192,11 +193,6 @@ function loader(){
                 $i = 0;
                 $precioTotal=0; 
                 ?>
-                <section class="preguntasTitle">
-                	<h2 style="margin-top:-45px;">Tu carrito</h2>
-                	<div class="linea"></div>
-                	<br>
-                </section>
                 <form method="POST" action="FinalizarCompra.php">
                     <?php
                     while ($fila = $resultado->fetch_assoc()) {
@@ -269,7 +265,7 @@ function loader(){
     </section>
 
     <!-- Acumulable del precio a pagar y el boton de comprar que redireccionara a la pagina de compra -->
-    <section>
+    <footer>
         <?php
         if (isset($_SESSION['usuario']) && !isset($_SESSION['admin']) && $flag) { ?>
             <div class="acumulado">
@@ -297,10 +293,9 @@ function loader(){
             </div>
             </form>
         <?php } ?>
-    </section>
+    </footer>
     
     <div style="display:none" id="usuario"><?php echo $_SESSION['usuario']; ?></div>
-
     <script src="../js/Carrito.js"></script>
 </body>
 </html>
@@ -356,8 +351,7 @@ function InfoProCarrito($id, $img, $nombre, $descripcion, $cantidad, $precio, $i
         <!-- Cantidad del articulo -->
         <div class="acomodoindpre">
             <div>
-                <h3><b>Precio</b></h3>
-                <h3><p style="display:inline;">$</p><p style="display:inline;" id="precio<?php echo $i ?>"><?php echo number_format($precio, 2) ?></p></h3>
+                <h3><b>$</b><b id="precio<?php echo $i ?>"><?php echo number_format($precio, 2) ?></b></h3>
             </div>
         </div>
 

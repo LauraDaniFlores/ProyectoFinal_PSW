@@ -4,13 +4,14 @@ session_start();
 $cantidad= null;
 
 if (isset($_SESSION['usuario'])){    
-    $servidor = 'localhost';
-    $cuenta = 'id21647894_candycraze';
-    $password = 'DataBase/90';
-    $bd = 'id21647894_store';
-     
+    $servidor='localhost';
+    $cuenta='root';
+    $password='';
+    $bd='Store';
+            
+    
     //conexion a la base de datos
-    $conexion = new mysqli($servidor, $cuenta, $password, $bd);
+    $conexion = new mysqli($servidor,$cuenta,$password,$bd);
     
     if ($conexion->connect_errno){
         die('Error en la conexion');
@@ -68,7 +69,7 @@ if (isset($_SESSION['usuario'])){
     }
 </style>
 <body>
-    <header class="menu">
+    <header>
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <a href="index.php" style="text-decoration: none;">
@@ -116,7 +117,7 @@ if (isset($_SESSION['usuario'])){
                     <?php }elseif(isset($_SESSION['usuario'])){ ?>
                         <a href="logout.php" class="navbar-nav">
                             <span class="nav-link">
-                                <i class="fa-solid fa-right-from-bracket menuIcons"></i>
+                                <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>
                             </span>
                         </a>
                     <?php } ?>

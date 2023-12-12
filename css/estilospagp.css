@@ -33,7 +33,7 @@ main {
 
 /* Header */
 
-header.menu{
+header {
   width: 100%;
   height: 700px;
   background: #d8006c;
@@ -78,7 +78,7 @@ i {
   font-size: 30px !important;
 }
 
-header.menu .textos-header {
+header .textos-header {
   display: flex;
   height: 400px;
   width: 100%;

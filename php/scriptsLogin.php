@@ -4,6 +4,7 @@
 </head>
 <?php 
     // El captcha es incorrecto
+    session_start();
     // unset($_SESSION["usuario"]);
     if(isset($_SESSION['Bloqueada']) && isset($_SESSION['mal'])){
         unset($_SESSION['mal']); 
@@ -91,6 +92,7 @@
         <?php
         unset($_SESSION['error']);
         unset($_SESSION['captcha']);
+        unset($_SESSION['intentos']);
         unset($_SESSION['Bloqueada']);
     }
 

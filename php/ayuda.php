@@ -1,6 +1,3 @@
-<?php
-    include "menu.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +20,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+    <?php
+        include "menu.php";
+    ?>
     <script>
         document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Ayuda —";
         document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Descubre respuestas para todo, o al menos, casi todo";

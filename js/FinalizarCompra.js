@@ -142,6 +142,7 @@ Validar.onclick = function(){
             document.getElementById("cuponNeto").innerHTML = precioCupon;
             document.getElementById("cuponNeto").value = precioCupon;
             precioNeto = (Number(precioNeto) - Number(precioCupon)).toFixed(2); 
+            console.log(precioNeto);
             document.getElementById("cuponValor").value = precioCupon;
             document.getElementById("totalNeta").innerHTML = precioNeto;    
             break; 

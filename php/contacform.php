@@ -1,5 +1,4 @@
 <?php
-session_start();
 
   if($_SERVER['REQUEST_METHOD'] != 'POST' ){
     header("Location: contacto.php" );
@@ -68,6 +67,7 @@ session_start();
       $respuestaMail->send();
   }
 
+    session_start();
     $_SESSION['enviado2'] = true;
     header('Location: contacto.php');
     exit();

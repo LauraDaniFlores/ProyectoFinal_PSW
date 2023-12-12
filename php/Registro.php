@@ -1,6 +1,3 @@
-<?php
-    include ("menu.php");
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,6 +14,9 @@
     <title>Regístrate | Candy Craze</title>
 </head>
 <body class="body">
+    <?php
+        include ("menu.php");
+    ?>
     <script>
         document.getElementsByClassName("animate__animated animate__fadeInDown")[0].innerHTML = "— Regístrate —";
         document.getElementsByClassName("animate__animated animate__fadeInUp")[0].innerHTML = "Comienza a disfrutar del sabor único de nuestra tienda de dulces";
